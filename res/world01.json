@@ -1,0 +1,22 @@
+{
+	"id": "0",
+	"name": "Грязные земли",
+	"description": "Кругом разруха и беспредел",
+	"image": "res/images/world01.jpg",
+	"cols":5,
+	"rows":7,
+	"areas":[
+		{
+			"id":"0",
+			"name":"Название района",
+			"description":"Описание района",
+			"path":"res/reg01.json"
+		},
+		{
+			"id":"1",
+			"name":"Название района",
+			"description":"Описание района",
+			"path":"res/reg01.json"
+		}
+	]
+}

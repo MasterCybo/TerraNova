@@ -1,0 +1,8 @@
+<project name="TerraNovaProject" basedir="../">
+    <target name="copy-res">
+        <!-- копирование директории в другую директорию -->
+        <copy todir="out/production/TerraNova/res">
+            <fileset dir="res"/>
+        </copy>
+    </target>
+</project>

@@ -1,0 +1,17 @@
+{
+	"id": "0",
+	"name": "Какой-то регион России",
+	"description": "Кругом разруха и беспредел",
+	"image": "res/images/world01.jpg",
+	"locations": [
+		{
+			"id": 0,
+			"name": "Название локации",
+			"description": "Описание локации",
+			"location": "res/loc01.json",
+			"outline": [
+				100, 100
+			]
+		}
+	]
+}
