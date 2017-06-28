@@ -3,7 +3,6 @@
  */
 package ru.aa.game
 {
-	import ru.aa.game.commands.events.LoadGameDataEvent;
 	import ru.aa.game.display.ContextView;
 	import ru.arslanov.starling.mvc.MVCStarling;
 	import ru.arslanov.starling.mvc.extensions.FeathersMediatorMapExtension;

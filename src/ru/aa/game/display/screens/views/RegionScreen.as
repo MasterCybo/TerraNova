@@ -63,6 +63,7 @@ package ru.aa.game.display.screens.views
 			
 			if (isInvalid(INVALIDATION_FLAG_SIZE)) {
 				_toolbar.y = stage.stageHeight - _toolbar.height;
+				_regionMap.setSize(stage.stageWidth, stage.stageHeight - _toolbar.height);
 			}
 			
 			if (isInvalid(INVALIDATION_FLAG_DATA)) {

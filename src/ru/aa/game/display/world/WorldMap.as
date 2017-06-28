@@ -33,7 +33,6 @@ package ru.aa.game.display.world
 		
 		override protected function initialize():void
 		{
-			trace("*execute* " + this + "::initialize()");
 			super.initialize();
 			
 			autoSizeMode = AutoSizeMode.STAGE;
@@ -105,7 +104,8 @@ package ru.aa.game.display.world
 					index = getIndex(col, row);
 					tile = _tilesMap[index];
 					if (!tile) {
-						tile = new AreaTile("" + index, tileWidth, tileHeight);
+						tile = new AreaTile("" + index);
+						tile.setSize(tileWidth, tileHeight);
 						_tilesContainer.addChild(tile);
 						_tilesMap[index] = tile;
 					}

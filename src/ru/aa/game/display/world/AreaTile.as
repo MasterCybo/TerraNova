@@ -10,31 +10,33 @@ package ru.aa.game.display.world
 	
 	import flash.geom.Rectangle;
 	
+	import ru.aa.game.core.display.views.AppSprite;
+	
 	import starling.display.Canvas;
 	import starling.display.Sprite;
+	import starling.events.Event;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	
-	public class AreaTile extends Sprite
+	public class AreaTile extends AppSprite
 	{
 		public static const TWEEN_DURATION:Number = 0.1;
 		
 		private var _normalCanvas:Canvas;
 		
-		public function AreaTile(name:String, width:Number, height:Number)
+		public function AreaTile(name:String)
 		{
 			super();
 			this.name = name;
-			
+		}
+		
+		override protected function onAddedToStage(event:Event):void
+		{
 			_normalCanvas = new Canvas();
-			_normalCanvas.beginFill(0xFFFFFF, 0.1);
-			_normalCanvas.drawRectangle(0, 0, width - 1, height - 1);
-			_normalCanvas.endFill();
 			addChild(_normalCanvas);
 			
-			_normalCanvas.pivotX = _normalCanvas.x = width / 2;
-			_normalCanvas.pivotY = _normalCanvas.y = height / 2;
+			applySize();
 			
 			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
@@ -88,6 +90,19 @@ package ru.aa.game.display.world
 		private function animationRelease():void
 		{
 			eaze(_normalCanvas).to(TWEEN_DURATION, {scaleX:1.0, scaleY:1.0}).easing(Quadratic.easeIn);
+		}
+		
+		override protected function applySize():void
+		{
+			if (_normalCanvas) {
+				_normalCanvas.clear();
+				_normalCanvas.beginFill(0xFFFFFF, 0.1);
+				_normalCanvas.drawRectangle(0, 0, _width - 1, _height - 1);
+				_normalCanvas.endFill();
+				
+				_normalCanvas.pivotX = _normalCanvas.x = _width / 2;
+				_normalCanvas.pivotY = _normalCanvas.y = _height / 2;
+			}
 		}
 	}
 }

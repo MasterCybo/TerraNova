@@ -22,6 +22,7 @@ package ru.aa.game
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			StarlingManager.create(AppRoot, stage);
+			StarlingManager.showStats();
 		}
 	}
 }

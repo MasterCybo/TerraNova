@@ -20,6 +20,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.mediators.MainMenuScreenMediator;
 	import ru.aa.game.display.screens.mediators.PersonageScreenMediator;
 	import ru.aa.game.display.screens.mediators.WorldMapScreenMediator;
+	import ru.aa.game.display.screens.region.RegionMap;
 	import ru.aa.game.display.screens.views.BackpackScreen;
 	import ru.aa.game.display.screens.views.BattleScreen;
 	import ru.aa.game.display.screens.views.BriefingScreen;
@@ -30,6 +31,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.views.WorldMapScreen;
 	import ru.aa.game.display.world.WorldMap;
 	import ru.aa.game.mediators.ContextViewMediator;
+	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
 	import ru.aa.game.models.MoGame;
 	import ru.aa.game.models.world.IWorld;
@@ -97,6 +99,7 @@ package ru.aa.game
 			map(WorldMapScreenMediator).toMediate(WorldMapScreen);
 			
 			map(WorldMapMediator).toMediate(WorldMap);
+			map(RegionMapMediator).toMediate(RegionMap);
 		}
 	}
 }
