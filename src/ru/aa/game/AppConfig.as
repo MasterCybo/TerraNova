@@ -18,7 +18,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.mediators.CommunicatorScreenMediator;
 	import ru.aa.game.display.screens.mediators.RegionScreenMediator;
 	import ru.aa.game.display.screens.mediators.MainMenuScreenMediator;
-	import ru.aa.game.display.screens.mediators.PersonageScreenMediator;
+	import ru.aa.game.display.screens.mediators.HeroScreenMediator;
 	import ru.aa.game.display.screens.mediators.WorldMapScreenMediator;
 	import ru.aa.game.display.screens.region.RegionMap;
 	import ru.aa.game.display.screens.views.BackpackScreen;
@@ -41,8 +41,7 @@ package ru.aa.game
 	import ru.aa.game.player.commands.PlayerLoadCommand;
 	import ru.aa.game.player.commands.PlayerSaveCommand;
 	import ru.aa.game.player.events.PlayerServiceEvent;
-	import ru.aa.game.player.models.IPlayer;
-	import ru.aa.game.player.models.MoPlayer;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.Config;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
@@ -70,7 +69,7 @@ package ru.aa.game
 			map(GameDataService).toValue(new GameDataService());
 			
 			map(MoGame).asSingleton(MoGame);
-			map(IPlayer).asSingleton(MoPlayer);
+			map(MoHero).asSingleton(MoHero);
 			map(IWorld).asSingleton(MoWorld);
 		}
 		
@@ -95,7 +94,7 @@ package ru.aa.game
 			map(BattleScreenMediator).toMediate(BattleScreen);
 			map(BriefingScreenMediator).toMediate(BriefingScreen);
 			map(RegionScreenMediator).toMediate(RegionScreen);
-			map(PersonageScreenMediator).toMediate(PersonageScreen);
+			map(HeroScreenMediator).toMediate(PersonageScreen);
 			map(WorldMapScreenMediator).toMediate(WorldMapScreen);
 			
 			map(WorldMapMediator).toMediate(WorldMap);

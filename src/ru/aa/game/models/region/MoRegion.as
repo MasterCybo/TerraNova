@@ -4,12 +4,15 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.MoEntityDispatcher;
+	import ru.aa.game.models.MoMission;
 	
 	public class MoRegion extends MoEntityDispatcher implements IRegion
 	{
 		private var _cols:int;
 		private var _rows:int;
 		private var _imageURL:String;
+		private var _dataURL:String;
+		private var _mission:MoMission;
 		
 		public function MoRegion()
 		{
@@ -17,6 +20,7 @@ package ru.aa.game.models.region
 		}
 		
 		public function get imageURL():String { return _imageURL; }
+		public function get dataURL():String { return _dataURL; }
 		
 		public function get cols():int { return _cols; }
 		public function set cols(value:int):void

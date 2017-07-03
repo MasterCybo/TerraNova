@@ -7,16 +7,16 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.PersonageScreen;
-	import ru.aa.game.player.models.IPlayer;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class PersonageScreenMediator extends Mediator
+	public class HeroScreenMediator extends Mediator
 	{
-		public function PersonageScreenMediator(context:IContext)
+		public function HeroScreenMediator(context:IContext)
 		{
 			super(context);
 		}
@@ -25,9 +25,9 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			var moUser:IPlayer = getOf(IPlayer);
+			var moHero:MoHero = getOf(MoHero);
 			
-			(getView() as PersonageScreen).player = moUser;
+			(getView() as PersonageScreen).player = moHero;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}

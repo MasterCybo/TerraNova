@@ -7,13 +7,13 @@ package ru.aa.game.player.models
 	import ru.aa.game.models.actors.MoActor;
 	import ru.aa.game.player.events.PlayerEvent;
 	
-	public class MoPlayer extends MoActor implements IPlayer, ISerializable
+	public class MoHero extends MoActor implements ISerializable
 	{
 		private var _hunger:Number = 0; // голод
 		private var _thirst:Number = 0; // жажда
 		private var _energy:Number = 100; // бодрость
 
-		public function MoPlayer()
+		public function MoHero()
 		{
 			super();
 			name = "Шустрый";

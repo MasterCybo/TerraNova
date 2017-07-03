@@ -3,7 +3,6 @@
  */
 package ru.aa.game.models.items
 {
-	import ru.aa.game.models.*;
 	import ru.aa.game.core.data.IEntityDispatcher;
 	
 	public interface IItemsCollection extends IEntityDispatcher

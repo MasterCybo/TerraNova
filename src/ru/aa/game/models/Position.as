@@ -3,13 +3,15 @@
  */
 package ru.aa.game.models
 {
-	import ru.aa.game.models.world.MoArea;
+	import ru.aa.game.models.region.MoRegion;
+	import ru.aa.game.models.world.MoWorld;
 	
 	public class Position
 	{
-		public var area:MoArea;
-		public var col:int;
-		public var row:int;
+		public var world:MoWorld;
+		public var region:MoRegion;
+		public var col:int = -1;
+		public var row:int = -1;
 		
 		public function Position()
 		{

@@ -3,9 +3,9 @@
  */
 package ru.aa.game.models.actors
 {
-	import ru.aa.game.models.*;
 	import ru.aa.game.core.data.IEntityDispatcher;
-	import ru.aa.game.models.items.IBackpack;
+	import ru.aa.game.models.Position;
+	import ru.aa.game.models.items.ItemsCollection;
 	
 	public interface IActor extends IEntityDispatcher
 	{
@@ -15,6 +15,7 @@ package ru.aa.game.models.actors
 		function get armor():Number;
 		function set armor(value:Number):void;
 		
-		function get backpack():IBackpack;
+		function get backpack():ItemsCollection;
+		function get position():Position;
 	}
 }

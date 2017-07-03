@@ -3,17 +3,15 @@
  */
 package ru.aa.game.models.items
 {
-	import ru.aa.game.models.actors.*;
-	import ru.aa.game.models.*;
 	import flash.utils.Dictionary;
 	
 	import ru.aa.game.core.data.MoEntityDispatcher;
-	import ru.aa.game.models.items.IItemsCollection;
 	
 	public class ItemsCollection extends MoEntityDispatcher implements IItemsCollection
 	{
 		private var _items:Vector.<MoItem> = new Vector.<MoItem>();
 		private var _map:Dictionary = new Dictionary(); // id = moItem
+		private var _maxItems:int;
 		
 		public function ItemsCollection()
 		{
@@ -21,6 +19,9 @@ package ru.aa.game.models.items
 		}
 		
 		public function get numItems():int { return _items.length; }
+		
+		public function get maxItems():int { return _maxItems; }
+		public function set maxItems(value:int):void { _maxItems = value; }
 		
 		public function hasItem(item:MoItem):Boolean { return _map[item.id] != undefined; }
 		
@@ -43,6 +44,16 @@ package ru.aa.game.models.items
 				_items.splice(idx, 1);
 				delete _map[item.id];
 			}
+		}
+		
+		public function sort():void
+		{
+			// TODO: sort
+		}
+		
+		public function filter():void
+		{
+			// TODO: filter
 		}
 	}
 }

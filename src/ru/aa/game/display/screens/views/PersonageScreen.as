@@ -11,7 +11,7 @@ package ru.aa.game.display.screens.views
 	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
-	import ru.aa.game.player.models.IPlayer;
+	import ru.aa.game.player.models.MoHero;
 	
 	public class PersonageScreen extends Screen
 	{
@@ -24,7 +24,7 @@ package ru.aa.game.display.screens.views
 		private static const LABEL_HUNGER:String = "labelHunger";
 		private static const LABEL_THIRST:String = "labelThirst";
 		
-		private var _player:IPlayer;
+		private var _player:MoHero;
 		
 		private var _toolbar:LayoutGroup;
 		private var _playerParams:LayoutGroup;
@@ -80,7 +80,7 @@ package ru.aa.game.display.screens.views
 			_player = null;
 		}
 		
-		public function set player(value:IPlayer):void
+		public function set player(value:MoHero):void
 		{
 			_player = value;
 			invalidate(INVALIDATION_FLAG_DATA);

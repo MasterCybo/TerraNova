@@ -3,10 +3,9 @@
  */
 package ru.aa.game.player.commands
 {
-	import ru.aa.game.core.serialize.ISerializable;
 	import ru.aa.game.core.services.FileService;
 	import ru.aa.game.player.events.PlayerServiceEvent;
-	import ru.aa.game.player.models.IPlayer;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
@@ -21,10 +20,10 @@ package ru.aa.game.player.commands
 		{
 			super.execute();
 			
-			var user:IPlayer = getOf(IPlayer);
+			var moHero:MoHero = getOf(MoHero);
 			
 			var fileService:FileService = getOf(FileService);
-			fileService.load("player.txt", user as ISerializable);
+			fileService.load("player.txt", moHero);
 		}
 	}
 }

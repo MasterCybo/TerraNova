@@ -10,7 +10,7 @@ package ru.aa.game.models.world
 	
 	public class MoWorld extends MoEntity implements IWorld
 	{
-		private var _areas:Vector.<MoArea> = new Vector.<MoArea>();
+		private var _regions:Vector.<MoArea> = new Vector.<MoArea>();
 		private var _map:Dictionary = new Dictionary();
 		
 		private var _cols:int;
@@ -34,7 +34,7 @@ package ru.aa.game.models.world
 		
 		public function getAreaAt(col:int, row:int):MoArea
 		{
-			return _areas[getIndex(col, row)];
+			return _regions[getIndex(col, row)];
 		}
 		
 		private function getIndex(col:int, row:int):int
@@ -83,7 +83,7 @@ package ru.aa.game.models.world
 					moArea.parse(AreaRandomFactory.getAreaData("" + i));
 				}
 				
-				_areas.push(moArea);
+				_regions.push(moArea);
 				_map[moArea.id] = moArea;
 			}
 		}
