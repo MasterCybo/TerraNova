@@ -68,6 +68,7 @@ package ru.aa.game.player.models
 					+ "\n\tID: " + id
 					+ "\n\tname: " + name
 					+ "\n\thealth: " + health
+					+ "\n\tposition: " + position
 					;
 		}
 	}

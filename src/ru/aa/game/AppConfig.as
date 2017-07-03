@@ -34,7 +34,6 @@ package ru.aa.game
 	import ru.aa.game.mediators.ContextViewMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
-	import ru.aa.game.models.MoGame;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.services.GameDataService;
@@ -69,7 +68,6 @@ package ru.aa.game
 			map(GameStateService).toValue(new GameStateService());
 			map(GameDataService).toValue(new GameDataService());
 			
-			map(MoGame).asSingleton(MoGame);
 			map(MoHero).asSingleton(MoHero);
 			map(IWorld).asSingleton(MoWorld);
 		}

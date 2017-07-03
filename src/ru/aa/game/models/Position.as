@@ -16,5 +16,15 @@ package ru.aa.game.models
 		public function Position()
 		{
 		}
+		
+		public function toString():String
+		{
+			return this + "\n"
+					+ world + "\n"
+					+ region + "\n"
+					+ col + "\n"
+					+ row
+					;
+		}
 	}
 }

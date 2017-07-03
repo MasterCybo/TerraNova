@@ -6,10 +6,9 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.commands.events.LoadRegionDataEvent;
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.assets.RegionAssets;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.RegionScreen;
-	import ru.aa.game.models.MoGame;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -29,8 +28,8 @@ package ru.aa.game.display.screens.mediators
 			
 			dispatchEvent(new LoadRegionDataEvent(LoadRegionDataEvent.LOAD_REGION_DATA));
 			
-			var game:MoGame = getOf(MoGame);
-			view.region = game.currentRegion;
+			var moHero:MoHero = getOf(MoHero);
+			view.region = moHero.position.region;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}

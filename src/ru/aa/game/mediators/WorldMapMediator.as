@@ -7,7 +7,6 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.world.AreaTile;
 	import ru.aa.game.display.world.WorldMap;
-	import ru.aa.game.models.MoGame;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;

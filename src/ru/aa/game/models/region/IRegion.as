@@ -15,5 +15,6 @@ package ru.aa.game.models.region
 		function set rows(value:int):void;
 		
 		function get imageURL():String;
+		function get dataURL():String;
 	}
 }
