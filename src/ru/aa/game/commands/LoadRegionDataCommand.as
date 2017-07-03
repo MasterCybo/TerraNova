@@ -25,6 +25,7 @@ package ru.aa.game.commands
 			var gameDataService:GameDataService = getOf(GameDataService);
 			gameDataService.verbose = true;
 			
+			// FIXME: Убрать использование MoGame
 			var game:MoGame = getOf(MoGame);
 			var region:MoRegion = new MoRegion();
 			gameDataService.load(game.currentArea.dataURL, region);

@@ -7,6 +7,7 @@ package ru.aa.game
 	import ru.aa.game.commands.InitFeathersCommand;
 	import ru.aa.game.commands.LoadGameDataCommand;
 	import ru.aa.game.commands.LoadRegionDataCommand;
+	import ru.aa.game.commands.NewGameCommand;
 	import ru.aa.game.commands.events.AppEvent;
 	import ru.aa.game.commands.events.InitFeathersEvent;
 	import ru.aa.game.commands.events.LoadGameDataEvent;
@@ -78,6 +79,7 @@ package ru.aa.game
 			map(InitFeathersEvent.INIT_FEATHERS).toCommand(InitFeathersCommand);
 			
 			map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
+			map(AppEvent.START_NEW_GAME).toCommand(NewGameCommand);
 			map(LoadGameDataEvent.LOAD_GAME_DATA).toCommand(LoadGameDataCommand);
 			map(LoadRegionDataEvent.LOAD_REGION_DATA).toCommand(LoadRegionDataCommand);
 			

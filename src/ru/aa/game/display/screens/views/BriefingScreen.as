@@ -11,7 +11,7 @@ package ru.aa.game.display.screens.views
 	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
-	import ru.aa.game.models.world.MoArea;
+	import ru.aa.game.models.region.MoRegion;
 	
 	public class BriefingScreen extends Screen
 	{
@@ -21,7 +21,7 @@ package ru.aa.game.display.screens.views
 		private static const LABEL_TITLE:String = "labelName";
 		private static const LABEL_DESCRIPTION:String = "labelDescription";
 		
-		private var _area:MoArea;
+		private var _region:MoRegion;
 		
 		private var _toolbar:LayoutGroup;
 		private var _info:LayoutGroup;
@@ -68,12 +68,12 @@ package ru.aa.game.display.screens.views
 		override public function dispose():void
 		{
 			super.dispose();
-			_area = null;
+			_region = null;
 		}
 		
-		public function set area(value:MoArea):void
+		public function set region(value:MoRegion):void
 		{
-			_area = value;
+			_region = value;
 			invalidate(INVALIDATION_FLAG_DATA);
 		}
 		
@@ -82,8 +82,8 @@ package ru.aa.game.display.screens.views
 			super.draw();
 			
 			if (isInvalid(INVALIDATION_FLAG_DATA)) {
-				labelParam(LABEL_TITLE, "Область: " + _area.name);
-				labelParam(LABEL_DESCRIPTION, "Описание: " + _area.description);
+				labelParam(LABEL_TITLE, "Область: " + _region.name);
+				labelParam(LABEL_DESCRIPTION, "Описание: " + _region.description);
 			}
 			
 			if (isInvalid(INVALIDATION_FLAG_SIZE)) {

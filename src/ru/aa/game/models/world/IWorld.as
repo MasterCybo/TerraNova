@@ -5,6 +5,7 @@ package ru.aa.game.models.world
 {
 	import ru.aa.game.core.data.IEntity;
 	import ru.aa.game.core.serialize.ISerializable;
+	import ru.aa.game.models.region.IRegion;
 	
 	public interface IWorld extends IEntity, ISerializable
 	{
@@ -13,7 +14,7 @@ package ru.aa.game.models.world
 		function get cols():int;
 		function get rows():int;
 		
-		function getAreaAt(col:int, row:int):MoArea;
-		function getArea(id:String):MoArea;
+		function getRegionAt(col:int, row:int):IRegion;
+		function getRegion(id:String):IRegion;
 	}
 }

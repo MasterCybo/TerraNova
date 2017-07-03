@@ -5,7 +5,7 @@
 	"image": "res/images/world01.jpg",
 	"cols":5,
 	"rows":7,
-	"areas":[
+	"regions":[
 		{
 			"id":"0",
 			"name":"Название района",

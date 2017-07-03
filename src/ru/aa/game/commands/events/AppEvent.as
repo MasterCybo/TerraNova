@@ -8,6 +8,7 @@ package ru.aa.game.commands.events
 	public class AppEvent extends Event
 	{
 		public static const CLOSE_APPLICATION:String = "closeApplicationEvent";
+		public static const START_NEW_GAME:String = "startNewGameEvent";
 		
 		public function AppEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

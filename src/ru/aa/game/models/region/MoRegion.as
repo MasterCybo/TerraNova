@@ -57,5 +57,13 @@ package ru.aa.game.models.region
 		{
 			return "";
 		}
+		
+		public function parse(params:Object):void
+		{
+			id = params.id || id;
+			name = params.name;
+			description = params.description;
+			_dataURL = params.path;
+		}
 	}
 }

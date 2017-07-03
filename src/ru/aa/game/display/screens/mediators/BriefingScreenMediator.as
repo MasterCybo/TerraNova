@@ -7,9 +7,7 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.BriefingScreen;
-	import ru.aa.game.models.MoGame;
-	import ru.aa.game.models.world.IWorld;
-	import ru.aa.game.models.world.MoArea;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -27,10 +25,8 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			var game:MoGame = getOf(MoGame);
-			var area:MoArea = game.currentArea;
-			
-			view.area = area;
+			var moHero:MoHero = getOf(MoHero);
+			view.region = moHero.position.region;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}

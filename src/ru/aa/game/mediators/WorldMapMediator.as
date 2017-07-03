@@ -9,6 +9,7 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.world.WorldMap;
 	import ru.aa.game.models.MoGame;
 	import ru.aa.game.models.world.IWorld;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -46,10 +47,10 @@ package ru.aa.game.mediators
 			var touch:Touch = event.touches[0];
 			
 			if (touch.phase == TouchPhase.ENDED) {
-				var area:AreaTile = event.target as AreaTile;
+				var areaTile:AreaTile = event.target as AreaTile;
+				var moHero:MoHero = getOf(MoHero);
 				var world:IWorld = getOf(IWorld);
-				var game:MoGame = getOf(MoGame);
-				game.currentArea = world.getArea(area.name);
+				moHero.position.region = world.getRegion(areaTile.name);
 				dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BRIEFING));
 			}
 		}

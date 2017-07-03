@@ -6,11 +6,13 @@ package ru.aa.game.models.world
 	import flash.utils.Dictionary;
 	
 	import ru.aa.game.core.data.MoEntity;
-	import ru.aa.game.models.utils.AreaRandomFactory;
+	import ru.aa.game.models.region.IRegion;
+	import ru.aa.game.models.region.MoRegion;
+	import ru.aa.game.models.utils.RegionRandomFactory;
 	
 	public class MoWorld extends MoEntity implements IWorld
 	{
-		private var _regions:Vector.<MoArea> = new Vector.<MoArea>();
+		private var _regions:Vector.<IRegion> = new Vector.<IRegion>();
 		private var _map:Dictionary = new Dictionary();
 		
 		private var _cols:int;
@@ -27,12 +29,12 @@ package ru.aa.game.models.world
 		public function get cols():int { return _cols; }
 		public function get rows():int { return _rows; }
 		
-		public function getArea(id:String):MoArea
+		public function getRegion(id:String):IRegion
 		{
 			return _map[id];
 		}
 		
-		public function getAreaAt(col:int, row:int):MoArea
+		public function getRegionAt(col:int, row:int):IRegion
 		{
 			return _regions[getIndex(col, row)];
 		}
@@ -59,32 +61,32 @@ package ru.aa.game.models.world
 		public function deserialize(json:String):void
 		{
 			var data:Object = JSON.parse(json);
-			id = data.id;
-			name = data.name;
-			description = data.description;
-			_imageURL = data.image;
-			_cols = data.cols;
-			_rows = data.rows;
+			id = data["id"];
+			name = data["name"];
+			description = data["description"];
+			_imageURL = data["image"];
+			_cols = data["cols"];
+			_rows = data["rows"];
 			
-			var totalAreas:int = _cols * _rows;
+			var totalRegions:int = _cols * _rows;
 			
-			var areaData:Object;
-			var moArea:MoArea;
-			var areas:Array = data.areas;
-			var numAreas:int = areas.length;
+			var regionData:Object;
+			var moRegion:MoRegion;
+			var regions:Array = data["regions"];
+			var numAreas:int = regions.length;
 			
-			for (var i:int = 0; i < totalAreas; i++) {
-				moArea = new MoArea();
+			for (var i:int = 0; i < totalRegions; i++) {
+				moRegion = new MoRegion();
 				
 				if (i < numAreas) {
-					areaData = areas[i];
-					moArea.parse(areaData);
+					regionData = regions[i];
+					moRegion.parse(regionData);
 				} else {
-					moArea.parse(AreaRandomFactory.getAreaData("" + i));
+					moRegion.parse(RegionRandomFactory.getRegionData("" + i));
 				}
 				
-				_regions.push(moArea);
-				_map[moArea.id] = moArea;
+				_regions.push(moRegion);
+				_map[moRegion.id] = moRegion;
 			}
 		}
 		

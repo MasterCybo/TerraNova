@@ -1,5 +1,5 @@
 /**
- * Created by Artem-Home on 12.03.2017.
+ * Created by Artem-Home on 11.03.2017.
  */
 package ru.aa.game.models.utils
 {
@@ -12,13 +12,10 @@ package ru.aa.game.models.utils
 		public static function getRegionData(id:String):Object
 		{
 			return {
-				image:"res/images/reg01.jpg",
-				cols:5,
-				rows:8,
-				items:[],
-				actors:[],
-				traps:[],
-				stashes:[]
+				id:id,
+				name:"Название района",
+				description:"Описание района",
+				path:"res/reg01.json"
 			}
 		}
 	}
