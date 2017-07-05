@@ -3,12 +3,13 @@
  */
 package ru.aa.game.display.screens.region
 {
+	import flash.net.sendToURL;
+	
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.models.region.IRegion;
 	
-	import starling.display.Sprite;
 	import starling.events.Event;
 	
 	public class RegionMap extends AppSprite
@@ -34,6 +35,8 @@ package ru.aa.game.display.screens.region
 		
 		override protected function onAddedToStage(event:Event):void
 		{
+//			touchable = true;
+			
 			_background = new ImageAsset();
 			addChild(_background);
 			

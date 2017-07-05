@@ -33,6 +33,8 @@ package ru.aa.game.display.world
 		
 		override protected function onAddedToStage(event:Event):void
 		{
+			touchable = true;
+			
 			_normalCanvas = new Canvas();
 			addChild(_normalCanvas);
 			
@@ -77,9 +79,9 @@ package ru.aa.game.display.world
 			
 			if (touch.phase == TouchPhase.BEGAN) animationPress();
 			
-			removeEventListener(TouchEvent.TOUCH, touchHandler);
-			dispatchEvent(event);
-			addEventListener(TouchEvent.TOUCH, touchHandler);
+//			removeEventListener(TouchEvent.TOUCH, touchHandler);
+//			dispatchEvent(event);
+//			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
 		
 		private function animationPress():void
