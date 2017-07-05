@@ -5,13 +5,13 @@ package ru.aa.game
 {
 	import ru.aa.game.commands.CloseApplicationCommand;
 	import ru.aa.game.commands.InitFeathersCommand;
-	import ru.aa.game.commands.LoadGameDataCommand;
-	import ru.aa.game.commands.LoadRegionDataCommand;
+	import ru.aa.game.commands.StartWorldCommand;
+	import ru.aa.game.commands.StartRegionCommand;
 	import ru.aa.game.commands.NewGameCommand;
 	import ru.aa.game.commands.events.AppEvent;
 	import ru.aa.game.commands.events.InitFeathersEvent;
-	import ru.aa.game.commands.events.LoadGameDataEvent;
-	import ru.aa.game.commands.events.LoadRegionDataEvent;
+	import ru.aa.game.commands.events.StartWorldEvent;
+	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.display.ContextView;
 	import ru.aa.game.display.screens.mediators.BackpackScreenMediator;
 	import ru.aa.game.display.screens.mediators.BattleScreenMediator;
@@ -78,8 +78,8 @@ package ru.aa.game
 			
 			map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
 			map(AppEvent.START_NEW_GAME).toCommand(NewGameCommand);
-			map(LoadGameDataEvent.LOAD_GAME_DATA).toCommand(LoadGameDataCommand);
-			map(LoadRegionDataEvent.LOAD_REGION_DATA).toCommand(LoadRegionDataCommand);
+			map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
+			map(StartRegionEvent.START_REGION).toCommand(StartRegionCommand);
 			
 			map(PlayerServiceEvent.LOAD_STATE).toCommand(PlayerLoadCommand);
 			map(PlayerServiceEvent.SAVE_STATE).toCommand(PlayerSaveCommand);

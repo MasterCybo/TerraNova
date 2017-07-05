@@ -5,7 +5,7 @@ package ru.aa.game.commands
 {
 	import flash.events.Event;
 	
-	import ru.aa.game.commands.events.LoadGameDataEvent;
+	import ru.aa.game.commands.events.StartWorldEvent;
 	
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
@@ -24,8 +24,8 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			dispatchEvent(new LoadGameDataEvent(LoadGameDataEvent.LOAD_GAME_DATA));
-			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
+			dispatchEvent(new StartWorldEvent(StartWorldEvent.START_WORLD));
+//			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
 		}
 	}
 }

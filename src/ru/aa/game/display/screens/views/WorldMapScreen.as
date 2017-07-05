@@ -9,11 +9,8 @@ package ru.aa.game.display.screens.views
 	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
-	import ru.aa.game.models.world.IWorld;
-	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.display.world.WorldMap;
-	
-	import starling.events.Event;
+	import ru.aa.game.models.world.IWorld;
 	
 	public class WorldMapScreen extends Screen
 	{
