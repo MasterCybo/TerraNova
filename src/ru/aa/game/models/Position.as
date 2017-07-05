@@ -17,6 +17,13 @@ package ru.aa.game.models
 		{
 		}
 		
+		public function clearRegion():void
+		{
+			region = null;
+			col = -1;
+			row = -1;
+		}
+		
 		public function toString():String
 		{
 			return this + "\n"

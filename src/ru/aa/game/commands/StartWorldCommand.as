@@ -36,8 +36,6 @@ package ru.aa.game.commands
 			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
 			fileService.verbose = true;
 			fileService.load("res/world01.json", moWorld);
-			
-			trace(moWorld);
 		}
 		
 		private function onLoadComplete(event:Event):void

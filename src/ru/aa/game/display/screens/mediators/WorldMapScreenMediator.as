@@ -29,6 +29,8 @@ package ru.aa.game.display.screens.mediators
 			var world:IWorld = getOf(IWorld);
 			view.world = world;
 			
+			trace("Display world : " + world);
+			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}
 		
