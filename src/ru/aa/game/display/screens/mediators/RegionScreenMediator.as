@@ -3,7 +3,6 @@
  */
 package ru.aa.game.display.screens.mediators
 {
-	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
@@ -26,21 +25,14 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			addContextListener(StartRegionEvent.READY_REGION, onDataReady);
-			addViewListener(Event.TRIGGERED, buttonHandler);
-			
-			dispatchEvent(new StartRegionEvent(StartRegionEvent.START_REGION));
-		}
-		
-		private function onDataReady(event:StartRegionEvent):void
-		{
 			var moHero:MoHero = getOf(MoHero);
 			view.region = moHero.position.region;
+			
+			addViewListener(Event.TRIGGERED, buttonHandler);
 		}
 		
 		override public function destroy():void
 		{
-			removeContextListener(StartRegionEvent.READY_REGION, onDataReady);
 			removeViewListener(Event.TRIGGERED, buttonHandler);
 			super.destroy();
 		}

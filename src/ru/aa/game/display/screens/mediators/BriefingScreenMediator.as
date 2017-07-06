@@ -3,6 +3,7 @@
  */
 package ru.aa.game.display.screens.mediators
 {
+	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
@@ -49,7 +50,7 @@ package ru.aa.game.display.screens.mediators
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
 				case BriefingScreen.BUTTON_BEGIN:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.REGION_MAP));
+					dispatchEvent(new StartRegionEvent(StartRegionEvent.START_REGION));
 					break;
 			}
 		}

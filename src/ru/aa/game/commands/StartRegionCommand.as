@@ -6,6 +6,8 @@ package ru.aa.game.commands
 	import flash.events.Event;
 	
 	import ru.aa.game.commands.events.StartRegionEvent;
+	import ru.aa.game.display.screens.ScreenName;
+	import ru.aa.game.display.screens.events.ScreenEvent;
 	
 	import ru.aa.game.models.region.IRegion;
 	import ru.aa.game.player.models.MoHero;
@@ -26,21 +28,21 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			var gameDataService:GameDataService = getOf(GameDataService);
-			gameDataService.addEventListener(Event.COMPLETE, onLoadComplete);
-			gameDataService.verbose = true;
-			
 			var moHero:MoHero = getOf(MoHero);
 			var region:IRegion = moHero.position.region;
-			gameDataService.load(region.dataURL, region);
+			
+			var fileService:GameDataService = getOf(GameDataService);
+			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
+			fileService.verbose = true;
+			fileService.load(region.dataURL, region);
 		}
 		
 		private function onLoadComplete(event:Event):void
 		{
-			var gameDataService:GameDataService = event.target as GameDataService;
-			gameDataService.removeEventListener(Event.COMPLETE, onLoadComplete);
+			var fileService:GameDataService = event.target as GameDataService;
+			fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
-			dispatchEvent(new StartRegionEvent(StartRegionEvent.READY_REGION));
+			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.REGION_MAP));
 		}
 	}
 }

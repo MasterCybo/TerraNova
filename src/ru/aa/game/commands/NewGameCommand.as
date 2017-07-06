@@ -9,6 +9,9 @@ package ru.aa.game.commands
 	
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
+	import ru.aa.game.models.world.IWorld;
+	import ru.aa.game.models.world.MoWorld;
+	import ru.aa.game.player.models.MoHero;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
@@ -24,8 +27,11 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
+			var hero:MoHero = getOf(MoHero);
+			var world:IWorld = getOf(IWorld);
+			hero.position.world = world;
+			
 			dispatchEvent(new StartWorldEvent(StartWorldEvent.START_WORLD));
-//			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
 		}
 	}
 }

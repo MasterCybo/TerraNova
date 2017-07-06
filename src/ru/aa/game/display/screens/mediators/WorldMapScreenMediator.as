@@ -9,6 +9,7 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.WorldMapScreen;
+	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -26,10 +27,10 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			var world:IWorld = getOf(IWorld);
-			view.world = world;
+			var hero:MoHero = getOf(MoHero);
+			view.world = hero.position.world;
 			
-			trace("Display world : " + world);
+			trace("Display world : " + hero.position.world);
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}

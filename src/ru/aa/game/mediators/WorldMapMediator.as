@@ -50,11 +50,11 @@ package ru.aa.game.mediators
 			
 			if (touch.phase == TouchPhase.ENDED) {
 				var areaTile:AreaTile = event.target as AreaTile;
-				var moHero:MoHero = getOf(MoHero);
-				trace("event.currentTarget : " + event.currentTarget);
-
+				var hero:MoHero = getOf(MoHero);
+				var world:IWorld = hero.position.world;
 				
-				moHero.position.region = world.getRegion(areaTile.name);
+				hero.position.region = world.getRegion(areaTile.name);
+				
 				dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BRIEFING));
 			}
 		}

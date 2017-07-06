@@ -12,6 +12,7 @@ package ru.aa.game.commands
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
+	import ru.aa.game.player.models.MoHero;
 	import ru.aa.game.services.GameDataService;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
@@ -30,12 +31,12 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			var moWorld:IWorld = getOf(IWorld);
+			var hero:MoHero = getOf(MoHero);
 			
 			var fileService:GameDataService = getOf(GameDataService);
 			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
 			fileService.verbose = true;
-			fileService.load("res/world01.json", moWorld);
+			fileService.load("res/world01.json", hero.position.world);
 		}
 		
 		private function onLoadComplete(event:Event):void
