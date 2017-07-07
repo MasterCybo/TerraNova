@@ -38,9 +38,9 @@ package ru.aa.game
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.services.GameDataService;
 	import ru.aa.game.services.GameStateService;
-	import ru.aa.game.player.commands.PlayerLoadCommand;
+	import ru.aa.game.player.commands.HeroLoadCommand;
 	import ru.aa.game.player.commands.PlayerSaveCommand;
-	import ru.aa.game.player.events.PlayerServiceEvent;
+	import ru.aa.game.player.events.HeroServiceEvent;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.Config;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
@@ -81,8 +81,8 @@ package ru.aa.game
 			map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
 			map(StartRegionEvent.START_REGION).toCommand(StartRegionCommand);
 			
-			map(PlayerServiceEvent.LOAD_STATE).toCommand(PlayerLoadCommand);
-			map(PlayerServiceEvent.SAVE_STATE).toCommand(PlayerSaveCommand);
+			map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
+			map(HeroServiceEvent.SAVE_STATE).toCommand(PlayerSaveCommand);
 		}
 		
 		private function mapMediators():void

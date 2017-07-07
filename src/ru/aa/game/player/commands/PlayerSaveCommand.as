@@ -4,14 +4,14 @@
 package ru.aa.game.player.commands
 {
 	import ru.aa.game.core.services.FileService;
-	import ru.aa.game.player.events.PlayerServiceEvent;
+	import ru.aa.game.player.events.HeroServiceEvent;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
 	public class PlayerSaveCommand extends Command
 	{
-		public function PlayerSaveCommand(context:IContext, event:PlayerServiceEvent)
+		public function PlayerSaveCommand(context:IContext, event:HeroServiceEvent)
 		{
 			super(context, event);
 		}

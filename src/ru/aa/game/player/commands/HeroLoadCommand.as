@@ -4,14 +4,14 @@
 package ru.aa.game.player.commands
 {
 	import ru.aa.game.core.services.FileService;
-	import ru.aa.game.player.events.PlayerServiceEvent;
+	import ru.aa.game.player.events.HeroServiceEvent;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class PlayerLoadCommand extends Command
+	public class HeroLoadCommand extends Command
 	{
-		public function PlayerLoadCommand(context:IContext, event:PlayerServiceEvent)
+		public function HeroLoadCommand(context:IContext, event:HeroServiceEvent)
 		{
 			super(context, event);
 		}
@@ -20,10 +20,10 @@ package ru.aa.game.player.commands
 		{
 			super.execute();
 			
-			var moHero:MoHero = getOf(MoHero);
+			var hero:MoHero = getOf(MoHero);
 			
 			var fileService:FileService = getOf(FileService);
-			fileService.load("player.txt", moHero);
+			fileService.load("player.txt", hero);
 		}
 	}
 }

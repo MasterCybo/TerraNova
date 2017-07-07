@@ -6,6 +6,7 @@ package ru.aa.game.models.actors
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	import ru.aa.game.models.Position;
 	import ru.aa.game.models.items.ItemsCollection;
+	import ru.aa.game.player.events.ActorEvent;
 	
 	public class MoActor extends MoEntityDispatcher implements IActor
 	{
@@ -25,7 +26,9 @@ package ru.aa.game.models.actors
 		public function get health():Number { return _health; }
 		public function set health(value:Number):void
 		{
+			if (value == _health) return;
 			_health = value;
+			dispatchEvent(new ActorEvent(ActorEvent.CHANGED_HEALTH));
 		}
 		
 		public function get armor():Number { return _armor; }

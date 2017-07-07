@@ -5,7 +5,7 @@ package ru.aa.game.player.models
 {
 	import ru.aa.game.core.serialize.ISerializable;
 	import ru.aa.game.models.actors.MoActor;
-	import ru.aa.game.player.events.PlayerEvent;
+	import ru.aa.game.player.events.ActorEvent;
 	
 	public class MoHero extends MoActor implements ISerializable
 	{
@@ -24,7 +24,7 @@ package ru.aa.game.player.models
 		{
 			if (value == _hunger) return;
 			_hunger = value;
-			dispatchEvent(new PlayerEvent(PlayerEvent.CHANGED_HUNGER));
+			dispatchEvent(new ActorEvent(ActorEvent.CHANGED_HUNGER));
 		}
 		
 		public function get thirst():Number { return _thirst; }
@@ -32,7 +32,7 @@ package ru.aa.game.player.models
 		{
 			if (value == _thirst) return;
 			_thirst = value;
-			dispatchEvent(new PlayerEvent(PlayerEvent.CHANGED_THIRST));
+			dispatchEvent(new ActorEvent(ActorEvent.CHANGED_THIRST));
 		}
 		
 		public function get energy():Number { return _energy; }
@@ -40,7 +40,7 @@ package ru.aa.game.player.models
 		{
 			if (value == _energy) return;
 			_energy = value;
-			dispatchEvent(new PlayerEvent(PlayerEvent.CHANGED_ENERGY));
+			dispatchEvent(new ActorEvent(ActorEvent.CHANGED_ENERGY));
 		}
 		
 		/*
