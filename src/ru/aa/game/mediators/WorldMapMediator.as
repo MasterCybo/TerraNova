@@ -28,8 +28,8 @@ package ru.aa.game.mediators
 		{
 			super.initialize(displayObject);
 			
-			var moHero:MoHero = getOf(MoHero);
-			moHero.position.clearRegion();
+			var hero:MoHero = getOf(MoHero);
+			hero.position.clearRegion();
 			
 			addViewListener(TouchEvent.TOUCH, touchHandler);
 		}

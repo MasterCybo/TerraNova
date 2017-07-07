@@ -28,8 +28,8 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			var moHero:MoHero = getOf(MoHero);
-			var region:IRegion = moHero.position.region;
+			var hero:MoHero = getOf(MoHero);
+			var region:IRegion = hero.position.region;
 			
 			var fileService:GameDataService = getOf(GameDataService);
 			fileService.addEventListener(Event.COMPLETE, onLoadComplete);

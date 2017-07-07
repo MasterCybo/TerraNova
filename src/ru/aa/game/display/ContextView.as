@@ -14,7 +14,7 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.display.screens.views.PersonageScreen;
-	import ru.aa.game.display.screens.views.WorldMapScreen;
+	import ru.aa.game.display.screens.views.WorldScreen;
 	
 	public class ContextView extends ScreenNavigator
 	{
@@ -30,7 +30,7 @@ package ru.aa.game.display
 			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(MainMenuScreen);
 			addScreen(ScreenName.MAIN_MENU, screenItem);
 			
-			screenItem = new ScreenNavigatorItem(WorldMapScreen);
+			screenItem = new ScreenNavigatorItem(WorldScreen);
 			addScreen(ScreenName.WORLD_MAP, screenItem);
 			
 			screenItem = new ScreenNavigatorItem(CommunicatorScreen);

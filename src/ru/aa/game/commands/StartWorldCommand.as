@@ -32,11 +32,12 @@ package ru.aa.game.commands
 			super.execute();
 			
 			var hero:MoHero = getOf(MoHero);
+			var world:IWorld = hero.position.world;
 			
 			var fileService:GameDataService = getOf(GameDataService);
 			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
 			fileService.verbose = true;
-			fileService.load("res/world01.json", hero.position.world);
+			fileService.load(world.dataURL, world);
 		}
 		
 		private function onLoadComplete(event:Event):void

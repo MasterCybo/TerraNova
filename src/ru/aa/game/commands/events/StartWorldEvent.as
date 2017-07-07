@@ -8,7 +8,6 @@ package ru.aa.game.commands.events
 	public class StartWorldEvent extends Event
 	{
 		public static const START_WORLD:String = "startWorldEvent";
-		public static const READY_WORLD:String = "readyWorldEvent";
 		
 		public function StartWorldEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

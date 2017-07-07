@@ -8,7 +8,6 @@ package ru.aa.game.commands.events
 	public class StartRegionEvent extends Event
 	{
 		public static const START_REGION:String = "startRegionEvent";
-		public static const READY_REGION:String = "readyRegionEvent";
 		
 		public function StartRegionEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

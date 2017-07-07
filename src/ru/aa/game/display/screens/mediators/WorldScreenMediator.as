@@ -8,7 +8,7 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.screens.views.WorldMapScreen;
+	import ru.aa.game.display.screens.views.WorldScreen;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
@@ -16,9 +16,9 @@ package ru.aa.game.display.screens.mediators
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class WorldMapScreenMediator extends Mediator
+	public class WorldScreenMediator extends Mediator
 	{
-		public function WorldMapScreenMediator(context:IContext)
+		public function WorldScreenMediator(context:IContext)
 		{
 			super(context);
 		}
@@ -41,7 +41,7 @@ package ru.aa.game.display.screens.mediators
 			super.destroy();
 		}
 		
-		private function get view():WorldMapScreen { return getView() as WorldMapScreen; }
+		private function get view():WorldScreen { return getView() as WorldScreen; }
 		
 		private function buttonHandler(event:Event):void
 		{
@@ -49,16 +49,16 @@ package ru.aa.game.display.screens.mediators
 			if (!button) return;
 			
 			switch (button.name) {
-				case WorldMapScreen.BUTTON_MAIN_MENU:
+				case WorldScreen.BUTTON_MAIN_MENU:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
 					break;
-				case WorldMapScreen.BUTTON_COMMUNICATOR:
+				case WorldScreen.BUTTON_COMMUNICATOR:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.COMMUNICATOR));
 					break;
-				case WorldMapScreen.BUTTON_BACKPACK:
+				case WorldScreen.BUTTON_BACKPACK:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
 					break;
-				case WorldMapScreen.BUTTON_PERSONAGE:
+				case WorldScreen.BUTTON_PERSONAGE:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.PERSONAGE));
 					break;
 			}

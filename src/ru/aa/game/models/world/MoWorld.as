@@ -13,25 +13,28 @@ package ru.aa.game.models.world
 	public class MoWorld extends MoEntity implements IWorld
 	{
 		private var _regions:Vector.<IRegion> = new Vector.<IRegion>();
-		private var _map:Dictionary = new Dictionary();
+		private var _mapRegions:Dictionary = new Dictionary();
 		
 		private var _cols:int;
 		private var _rows:int;
 		private var _imageURL:String;
+		private var _dataURL:String;
 		
-		public function MoWorld()
+		public function MoWorld(dataURL:String)
 		{
 			super();
+			_dataURL = dataURL;
 		}
 		
 		public function get imageURL():String { return _imageURL; }
+		public function get dataURL():String { return _dataURL; }
 		
 		public function get cols():int { return _cols; }
 		public function get rows():int { return _rows; }
 		
 		public function getRegion(id:String):IRegion
 		{
-			return _map[id];
+			return _mapRegions[id];
 		}
 		
 		public function getRegionAt(col:int, row:int):IRegion
@@ -86,7 +89,7 @@ package ru.aa.game.models.world
 				}
 				
 				_regions.push(moRegion);
-				_map[moRegion.id] = moRegion;
+				_mapRegions[moRegion.id] = moRegion;
 			}
 		}
 		

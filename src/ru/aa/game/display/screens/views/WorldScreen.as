@@ -12,7 +12,7 @@ package ru.aa.game.display.screens.views
 	import ru.aa.game.display.world.WorldMap;
 	import ru.aa.game.models.world.IWorld;
 	
-	public class WorldMapScreen extends Screen
+	public class WorldScreen extends Screen
 	{
 		public static const BUTTON_MAIN_MENU:String = "mainMenuButton";
 		public static const BUTTON_COMMUNICATOR:String = "communicatorButton";
@@ -25,7 +25,7 @@ package ru.aa.game.display.screens.views
 		private var _toolbar:LayoutGroup;
 		private var _titleWorld:AppLabel;
 		
-		public function WorldMapScreen()
+		public function WorldScreen()
 		{
 			super();
 		}

@@ -10,6 +10,7 @@ package ru.aa.game.models.world
 	public interface IWorld extends IEntity, ISerializable
 	{
 		function get imageURL():String;
+		function get dataURL():String;
 		
 		function get cols():int;
 		function get rows():int;
