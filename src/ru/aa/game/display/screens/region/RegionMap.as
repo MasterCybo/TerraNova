@@ -3,8 +3,6 @@
  */
 package ru.aa.game.display.screens.region
 {
-	import flash.net.sendToURL;
-	
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
@@ -18,6 +16,7 @@ package ru.aa.game.display.screens.region
 		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
 		public static const TEX_NAMES:Vector.<String> = Vector.<String>(["flora", "sand", "mountain", "water", "buildings"]);
 		public static const TEX_FOG:String = "fog";
+		public static const BG_NAME:String = "background";
 		
 		private var _assets:Assets = new Assets();
 		private var _assetsLoaded:Boolean;
@@ -35,8 +34,6 @@ package ru.aa.game.display.screens.region
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-//			touchable = true;
-			
 			_background = new ImageAsset();
 			addChild(_background);
 			
@@ -61,7 +58,7 @@ package ru.aa.game.display.screens.region
 			
 			_assets.enqueue(SPRITES_XML);
 			_assets.enqueue(SPRITES_PNG);
-			_assets.enqueueWithName(_region.imageURL, "background");
+			_assets.enqueueWithName(_region.imageURL, BG_NAME);
 			_assets.loadQueue(loadingHandler);
 		}
 		
@@ -77,7 +74,7 @@ package ru.aa.game.display.screens.region
 		{
 			if (!_assetsLoaded) return;
 			
-			_background.texture = _assets.getTexture("background");
+			_background.texture = _assets.getTexture(BG_NAME);
 			
 			var tile:RegionTile;
 			var terrainIndex:int;
@@ -103,13 +100,13 @@ package ru.aa.game.display.screens.region
 			var heightTile:int = _height / _rows;
 			var tile:RegionTile;
 			var idx:int;
-			for (var i:int = 0; i < _rows; i++) {
-				for (var j:int = 0; j < _cols; j++) {
-					idx = i * _cols + j;
+			for (var row:int = 0; row < _rows; row++) {
+				for (var col:int = 0; col < _cols; col++) {
+					idx = row * _cols + col;
 					tile = _tiles[idx];
 					tile.setSize(widthTile, heightTile);
-					tile.x = j * widthTile;
-					tile.y = i * heightTile;
+					tile.x = col * widthTile;
+					tile.y = row * heightTile;
 					if (!_tilesContainer.contains(tile)) _tilesContainer.addChild(tile);
 				}
 			}

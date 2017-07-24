@@ -19,13 +19,13 @@ package ru.aa.game.display.world
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	
-	public class AreaTile extends AppSprite
+	public class WorldTile extends AppSprite
 	{
 		public static const TWEEN_DURATION:Number = 0.1;
 		
 		private var _normalCanvas:Canvas;
 		
-		public function AreaTile(name:String)
+		public function WorldTile(name:String)
 		{
 			super();
 			this.name = name;
@@ -33,8 +33,6 @@ package ru.aa.game.display.world
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-			touchable = true;
-			
 			_normalCanvas = new Canvas();
 			addChild(_normalCanvas);
 			
@@ -55,19 +53,7 @@ package ru.aa.game.display.world
 			
 			if (!touch || (touch.phase != TouchPhase.ENDED && touch.phase != TouchPhase.BEGAN)) return;
 			
-			//*/
 			var isSelf:Boolean = stage.hitTest(touch.getLocation(stage)) == _normalCanvas;
-//			trace("isSelf : " + isSelf);
-			
-			/*/
-			var pt:Point = touch.getLocation(touch.target);
-			trace("pt : " + pt);
-			var isInBounds:Boolean = touch.target.bounds.contains(pt.x, pt.y);
-			
-			trace("touch.target : " + touch.target);
-			trace("touch.target.bounds : " + touch.target.bounds);
-			trace("isInBounds : " + isInBounds);
-			//*/
 			
 			if (touch.phase == TouchPhase.ENDED) animationRelease();
 			
@@ -79,9 +65,9 @@ package ru.aa.game.display.world
 			
 			if (touch.phase == TouchPhase.BEGAN) animationPress();
 			
-//			removeEventListener(TouchEvent.TOUCH, touchHandler);
-//			dispatchEvent(event);
-//			addEventListener(TouchEvent.TOUCH, touchHandler);
+			removeEventListener(TouchEvent.TOUCH, touchHandler);
+			dispatchEvent(event);
+			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
 		
 		private function animationPress():void

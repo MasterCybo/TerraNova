@@ -97,14 +97,14 @@ package ru.aa.game.display.world
 			var tileWidth:int = _background.width / _cols;
 			var tileHeight:int = _background.height / _rows;
 			
-			var tile:AreaTile;
+			var tile:WorldTile;
 			var index:int;
 			for (var row:int = 0; row < _rows; row++) {
 				for (var col:int = 0; col < _cols; col++) {
 					index = getIndex(col, row);
 					tile = _tilesMap[index];
 					if (!tile) {
-						tile = new AreaTile("" + index);
+						tile = new WorldTile("" + index);
 						tile.setSize(tileWidth, tileHeight);
 						_tilesContainer.addChild(tile);
 						_tilesMap[index] = tile;
@@ -120,7 +120,7 @@ package ru.aa.game.display.world
 			return _cols * row + col;
 		}
 		
-		public function getTile(col:int, row:int):AreaTile
+		public function getTile(col:int, row:int):WorldTile
 		{
 			return _tilesMap[getIndex(col, row)];
 		}

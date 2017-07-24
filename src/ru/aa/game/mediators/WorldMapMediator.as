@@ -5,7 +5,7 @@ package ru.aa.game.mediators
 {
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.world.AreaTile;
+	import ru.aa.game.display.world.WorldTile;
 	import ru.aa.game.display.world.WorldMap;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.player.models.MoHero;
@@ -49,7 +49,7 @@ package ru.aa.game.mediators
 			var touch:Touch = event.touches[0];
 			
 			if (touch.phase == TouchPhase.ENDED) {
-				var areaTile:AreaTile = event.target as AreaTile;
+				var areaTile:WorldTile = event.target as WorldTile;
 				var hero:MoHero = getOf(MoHero);
 				var world:IWorld = hero.position.world;
 				

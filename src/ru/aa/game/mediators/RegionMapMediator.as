@@ -3,6 +3,8 @@
  */
 package ru.aa.game.mediators
 {
+	import flash.utils.getTimer;
+	
 	import ru.aa.game.display.screens.region.RegionTile;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
@@ -34,13 +36,18 @@ package ru.aa.game.mediators
 		
 		private function touchHandler(event:TouchEvent):void
 		{
-			trace("*execute* " + this + "::touchHandler()");
-//			var touch:Touch = event.touches[0];
+			var touch:Touch = event.touches[0];
 			
-//			if (touch.phase == TouchPhase.ENDED) {
-//				trace("event.target: " + event.target);
-//				var tile:RegionTile = event.target as RegionTile;
-//			}
+			if (touch.phase == TouchPhase.ENDED) {
+				var ts:int = getTimer() * 1000;
+				trace(ts + "\tevent.target: " + event.target);
+				trace("\tevent.target.name : " + (event.target as DisplayObject).name);
+				trace("\ttouch.phase : " + touch.phase);
+				trace("\ttouch.target : " + touch.target);
+				trace("\ttouch.target.name : " + touch.target.name);
+				var tile:RegionTile = event.target as RegionTile;
+				trace("\tClick on tile " + tile);
+			}
 		}
 	}
 }
