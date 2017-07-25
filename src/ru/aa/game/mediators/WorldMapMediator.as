@@ -5,17 +5,15 @@ package ru.aa.game.mediators
 {
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.world.WorldTile;
+	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.display.world.WorldMap;
+	import ru.aa.game.display.world.WorldTile;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 	
 	public class WorldMapMediator extends Mediator
 	{
@@ -31,29 +29,28 @@ package ru.aa.game.mediators
 			var hero:MoHero = getOf(MoHero);
 			hero.position.clearRegion();
 			
-			addViewListener(TouchEvent.TOUCH, touchHandler);
+			addViewListener(TileEvent.TAP, touchHandler);
 		}
 		
 		override public function destroy():void
 		{
-			removeViewListener(TouchEvent.TOUCH, touchHandler);
+			removeViewListener(TileEvent.TAP, touchHandler);
 			super.destroy();
 		}
 		
 		private function get view():WorldMap { return getView() as WorldMap; }
 		
-		private function touchHandler(event:TouchEvent):void
+		private function touchHandler(event:TileEvent):void
 		{
 			if (view.isScrolling) return;
 			
-			var touch:Touch = event.touches[0];
+			var tile:WorldTile = event.target as WorldTile;
 			
-			if (touch.phase == TouchPhase.ENDED) {
-				var areaTile:WorldTile = event.target as WorldTile;
+			if (tile) {
 				var hero:MoHero = getOf(MoHero);
 				var world:IWorld = hero.position.world;
 				
-				hero.position.region = world.getRegion(areaTile.name);
+				hero.position.region = world.getRegion(tile.name);
 				
 				dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BRIEFING));
 			}

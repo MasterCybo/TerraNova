@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 25.02.2017.
  */
-package ru.aa.game.display.screens.region
+package ru.aa.game.display.region
 {
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;

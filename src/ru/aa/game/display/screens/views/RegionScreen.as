@@ -8,7 +8,7 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.HorizontalLayout;
 	
 	import ru.aa.game.core.display.controls.TextButton;
-	import ru.aa.game.display.screens.region.RegionMap;
+	import ru.aa.game.display.region.RegionMap;
 	import ru.aa.game.models.region.IRegion;
 	
 	public class RegionScreen extends Screen

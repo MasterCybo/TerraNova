@@ -21,7 +21,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.mediators.MainMenuScreenMediator;
 	import ru.aa.game.display.screens.mediators.HeroScreenMediator;
 	import ru.aa.game.display.screens.mediators.WorldScreenMediator;
-	import ru.aa.game.display.screens.region.RegionMap;
+	import ru.aa.game.display.region.RegionMap;
 	import ru.aa.game.display.screens.views.BackpackScreen;
 	import ru.aa.game.display.screens.views.BattleScreen;
 	import ru.aa.game.display.screens.views.BriefingScreen;

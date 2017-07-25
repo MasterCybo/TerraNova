@@ -1,13 +1,15 @@
 /**
  * Created by User on 27.06.2017.
  */
-package ru.aa.game.display.screens.region
+package ru.aa.game.display.region
 {
+	import aze.motion.EazeTween;
 	import aze.motion.easing.Quadratic;
 	import aze.motion.eaze;
 	
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
+	import ru.aa.game.display.screens.events.TileEvent;
 	
 	import starling.events.Event;
 	import starling.events.Touch;
@@ -24,6 +26,9 @@ package ru.aa.game.display.screens.region
 		private var _texFog:Texture;
 		private var _terrain:ImageAsset;
 		private var _fog:ImageAsset;
+		
+		private var _centerX:Number = 0;
+		private var _centerY:Number = 0;
 		
 		public function RegionTile(terrainTexture:Texture, fogTexture:Texture)
 		{
@@ -55,29 +60,6 @@ package ru.aa.game.display.screens.region
 			_texTerrain = null;
 			_texFog = null;
 		}
-		/*
-		private function touchHandler(event:TouchEvent):void
-		{
-			var touch:Touch = event.getTouch(stage);
-			
-			if (!touch || (touch.phase != TouchPhase.ENDED && touch.phase != TouchPhase.BEGAN)) return;
-			
-			var isSelf:Boolean = stage.hitTest(touch.getLocation(stage)) == this;
-			
-			if (touch.phase == TouchPhase.ENDED) animationRelease();
-			
-			if (!isSelf) {
-				event.stopImmediatePropagation();
-				event.stopPropagation();
-				return;
-			}
-			
-			if (touch.phase == TouchPhase.BEGAN) animationPress();
-			
-			removeEventListener(TouchEvent.TOUCH, touchHandler);
-			dispatchEvent(event);
-			addEventListener(TouchEvent.TOUCH, touchHandler);
-		}*/
 		
 		private function touchHandler(event:TouchEvent):void
 		{
@@ -87,29 +69,23 @@ package ru.aa.game.display.screens.region
 			
 			var isSelf:Boolean = stage.hitTest(touch.getLocation(stage)) == _fog;
 			
-			if (touch.phase == TouchPhase.ENDED) animationRelease();
-			
-			if (!isSelf) {
-				event.stopImmediatePropagation();
-				event.stopPropagation();
-				return;
+			switch (touch.phase) {
+				case TouchPhase.BEGAN:
+					animatePress();
+					break;
+				case TouchPhase.ENDED:
+					if (isSelf) {
+						dispatchEvent(new TileEvent(TileEvent.TAP, true));
+					} else {
+						animateLocked();
+					}
+					break;
 			}
-			
-			if (touch.phase == TouchPhase.BEGAN) animationPress();
-			
-			removeEventListener(TouchEvent.TOUCH, touchHandler);
-			dispatchEvent(event);
-			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
 		
-		private function animationPress():void
+		public function open():void
 		{
-			eaze(_fog).to(TWEEN_DURATION, {scaleX:0.85, scaleY:0.85}).easing(Quadratic.easeOut);
-		}
-		
-		private function animationRelease():void
-		{
-			eaze(_fog).to(TWEEN_DURATION, {scaleX:1.2, scaleY:1.2, alpha: 0}).easing(Quadratic.easeIn);
+			animateOpen();
 		}
 		
 		override protected function applySize():void
@@ -118,11 +94,34 @@ package ru.aa.game.display.screens.region
 			_terrain.readjustSize(_width, _height);
 			_fog.readjustSize(_width, _height);
 			
-			_terrain.x = _terrain.pivotX = _width / 2;
-			_terrain.y = _terrain.pivotY = _height / 2;
+			_centerX = _width / 2;
+			_centerY = _height / 2;
 			
-			_fog.x = _fog.pivotX = _width / 2;
-			_fog.y = _fog.pivotY = _height / 2;
+			_terrain.x = _terrain.pivotX = _centerX;
+			_terrain.y = _terrain.pivotY = _centerY;
+			
+			_fog.x = _fog.pivotX = _terrain.x;
+			_fog.y = _fog.pivotY = _terrain.y;
+		}
+		
+		private function animatePress():EazeTween
+		{
+			return eaze(_fog).to(TWEEN_DURATION, {scale:0.95}).easing(Quadratic.easeOut);
+		}
+		
+		private function animateLocked():EazeTween
+		{
+			var duration:Number = 0.025;
+			return eaze(_fog)
+					.to(duration, {x:_centerX - 5})
+					.to(duration, {x:_centerX + 2.5})
+					.to(duration, {x:_centerX})
+					.to(TWEEN_DURATION, {scaleX:1.0, scaleY:1.0}).easing(Quadratic.easeOut);
+		}
+		
+		private function animateOpen():EazeTween
+		{
+			return eaze(_fog).to(TWEEN_DURATION, {scale:1.2, alpha: 0}).easing(Quadratic.easeIn);
 		}
 	}
 }

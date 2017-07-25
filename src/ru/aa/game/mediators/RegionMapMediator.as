@@ -3,16 +3,12 @@
  */
 package ru.aa.game.mediators
 {
-	import flash.utils.getTimer;
-	
-	import ru.aa.game.display.screens.region.RegionTile;
+	import ru.aa.game.display.region.RegionTile;
+	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;
-	import starling.events.Touch;
-	import starling.events.TouchEvent;
-	import starling.events.TouchPhase;
 	
 	public class RegionMapMediator extends Mediator
 	{
@@ -25,28 +21,21 @@ package ru.aa.game.mediators
 		{
 			super.initialize(displayObject);
 			
-			addViewListener(TouchEvent.TOUCH, touchHandler);
+			addViewListener(TileEvent.TAP, touchHandler);
 		}
 		
 		override public function destroy():void
 		{
-			removeViewListener(TouchEvent.TOUCH, touchHandler);
+			removeViewListener(TileEvent.TAP, touchHandler);
 			super.destroy();
 		}
 		
-		private function touchHandler(event:TouchEvent):void
+		private function touchHandler(event:TileEvent):void
 		{
-			var touch:Touch = event.touches[0];
+			var tile:RegionTile = event.target as RegionTile;
 			
-			if (touch.phase == TouchPhase.ENDED) {
-				var ts:int = getTimer() * 1000;
-				trace(ts + "\tevent.target: " + event.target);
-				trace("\tevent.target.name : " + (event.target as DisplayObject).name);
-				trace("\ttouch.phase : " + touch.phase);
-				trace("\ttouch.target : " + touch.target);
-				trace("\ttouch.target.name : " + touch.target.name);
-				var tile:RegionTile = event.target as RegionTile;
-				trace("\tClick on tile " + tile);
+			if (tile) {
+				tile.open();
 			}
 		}
 	}

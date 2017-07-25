@@ -3,6 +3,7 @@
  */
 package ru.aa.game.display.world
 {
+	import aze.motion.EazeTween;
 	import aze.motion.easing.Quadratic;
 	import aze.motion.eaze;
 	
@@ -11,6 +12,7 @@ package ru.aa.game.display.world
 	import flash.geom.Rectangle;
 	
 	import ru.aa.game.core.display.views.AppSprite;
+	import ru.aa.game.display.screens.events.TileEvent;
 	
 	import starling.display.Canvas;
 	import starling.display.Sprite;
@@ -55,29 +57,23 @@ package ru.aa.game.display.world
 			
 			var isSelf:Boolean = stage.hitTest(touch.getLocation(stage)) == _normalCanvas;
 			
-			if (touch.phase == TouchPhase.ENDED) animationRelease();
-			
-			if (!isSelf) {
-				event.stopImmediatePropagation();
-				event.stopPropagation();
-				return;
+			switch (touch.phase) {
+				case TouchPhase.BEGAN:
+					animatePress();
+					break;
+				case TouchPhase.ENDED:
+					if (isSelf) {
+						animateRelease().onComplete(onReleaseComplete);
+					} else {
+						animateRelease();
+					}
+					break;
 			}
-			
-			if (touch.phase == TouchPhase.BEGAN) animationPress();
-			
-			removeEventListener(TouchEvent.TOUCH, touchHandler);
-			dispatchEvent(event);
-			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
 		
-		private function animationPress():void
+		private function onReleaseComplete():void
 		{
-			eaze(_normalCanvas).to(TWEEN_DURATION, {scaleX:0.85, scaleY:0.85}).easing(Quadratic.easeOut);
-		}
-		
-		private function animationRelease():void
-		{
-			eaze(_normalCanvas).to(TWEEN_DURATION, {scaleX:1.0, scaleY:1.0}).easing(Quadratic.easeIn);
+			dispatchEvent(new TileEvent(TileEvent.TAP, true));
 		}
 		
 		override protected function applySize():void
@@ -91,6 +87,16 @@ package ru.aa.game.display.world
 				_normalCanvas.pivotX = _normalCanvas.x = _width / 2;
 				_normalCanvas.pivotY = _normalCanvas.y = _height / 2;
 			}
+		}
+		
+		private function animatePress():EazeTween
+		{
+			return eaze(_normalCanvas).to(TWEEN_DURATION, {scale:0.85}).easing(Quadratic.easeOut);
+		}
+		
+		private function animateRelease():EazeTween
+		{
+			return eaze(_normalCanvas).to(TWEEN_DURATION, {scale:1.0}).easing(Quadratic.easeIn);
 		}
 	}
 }
