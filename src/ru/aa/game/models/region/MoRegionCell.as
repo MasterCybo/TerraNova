@@ -4,17 +4,21 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.ModelBase;
+	import ru.aa.game.models.region.enum.RegionType;
 	
 	public class MoRegionCell extends ModelBase
 	{
-		private var _type:int;
+		private var _type:RegionType = RegionType.EMPTY;
 		private var _opened:Boolean;
 		private var _locked:Boolean;
 		
-		public function MoRegionCell()
+		public function MoRegionCell(type:RegionType)
 		{
 			super();
+			_type = type;
 		}
+		
+		public function get type():RegionType {return _type;}
 		
 		public function get opened():Boolean {return _opened;}
 		public function set opened(value:Boolean):void

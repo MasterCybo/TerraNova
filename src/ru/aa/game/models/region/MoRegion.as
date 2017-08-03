@@ -5,11 +5,13 @@ package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	import ru.aa.game.models.MoMission;
+	import ru.aa.game.models.collections.Grid;
 	
 	public class MoRegion extends MoEntityDispatcher implements IRegion
 	{
 		private var _cols:int;
 		private var _rows:int;
+		private var _map:Grid;
 		private var _imageURL:String;
 		private var _dataURL:String;
 		private var _mission:MoMission;
@@ -18,6 +20,8 @@ package ru.aa.game.models.region
 		{
 			super();
 		}
+		
+		public function get map():Grid {return _map;}
 		
 		public function get imageURL():String { return _imageURL; }
 		public function get dataURL():String { return _dataURL; }
@@ -51,6 +55,10 @@ package ru.aa.game.models.region
 			_cols = data.cols;
 			_rows = data.rows;
 			_imageURL = data.image;
+			_map = new Grid(data.cols, data.rows);
+			
+			RegionJsonParser.parseMapArray(_map, data.map);
+			trace(_map);
 		}
 		
 		public function serialize():String
@@ -64,6 +72,7 @@ package ru.aa.game.models.region
 			name = params.name;
 			description = params.description;
 			_dataURL = params.path;
+			
 		}
 	}
 }
