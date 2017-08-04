@@ -11,7 +11,7 @@ package ru.aa.game.models.region
 	{
 		private var _cols:int;
 		private var _rows:int;
-		private var _map:Grid;
+		private var _grid:Grid;
 		private var _imageURL:String;
 		private var _dataURL:String;
 		private var _mission:MoMission;
@@ -21,7 +21,7 @@ package ru.aa.game.models.region
 			super();
 		}
 		
-		public function get map():Grid {return _map;}
+		public function get grid():Grid {return _grid;}
 		
 		public function get imageURL():String { return _imageURL; }
 		public function get dataURL():String { return _dataURL; }
@@ -55,10 +55,10 @@ package ru.aa.game.models.region
 			_cols = data.cols;
 			_rows = data.rows;
 			_imageURL = data.image;
-			_map = new Grid(data.cols, data.rows);
+			_grid = new Grid(data.cols, data.rows);
 			
-			RegionJsonParser.parseMapArray(_map, data.map);
-			trace(_map);
+			RegionJsonParser.parseMapArray(_grid, data.map);
+			trace(_grid);
 		}
 		
 		public function serialize():String

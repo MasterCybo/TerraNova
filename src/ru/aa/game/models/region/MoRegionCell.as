@@ -4,32 +4,27 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.ModelBase;
+	import ru.aa.game.models.region.enum.RegionState;
 	import ru.aa.game.models.region.enum.RegionType;
 	
 	public class MoRegionCell extends ModelBase
 	{
 		private var _type:RegionType = RegionType.EMPTY;
-		private var _opened:Boolean;
-		private var _locked:Boolean;
+		private var _state:RegionState = RegionState.LOCKED;
 		
-		public function MoRegionCell(type:RegionType)
+		public function MoRegionCell(type:RegionType, state:RegionState = null)
 		{
 			super();
 			_type = type;
+			_state = state ? state : RegionState.LOCKED;
 		}
 		
 		public function get type():RegionType {return _type;}
 		
-		public function get opened():Boolean {return _opened;}
-		public function set opened(value:Boolean):void
+		public function get state():RegionState {return _state;}
+		public function set state(value:RegionState):void
 		{
-			_opened = value;
-		}
-		
-		public function get locked():Boolean {return _locked;}
-		public function set locked(value:Boolean):void
-		{
-			_locked = value;
+			_state = value;
 		}
 	}
 }

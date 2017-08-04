@@ -27,7 +27,7 @@ package ru.aa.game.models.collections
 		public function get cols():int {return _cols;}
 		public function get rows():int {return _rows;}
 		
-		public function addObjectAt(col:int, row:int, object:ModelBase):void
+		public function addCellAt(col:int, row:int, object:ModelBase):void
 		{
 			if ((col >= _cols) || (col < 0)) throw new RangeError("Column out of range " + col + " / " + _cols);
 			if ((row >= _rows) || (row < 0)) throw new RangeError("Row out of range " + row + " / " + _rows);
@@ -35,7 +35,7 @@ package ru.aa.game.models.collections
 			_objects[col][row] = object;
 		}
 		
-		public function getObjectAt(col:int, row:int):ModelBase
+		public function getCellAt(col:int, row:int):ModelBase
 		{
 			if (col >= _cols || col < 0) throw new RangeError("Column out of range " + col + " / " + _cols);
 			if (row >= _rows || row < 0) throw new RangeError("Row out of range " + row + " / " + _rows);

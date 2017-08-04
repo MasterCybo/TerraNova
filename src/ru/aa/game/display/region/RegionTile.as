@@ -30,11 +30,11 @@ package ru.aa.game.display.region
 		private var _centerX:Number = 0;
 		private var _centerY:Number = 0;
 		
-		public function RegionTile(terrainTexture:Texture, fogTexture:Texture)
+		public function RegionTile(terrain:Texture, fog:Texture)
 		{
 			super();
-			_texTerrain = terrainTexture;
-			_texFog = fogTexture;
+			_texTerrain = terrain;
+			_texFog = fog;
 		}
 		
 		override protected function onAddedToStage(event:Event):void
