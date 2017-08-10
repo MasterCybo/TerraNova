@@ -9,8 +9,8 @@ package ru.aa.game.display.region
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.models.region.IRegion;
-	import ru.aa.game.models.region.MoRegionCell;
-	import ru.aa.game.models.region.enum.RegionType;
+	import ru.aa.game.models.region.MoCellRegion;
+	import ru.aa.game.models.region.enum.CellRegionType;
 	
 	import starling.events.Event;
 	
@@ -18,7 +18,6 @@ package ru.aa.game.display.region
 	{
 		public static const SPRITES_XML:String = "res/atlases/sprites.xml";
 		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
-		public static const TEX_NAMES:Vector.<String> = Vector.<String>(["flora", "sand", "stone", "water", "building", "garbage", "ground", "grass"]);
 		public static const TEX_FOG:String = "fog";
 		public static const BG_NAME:String = "background";
 		
@@ -41,15 +40,15 @@ package ru.aa.game.display.region
 		override protected function onAddedToStage(event:Event):void
 		{
 			_mapTextures = new Dictionary();
-			_mapTextures[RegionType.EMPTY] = "empty";
-			_mapTextures[RegionType.BUILDING] = "building";
-			_mapTextures[RegionType.FLORA] = "flora";
-			_mapTextures[RegionType.GRASS] = "grass";
-			_mapTextures[RegionType.GROUND] = "ground";
-			_mapTextures[RegionType.SAND] = "sand";
-			_mapTextures[RegionType.STONE] = "stone";
-			_mapTextures[RegionType.WATER] = "water";
-			_mapTextures[RegionType.GARBAGE] = "garbage";
+			_mapTextures[CellRegionType.EMPTY] = "empty";
+			_mapTextures[CellRegionType.BUILDING] = "building";
+			_mapTextures[CellRegionType.FLORA] = "flora";
+			_mapTextures[CellRegionType.GRASS] = "grass";
+			_mapTextures[CellRegionType.GROUND] = "ground";
+			_mapTextures[CellRegionType.SAND] = "sand";
+			_mapTextures[CellRegionType.STONE] = "stone";
+			_mapTextures[CellRegionType.WATER] = "water";
+			_mapTextures[CellRegionType.GARBAGE] = "garbage";
 			
 			_background = new ImageAsset();
 			addChild(_background);
@@ -92,17 +91,13 @@ package ru.aa.game.display.region
 			_background.texture = _assets.getTexture(BG_NAME);
 			
 			var tile:RegionTile;
-			var terrainIndex:int;
-			var cell:MoRegionCell;
+			var cell:MoCellRegion;
 			for (var i:int = 0; i < _rows; i++) {
 				for (var j:int = 0; j < _cols; j++) {
-					terrainIndex = int(Math.random() * (TEX_NAMES.length - 1));
-					
-					cell = _region.grid.getCellAt(j, i) as MoRegionCell;
+					cell = _region.grid.getCellAt(j, i) as MoCellRegion;
 					
 					var texName:String = _mapTextures[cell.type];
 					trace("texName: " + texName);
-//					tile = new RegionTile(_assets.getTexture(TEX_NAMES[terrainIndex]), _assets.getTexture(TEX_FOG));
 					tile = new RegionTile(_assets.getTexture(texName), _assets.getTexture(TEX_FOG));
 					_tiles.push(tile);
 				}

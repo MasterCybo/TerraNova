@@ -1,8 +1,8 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.models.collections.Grid;
-	import ru.aa.game.models.region.enum.RegionState;
-	import ru.aa.game.models.region.enum.RegionType;
+	import ru.aa.game.models.region.enum.CellRegionState;
+	import ru.aa.game.models.region.enum.CellRegionType;
 	import ru.arslanov.core.enum.Enum;
 	
 	public class RegionJsonParser
@@ -15,20 +15,21 @@ package ru.aa.game.models.region
 		{
 			var col:int;
 			var row:int;
-			var type:RegionType;
-			var cell:MoRegionCell;
-			var state:RegionState;
+			var type:CellRegionType;
+			var cell:MoCellRegion;
+			var state:CellRegionState;
 			var cellCode:int;
 			for (var i:int = 0; i < data.length; i++) {
 				cellCode = data[i];
-				type = Enum.getElementByValue(cellCode / 10, RegionType, RegionType.EMPTY) as RegionType;
-				state = Enum.getElementByValue(cellCode % 10, RegionState, RegionState.LOCKED) as RegionState;
+				
+				type = Enum.getElementByValue(int(cellCode / 10), CellRegionType, CellRegionType.EMPTY) as CellRegionType;
+				state = Enum.getElementByValue(cellCode % 10, CellRegionState, CellRegionState.LOCKED) as CellRegionState;
 				col = i % grid.cols;
 				row = i / grid.cols;
 				
-				trace("add " + i, col, row, type);
+				trace(i + "add ", col, row, type);
 				
-				cell = new MoRegionCell(type, state);
+				cell = new MoCellRegion(type, state);
 				grid.addCellAt(col, row, cell);
 			}
 		}
