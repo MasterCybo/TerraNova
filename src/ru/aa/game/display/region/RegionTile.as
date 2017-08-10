@@ -10,6 +10,7 @@ package ru.aa.game.display.region
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.display.screens.events.TileEvent;
+	import ru.aa.game.models.region.MoCellRegion;
 	
 	import starling.events.Event;
 	import starling.events.Touch;
@@ -22,6 +23,8 @@ package ru.aa.game.display.region
 	{
 		public static const TWEEN_DURATION:Number = 0.1;
 		
+		private var _cell:MoCellRegion;
+		
 		private var _texTerrain:Texture;
 		private var _texFog:Texture;
 		private var _terrain:ImageAsset;
@@ -30,12 +33,15 @@ package ru.aa.game.display.region
 		private var _centerX:Number = 0;
 		private var _centerY:Number = 0;
 		
-		public function RegionTile(terrain:Texture, fog:Texture)
+		public function RegionTile(cell:MoCellRegion, terrain:Texture, fog:Texture)
 		{
 			super();
+			_cell = cell;
 			_texTerrain = terrain;
 			_texFog = fog;
 		}
+		
+		public function get cell():MoCellRegion {return _cell;}
 		
 		override protected function onAddedToStage(event:Event):void
 		{
@@ -50,6 +56,8 @@ package ru.aa.game.display.region
 			
 			applySize();
 			
+			if (_cell.opened) open();
+			
 			addEventListener(TouchEvent.TOUCH, touchHandler);
 		}
 		
@@ -57,6 +65,7 @@ package ru.aa.game.display.region
 		{
 			removeEventListener(TouchEvent.TOUCH, touchHandler);
 			super.dispose();
+			_cell = null;
 			_texTerrain = null;
 			_texFog = null;
 		}

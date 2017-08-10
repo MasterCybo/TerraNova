@@ -5,6 +5,8 @@ package ru.aa.game.core.data
 {
 	public interface IModel
 	{
+		function destruct():void;
+		
 		function get id():String;
 		function set id(value:String):void;
 	}

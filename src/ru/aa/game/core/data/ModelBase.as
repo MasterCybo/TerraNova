@@ -18,6 +18,10 @@ package ru.aa.game.core.data
 			super();
 		}
 		
+		public function destruct():void {
+			// override me
+		}
+		
 		public function get id():String { return _id; }
 		public function set id(value:String):void { _id = value; }
 		

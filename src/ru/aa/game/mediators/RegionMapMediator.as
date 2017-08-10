@@ -5,6 +5,8 @@ package ru.aa.game.mediators
 {
 	import ru.aa.game.display.region.RegionTile;
 	import ru.aa.game.display.screens.events.TileEvent;
+	import ru.aa.game.models.region.MoCellRegion;
+	import ru.aa.game.models.region.enum.CellRegionState;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -33,9 +35,13 @@ package ru.aa.game.mediators
 		private function touchHandler(event:TileEvent):void
 		{
 			var tile:RegionTile = event.target as RegionTile;
+			var cell:MoCellRegion = tile.cell;
 			
 			if (tile) {
-				tile.open();
+				if (!cell.locked && !cell.opened) {
+					cell.opened = true;
+					tile.open();
+				}
 			}
 		}
 	}

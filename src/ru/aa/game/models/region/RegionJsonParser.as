@@ -30,7 +30,7 @@ package ru.aa.game.models.region
 				trace(i + "add ", col, row, type);
 				
 				cell = new MoCellRegion(type, state);
-				grid.addCellAt(col, row, cell);
+				cell.addToGrid(grid, col, row);
 			}
 		}
 	}

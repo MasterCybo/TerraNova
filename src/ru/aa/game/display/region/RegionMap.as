@@ -92,13 +92,13 @@ package ru.aa.game.display.region
 			
 			var tile:RegionTile;
 			var cell:MoCellRegion;
+			var texName:String;
 			for (var i:int = 0; i < _rows; i++) {
 				for (var j:int = 0; j < _cols; j++) {
 					cell = _region.grid.getCellAt(j, i) as MoCellRegion;
 					
-					var texName:String = _mapTextures[cell.type];
-					trace("texName: " + texName);
-					tile = new RegionTile(_assets.getTexture(texName), _assets.getTexture(TEX_FOG));
+					texName = _mapTextures[cell.type];
+					tile = new RegionTile(cell, _assets.getTexture(texName), _assets.getTexture(TEX_FOG));
 					_tiles.push(tile);
 				}
 			}
