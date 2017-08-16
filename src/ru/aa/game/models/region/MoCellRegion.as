@@ -4,7 +4,6 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.ModelBase;
-	import ru.aa.game.models.collections.Grid;
 	import ru.aa.game.models.region.enum.CellRegionState;
 	import ru.aa.game.models.region.enum.CellRegionType;
 	
@@ -13,7 +12,9 @@ package ru.aa.game.models.region
 		private var _type:CellRegionType = CellRegionType.EMPTY;
 		private var _state:CellRegionState = CellRegionState.LOCKED;
 		
-		private var _grid:Grid;
+		private var _region:MoRegion;
+		private var _col:int = -1;
+		private var _row:int = -1;
 		
 		public function MoCellRegion(type:CellRegionType, state:CellRegionState = null)
 		{
@@ -27,11 +28,13 @@ package ru.aa.game.models.region
 			super.destruct();
 			_type = null;
 			_state = null;
-			_grid = null;
+			_region = null;
 		}
 		
 		public function get type():CellRegionType {return _type;}
-		public function get grid():Grid {return _grid;}
+		public function get region():MoRegion {return _region;}
+		public function get col():int {return _col;}
+		public function get row():int {return _row;}
 		
 		public function get locked():Boolean {return _state == CellRegionState.LOCKED;}
 		
@@ -44,10 +47,29 @@ package ru.aa.game.models.region
 		public function get state():CellRegionState {return _state;}
 		public function set state(value:CellRegionState):void {_state = value;}
 		
-		public function addToGrid(grid:Grid, col:int, row:int):void
+		public function addToRegion(region:MoRegion, col:int, row:int):void
 		{
-			_grid = grid;
-			_grid.addCellAt(col, row, this);
+			_region = region;
+			_col = col;
+			_row = row;
+			_region.grid.addCellAt(col, row, this);
+		}
+		
+		public function isAvailable():Boolean
+		{
+			var neighboring:MoCellRegion = _region.grid.getCellAt(_col, _row-1) as MoCellRegion;
+			var leftOpened:Boolean = neighboring ? neighboring.opened : false;
+			
+			neighboring = _region.grid.getCellAt(_col, _row+1) as MoCellRegion;
+			var rightOpened:Boolean = neighboring ? neighboring.opened : false;
+			
+			neighboring = _region.grid.getCellAt(_col+1, _row) as MoCellRegion;
+			var bottomOpened:Boolean = neighboring ? neighboring.opened : false;
+			
+			neighboring = _region.grid.getCellAt(_col-1, _row) as MoCellRegion;
+			var topOpened:Boolean = neighboring ? neighboring.opened : false;
+			
+			return (leftOpened || rightOpened || bottomOpened || topOpened) && !locked;
 		}
 	}
 }

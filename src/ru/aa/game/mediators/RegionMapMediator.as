@@ -6,7 +6,6 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.region.RegionTile;
 	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.models.region.MoCellRegion;
-	import ru.aa.game.models.region.enum.CellRegionState;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -38,9 +37,11 @@ package ru.aa.game.mediators
 			var cell:MoCellRegion = tile.cell;
 			
 			if (tile) {
-				if (!cell.locked && !cell.opened) {
+				if (cell.isAvailable()) {
 					cell.opened = true;
 					tile.open();
+				} else {
+					tile.busy();
 				}
 			}
 		}

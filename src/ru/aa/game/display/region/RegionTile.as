@@ -33,6 +33,8 @@ package ru.aa.game.display.region
 		private var _centerX:Number = 0;
 		private var _centerY:Number = 0;
 		
+		private var _opened:Boolean;
+		
 		public function RegionTile(cell:MoCellRegion, terrain:Texture, fog:Texture)
 		{
 			super();
@@ -95,6 +97,11 @@ package ru.aa.game.display.region
 		public function open():void
 		{
 			animateOpen();
+		}
+		
+		public function busy():void
+		{
+			animateLocked();
 		}
 		
 		override protected function applySize():void

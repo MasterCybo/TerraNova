@@ -57,7 +57,7 @@ package ru.aa.game.models.region
 			_imageURL = data.image;
 			_grid = new Grid(data.cols, data.rows);
 			
-			RegionJsonParser.parseMapArray(_grid, data.map);
+			RegionJsonParser.parseMapArray(this, data.map);
 			trace(_grid);
 		}
 		

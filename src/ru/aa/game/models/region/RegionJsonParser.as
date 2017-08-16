@@ -1,6 +1,5 @@
 package ru.aa.game.models.region
 {
-	import ru.aa.game.models.collections.Grid;
 	import ru.aa.game.models.region.enum.CellRegionState;
 	import ru.aa.game.models.region.enum.CellRegionType;
 	import ru.arslanov.core.enum.Enum;
@@ -11,7 +10,7 @@ package ru.aa.game.models.region
 		{
 		}
 		
-		public static function parseMapArray(grid:Grid, data:Array):void
+		public static function parseMapArray(region:MoRegion, data:Array):void
 		{
 			var col:int;
 			var row:int;
@@ -24,13 +23,13 @@ package ru.aa.game.models.region
 				
 				type = Enum.getElementByValue(int(cellCode / 10), CellRegionType, CellRegionType.EMPTY) as CellRegionType;
 				state = Enum.getElementByValue(cellCode % 10, CellRegionState, CellRegionState.LOCKED) as CellRegionState;
-				col = i % grid.cols;
-				row = i / grid.cols;
+				col = i % region.cols;
+				row = i / region.cols;
 				
 				trace(i + "add ", col, row, type);
 				
 				cell = new MoCellRegion(type, state);
-				cell.addToGrid(grid, col, row);
+				cell.addToRegion(region, col, row);
 			}
 		}
 	}

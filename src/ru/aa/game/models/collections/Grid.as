@@ -37,8 +37,8 @@ package ru.aa.game.models.collections
 		
 		public function getCellAt(col:int, row:int):ModelBase
 		{
-			if (col >= _cols || col < 0) throw new RangeError("Column out of range " + col + " / " + _cols);
-			if (row >= _rows || row < 0) throw new RangeError("Row out of range " + row + " / " + _rows);
+			if (col >= _cols || col < 0) return null;
+			if (row >= _rows || row < 0) return null;
 			
 			return _objects[col][row];
 		}
