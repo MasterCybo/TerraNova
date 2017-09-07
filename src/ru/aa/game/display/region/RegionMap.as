@@ -41,6 +41,7 @@ package ru.aa.game.display.region
 		{
 			_mapTextures = new Dictionary();
 			_mapTextures[CellRegionType.EMPTY] = "empty";
+			_mapTextures[CellRegionType.EXIT] = "locout";
 			_mapTextures[CellRegionType.BUILDING] = "building";
 			_mapTextures[CellRegionType.FLORA] = "flora";
 			_mapTextures[CellRegionType.GRASS] = "grass";

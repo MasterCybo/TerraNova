@@ -5,6 +5,7 @@ package ru.aa.game.models.region.enum
 	public class CellRegionType extends EnumInt
 	{
 		public static const EMPTY:CellRegionType = new CellRegionType(0); // Пусто, дыра, ничто - никаких действий выполнить нельзя
+		public static const EXIT:CellRegionType = new CellRegionType(1); // Выход с локации
 		public static const FLORA:CellRegionType = new CellRegionType(10); // Лес, кусты, дерево
 		public static const WATER:CellRegionType = new CellRegionType(20); // Вода, реки, озёра
 		public static const GRASS:CellRegionType = new CellRegionType(30); // Трава, лужайка, поле
