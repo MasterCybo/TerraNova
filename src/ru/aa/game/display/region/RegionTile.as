@@ -47,13 +47,13 @@ package ru.aa.game.display.region
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-			_terrain = new ImageAsset(_texTerrain);
-			_terrain.name = "terrain";
+//			_terrain = new ImageAsset(_texTerrain);
+//			_terrain.name = "terrain";
 			_fog = new ImageAsset(_texFog);
 			_fog.name = "fog";
 			_fog.touchable = true;
 			
-			addChild(_terrain);
+//			addChild(_terrain);
 			addChild(_fog);
 			
 			applySize();
@@ -107,17 +107,17 @@ package ru.aa.game.display.region
 		override protected function applySize():void
 		{
 			if (!_fog) return;
-			_terrain.readjustSize(_width, _height);
+//			_terrain.readjustSize(_width, _height);
 			_fog.readjustSize(_width, _height);
 			
 			_centerX = _width / 2;
 			_centerY = _height / 2;
 			
-			_terrain.x = _terrain.pivotX = _centerX;
-			_terrain.y = _terrain.pivotY = _centerY;
+//			_terrain.x = _terrain.pivotX = _centerX;
+//			_terrain.y = _terrain.pivotY = _centerY;
 			
-			_fog.x = _fog.pivotX = _terrain.x;
-			_fog.y = _fog.pivotY = _terrain.y;
+			_fog.x = _fog.pivotX = _centerX;
+			_fog.y = _fog.pivotY = _centerY;
 		}
 		
 		private function animatePress():EazeTween

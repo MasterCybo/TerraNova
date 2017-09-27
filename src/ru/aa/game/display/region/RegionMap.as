@@ -13,6 +13,7 @@ package ru.aa.game.display.region
 	import ru.aa.game.models.region.enum.CellRegionType;
 	
 	import starling.events.Event;
+	import starling.textures.Texture;
 	
 	public class RegionMap extends AppSprite
 	{
@@ -73,14 +74,21 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
-			_assets.enqueue(SPRITES_XML);
-			_assets.enqueue(SPRITES_PNG);
+//			_assets.enqueue(SPRITES_XML);
+//			_assets.enqueue(SPRITES_PNG);
 			_assets.enqueueWithName(_region.imageURL, BG_NAME);
+			
+			var widthTile:int = _width / _cols;
+			var heightTile:int = _height / _rows;
+			_assets.addTexture(TEX_FOG, Texture.fromColor(widthTile, heightTile, 0x58707C));
+			
 			_assets.loadQueue(loadingHandler);
 		}
 		
 		private function loadingHandler(ratio:Number):void
 		{
+			trace("_assets.isLoading: " + _assets.isLoading);
+			
 			_assetsLoaded = ratio == 1.0;
 			if (_assetsLoaded) drawField();
 		}
