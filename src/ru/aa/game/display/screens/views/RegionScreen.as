@@ -34,7 +34,7 @@ package ru.aa.game.display.screens.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Свалить", BUTTON_LEAVE));
+			_toolbar.addChild(new TextButton("Домой", BUTTON_LEAVE));
 			_toolbar.validate();
 			
 			addChild(_toolbar);
