@@ -5,33 +5,28 @@ package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.ModelBase;
 	import ru.aa.game.models.region.enum.CellRegionState;
-	import ru.aa.game.models.region.enum.CellRegionType;
 	
 	public class MoCellRegion extends ModelBase
 	{
-		private var _type:CellRegionType = CellRegionType.EMPTY;
 		private var _state:CellRegionState = CellRegionState.LOCKED;
 		
 		private var _region:MoRegion;
 		private var _col:int = -1;
 		private var _row:int = -1;
 		
-		public function MoCellRegion(type:CellRegionType, state:CellRegionState = null)
+		public function MoCellRegion(state:CellRegionState = null)
 		{
 			super();
-			_type = type;
 			_state = state ? state : CellRegionState.LOCKED;
 		}
 		
 		override public function destruct():void
 		{
 			super.destruct();
-			_type = null;
 			_state = null;
 			_region = null;
 		}
 		
-		public function get type():CellRegionType {return _type;}
 		public function get region():MoRegion {return _region;}
 		public function get col():int {return _col;}
 		public function get row():int {return _row;}

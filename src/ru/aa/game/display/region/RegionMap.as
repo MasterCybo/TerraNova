@@ -3,26 +3,19 @@
  */
 package ru.aa.game.display.region
 {
-	import flash.utils.Dictionary;
-	
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.models.region.IRegion;
 	import ru.aa.game.models.region.MoCellRegion;
-	import ru.aa.game.models.region.enum.CellRegionType;
 	
 	import starling.events.Event;
 	import starling.textures.Texture;
 	
 	public class RegionMap extends AppSprite
 	{
-		public static const SPRITES_XML:String = "res/atlases/sprites.xml";
-		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
 		public static const TEX_FOG:String = "fog";
 		public static const BG_NAME:String = "background";
-		
-		private var _mapTextures:Dictionary;
 		
 		private var _assets:Assets = new Assets();
 		private var _assetsLoaded:Boolean;
@@ -40,18 +33,6 @@ package ru.aa.game.display.region
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-			_mapTextures = new Dictionary();
-			_mapTextures[CellRegionType.EMPTY] = "empty";
-			_mapTextures[CellRegionType.EXIT] = "locout";
-			_mapTextures[CellRegionType.BUILDING] = "building";
-			_mapTextures[CellRegionType.FLORA] = "flora";
-			_mapTextures[CellRegionType.GRASS] = "grass";
-			_mapTextures[CellRegionType.GROUND] = "ground";
-			_mapTextures[CellRegionType.SAND] = "sand";
-			_mapTextures[CellRegionType.STONE] = "stone";
-			_mapTextures[CellRegionType.WATER] = "water";
-			_mapTextures[CellRegionType.GARBAGE] = "garbage";
-			
 			_background = new ImageAsset();
 			addChild(_background);
 			
@@ -74,8 +55,6 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
-//			_assets.enqueue(SPRITES_XML);
-//			_assets.enqueue(SPRITES_PNG);
 			_assets.enqueueWithName(_region.imageURL, BG_NAME);
 			
 			var widthTile:int = _width / _cols;
@@ -87,8 +66,6 @@ package ru.aa.game.display.region
 		
 		private function loadingHandler(ratio:Number):void
 		{
-			trace("_assets.isLoading: " + _assets.isLoading);
-			
 			_assetsLoaded = ratio == 1.0;
 			if (_assetsLoaded) drawField();
 		}
@@ -101,13 +78,11 @@ package ru.aa.game.display.region
 			
 			var tile:RegionTile;
 			var cell:MoCellRegion;
-			var texName:String;
 			for (var i:int = 0; i < _rows; i++) {
 				for (var j:int = 0; j < _cols; j++) {
 					cell = _region.grid.getCellAt(j, i) as MoCellRegion;
 					
-					texName = _mapTextures[cell.type];
-					tile = new RegionTile(cell, _assets.getTexture(texName), _assets.getTexture(TEX_FOG));
+					tile = new RegionTile(cell, _assets.getTexture(TEX_FOG));
 					_tiles.push(tile);
 				}
 			}

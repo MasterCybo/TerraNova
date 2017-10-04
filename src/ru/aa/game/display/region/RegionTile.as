@@ -25,9 +25,7 @@ package ru.aa.game.display.region
 		
 		private var _cell:MoCellRegion;
 		
-		private var _texTerrain:Texture;
 		private var _texFog:Texture;
-		private var _terrain:ImageAsset;
 		private var _fog:ImageAsset;
 		
 		private var _centerX:Number = 0;
@@ -35,11 +33,10 @@ package ru.aa.game.display.region
 		
 		private var _opened:Boolean;
 		
-		public function RegionTile(cell:MoCellRegion, terrain:Texture, fog:Texture)
+		public function RegionTile(cell:MoCellRegion, fog:Texture)
 		{
 			super();
 			_cell = cell;
-			_texTerrain = terrain;
 			_texFog = fog;
 		}
 		
@@ -47,13 +44,10 @@ package ru.aa.game.display.region
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-//			_terrain = new ImageAsset(_texTerrain);
-//			_terrain.name = "terrain";
 			_fog = new ImageAsset(_texFog);
 			_fog.name = "fog";
 			_fog.touchable = true;
 			
-//			addChild(_terrain);
 			addChild(_fog);
 			
 			applySize();
@@ -68,7 +62,6 @@ package ru.aa.game.display.region
 			removeEventListener(TouchEvent.TOUCH, touchHandler);
 			super.dispose();
 			_cell = null;
-			_texTerrain = null;
 			_texFog = null;
 		}
 		
@@ -107,14 +100,10 @@ package ru.aa.game.display.region
 		override protected function applySize():void
 		{
 			if (!_fog) return;
-//			_terrain.readjustSize(_width, _height);
 			_fog.readjustSize(_width, _height);
 			
 			_centerX = _width / 2;
 			_centerY = _height / 2;
-			
-//			_terrain.x = _terrain.pivotX = _centerX;
-//			_terrain.y = _terrain.pivotY = _centerY;
 			
 			_fog.x = _fog.pivotX = _centerX;
 			_fog.y = _fog.pivotY = _centerY;
