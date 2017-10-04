@@ -37,7 +37,7 @@ package ru.aa.game.mediators
 			var cell:MoCellRegion = tile.cell;
 			
 			if (tile) {
-				if (cell.isAvailable()) {
+				if (cell.isAccessible()) {
 					cell.opened = true;
 					tile.open();
 				} else {
