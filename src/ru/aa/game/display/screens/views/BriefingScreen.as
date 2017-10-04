@@ -45,15 +45,17 @@ package ru.aa.game.display.screens.views
 			_toolbar.layout = layoutMenu;
 			
 			_toolbar.addChild(new TextButton("Назад", BUTTON_BACK));
-			_toolbar.addChild(new TextButton("В путь", BUTTON_BEGIN));
+			_toolbar.addChild(new TextButton("Начать", BUTTON_BEGIN));
 			_toolbar.validate();
 			
 			addChild(_toolbar);
 			
 			var layoutInfo:VerticalLayout = new VerticalLayout();
+			layoutInfo.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
 			layoutInfo.gap = 10;
 			
 			_info = new LayoutGroup();
+			_info.autoSizeMode = AUTO_SIZE_MODE_STAGE;
 			_info.layout = layoutInfo;
 			
 			_info.addChild(labelParam(LABEL_TITLE, " "));
@@ -99,6 +101,7 @@ package ru.aa.game.display.screens.views
 			} else {
 				label = new AppLabel(text);
 				label.name = name;
+				label.wordWrap = true;
 			}
 			return label;
 		}
