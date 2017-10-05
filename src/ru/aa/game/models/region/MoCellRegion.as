@@ -4,6 +4,8 @@
 package ru.aa.game.models.region
 {
 	import ru.aa.game.core.data.ModelBase;
+	import ru.aa.game.models.actors.MoActor;
+	import ru.aa.game.models.items.MoItem;
 	import ru.aa.game.models.region.enum.CellRegionState;
 	
 	public class MoCellRegion extends ModelBase
@@ -13,6 +15,10 @@ package ru.aa.game.models.region
 		private var _region:MoRegion;
 		private var _col:int = -1;
 		private var _row:int = -1;
+		
+		private var _trap:Object;
+		private var _item:MoItem;
+		private var _character:MoActor;
 		
 		public function MoCellRegion(state:CellRegionState = null)
 		{
@@ -41,6 +47,15 @@ package ru.aa.game.models.region
 		
 		public function get state():CellRegionState {return _state;}
 		public function set state(value:CellRegionState):void {_state = value;}
+		
+		public function get trap():Object {return _trap;}
+		public function set trap(value:Object):void {_trap = value;}
+		
+		public function get item():MoItem {return _item;}
+		public function set item(value:MoItem):void {_item = value;}
+		
+		public function get character():MoActor {return _character;}
+		public function set character(value:MoActor):void {_character = value;}
 		
 		public function addToRegion(region:MoRegion, col:int, row:int):void
 		{
