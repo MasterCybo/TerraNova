@@ -4,22 +4,25 @@
 package ru.aa.game.models.items
 {
 	import ru.aa.game.core.data.MoEntity;
+	import ru.aa.game.models.items.actions.ItemAction;
 	
 	public class MoItem extends MoEntity
 	{
-		private var _type:int;
+		private var _type:EnumItemType;
 		private var _price:int;
 		private var _weight:int;
 		private var _image:String;
 		
-		public function MoItem(type:int, image:String)
+		private var _actions:Vector.<ItemAction> = new Vector.<ItemAction>();
+		
+		public function MoItem(type:EnumItemType, image:String)
 		{
 			super();
 			_type = type;
 			_image = image;
 		}
 		
-		public function get type():int {return _type;}
+		public function get type():EnumItemType {return _type;}
 		
 		public function get image():String {return _image;}
 		
