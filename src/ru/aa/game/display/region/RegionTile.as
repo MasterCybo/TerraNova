@@ -9,6 +9,7 @@ package ru.aa.game.display.region
 	
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
+	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.models.region.MoCellRegion;
 	
@@ -17,15 +18,15 @@ package ru.aa.game.display.region
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
 	
-	import starling.textures.Texture;
-	
 	public class RegionTile extends AppSprite
 	{
 		public static const TWEEN_DURATION:Number = 0.1;
+		public static const FOG:String = "fog";
+		public static const FOG_LOCKED:String = "fog_locked";
 		
 		private var _cell:MoCellRegion;
+		private var _assets:Assets;
 		
-		private var _texFog:Texture;
 		private var _fog:ImageAsset;
 		
 		private var _centerX:Number = 0;
@@ -33,19 +34,20 @@ package ru.aa.game.display.region
 		
 		private var _opened:Boolean;
 		
-		public function RegionTile(cell:MoCellRegion, fog:Texture)
+		public function RegionTile(cell:MoCellRegion, assets:Assets)
 		{
 			super();
 			_cell = cell;
-			_texFog = fog;
+			_assets = assets;
 		}
 		
 		public function get cell():MoCellRegion {return _cell;}
 		
 		override protected function onAddedToStage(event:Event):void
 		{
-			_fog = new ImageAsset(_texFog);
-			_fog.name = "fog";
+			var texName:String = _cell.locked ? FOG_LOCKED : FOG;
+			_fog = new ImageAsset(_assets.getTexture(texName));
+			_fog.name = FOG;
 			_fog.touchable = true;
 			
 			addChild(_fog);
@@ -61,8 +63,8 @@ package ru.aa.game.display.region
 		{
 			removeEventListener(TouchEvent.TOUCH, touchHandler);
 			super.dispose();
+			_assets = null;
 			_cell = null;
-			_texFog = null;
 		}
 		
 		private function touchHandler(event:TouchEvent):void

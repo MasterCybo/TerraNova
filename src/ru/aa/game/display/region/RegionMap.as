@@ -10,11 +10,14 @@ package ru.aa.game.display.region
 	import ru.aa.game.models.region.MoCellRegion;
 	
 	import starling.events.Event;
-	import starling.textures.Texture;
+	import starling.filters.DropShadowFilter;
+	import starling.filters.GlowFilter;
 	
 	public class RegionMap extends AppSprite
 	{
-		public static const TEX_FOG:String = "fog";
+		public static const SPRITES_XML:String = "res/atlases/sprites.xml";
+		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
+		
 		public static const BG_NAME:String = "background";
 		
 		private var _assets:Assets = new Assets();
@@ -37,13 +40,14 @@ package ru.aa.game.display.region
 			addChild(_background);
 			
 			_tilesContainer = new AppSprite();
+			_tilesContainer.filter = new GlowFilter(0x000000, 1, 10);
 			addChild(_tilesContainer);
 		}
 		
 		override public function dispose():void
 		{
-			_assets.dispose();
 			super.dispose();
+			_assets.dispose();
 			_region = null;
 		}
 		
@@ -55,12 +59,9 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
+			_assets.enqueue(SPRITES_XML);
+			_assets.enqueue(SPRITES_PNG);
 			_assets.enqueueWithName(_region.imageURL, BG_NAME);
-			
-			var widthTile:int = _width / _cols;
-			var heightTile:int = _height / _rows;
-			_assets.addTexture(TEX_FOG, Texture.fromColor(widthTile, heightTile, 0x58707C));
-			
 			_assets.loadQueue(loadingHandler);
 		}
 		
@@ -82,7 +83,7 @@ package ru.aa.game.display.region
 				for (var j:int = 0; j < _cols; j++) {
 					cell = _region.grid.getCellAt(j, i) as MoCellRegion;
 					
-					tile = new RegionTile(cell, _assets.getTexture(TEX_FOG));
+					tile = new RegionTile(cell, _assets);
 					_tiles.push(tile);
 				}
 			}
