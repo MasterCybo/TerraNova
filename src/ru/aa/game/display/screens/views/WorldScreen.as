@@ -48,7 +48,7 @@ package ru.aa.game.display.screens.views
 			
 			_toolbar.addChild(new TextButton("Меню", BUTTON_MAIN_MENU));
 			_toolbar.addChild(new TextButton("КПК", BUTTON_COMMUNICATOR));
-			_toolbar.addChild(new TextButton("Персонаж", BUTTON_PERSONAGE));
+			_toolbar.addChild(new TextButton("Снаряжение", BUTTON_PERSONAGE));
 			_toolbar.addChild(new TextButton("Рюкзак", BUTTON_BACKPACK));
 			_toolbar.validate();
 			
