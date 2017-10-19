@@ -10,7 +10,6 @@ package ru.aa.game.display.region
 	import ru.aa.game.models.region.MoCellRegion;
 	
 	import starling.events.Event;
-	import starling.filters.DropShadowFilter;
 	import starling.filters.GlowFilter;
 	
 	public class RegionMap extends AppSprite
@@ -19,6 +18,8 @@ package ru.aa.game.display.region
 		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
 		
 		public static const BG_NAME:String = "background";
+		
+		public static const SPACE:int = 2;
 		
 		private var _assets:Assets = new Assets();
 		private var _assetsLoaded:Boolean;
@@ -97,8 +98,8 @@ package ru.aa.game.display.region
 			
 			_background.readjustSize(_width, _height);
 			
-			var widthTile:int = _width / _cols;
-			var heightTile:int = _height / _rows;
+			var widthTile:int = _width / _cols - SPACE * 0.5;
+			var heightTile:int = _height / _rows - SPACE * 0.5;
 			var tile:RegionTile;
 			var idx:int;
 			for (var row:int = 0; row < _rows; row++) {
@@ -106,8 +107,8 @@ package ru.aa.game.display.region
 					idx = row * _cols + col;
 					tile = _tiles[idx];
 					tile.setSize(widthTile, heightTile);
-					tile.x = col * widthTile;
-					tile.y = row * heightTile;
+					tile.x = col * (widthTile + SPACE);
+					tile.y = row * (heightTile + SPACE);
 					if (!_tilesContainer.contains(tile)) _tilesContainer.addChild(tile);
 				}
 			}

@@ -28,6 +28,9 @@ package ru.aa.game.display.screens.views
 		{
 			super.initialize();
 			
+			_regionMap = new RegionMap();
+			addChild(_regionMap);
+			
 			var layoutMenu:HorizontalLayout = new HorizontalLayout();
 			layoutMenu.gap = 10;
 			
@@ -38,9 +41,6 @@ package ru.aa.game.display.screens.views
 			_toolbar.validate();
 			
 			addChild(_toolbar);
-			
-			_regionMap = new RegionMap();
-			addChild(_regionMap);
 			
 			invalidate(INVALIDATION_FLAG_SIZE);
 		}
