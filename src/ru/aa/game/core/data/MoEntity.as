@@ -5,8 +5,8 @@ package ru.aa.game.core.data
 {
 	public class MoEntity extends ModelBase implements IEntity
 	{
-		private var _name:String = "";
-		private var _description:String = "";
+		protected var _name:String = "";
+		protected var _description:String = "";
 		
 		/**
 		 * Сущность - модель c именем и описанием

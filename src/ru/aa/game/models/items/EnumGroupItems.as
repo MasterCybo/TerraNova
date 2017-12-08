@@ -1,17 +1,17 @@
 package ru.aa.game.models.items
 {
-	import ru.arslanov.core.enum.EnumInt;
+	import ru.arslanov.core.enum.EnumString;
 	
 	/**
 	 * Идентификаторы групп предметов
 	 */
-	public class EnumGroupItems extends EnumInt
+	public class EnumGroupItems extends EnumString
 	{
-		public static const EQUIPMENT:EnumGroupItems = new EnumGroupItems(1); // Предмет, который можно разместить в слоте персонажа
-		public static const PRODUCT:EnumGroupItems = new EnumGroupItems(2); // Предмет одноразового действия
-		public static const BOX:EnumGroupItems = new EnumGroupItems(3); // Контейнер с предметами
+		public static const EQUIPMENT:EnumGroupItems = new EnumGroupItems("equipment"); // Предмет, который можно разместить в слоте персонажа
+		public static const PRODUCT:EnumGroupItems = new EnumGroupItems("product"); // Предмет одноразового действия
+		public static const BOX:EnumGroupItems = new EnumGroupItems("box"); // Контейнер с предметами
 		
-		public function EnumGroupItems(val:int)
+		public function EnumGroupItems(val:String)
 		{
 			super(val);
 		}

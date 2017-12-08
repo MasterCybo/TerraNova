@@ -18,6 +18,7 @@ package ru.aa.game.core.services
 		
 		private var _file:File;
 		private var _fileStream:FileStream = new FileStream();
+		private var _textData:String;
 		
 		public function FileService(file:File)
 		{
@@ -25,27 +26,29 @@ package ru.aa.game.core.services
 			_file = file;
 		}
 		
-		public function load(path:String, serializableObject:ISerializable):void
+		public function get textData():String {return _textData;}
+		
+		public function load(path:String, serializableObject:ISerializable = null):void
 		{
-			textData = null;
+			_textData = null;
 			
 			var file:File = _file.resolvePath(path);
 			
 			if (file.exists) {
 				_fileStream.open(file, FileMode.READ);
-				var textData:String = _fileStream.readUTFBytes(file.size);
+				_textData = _fileStream.readUTFBytes(file.size);
 				_fileStream.close();
 				
 				
-				if (textData != "") {
+				if (_textData != "") {
 					traceDebug("Load successful :)");
-					serializableObject.deserialize(textData);
+					if (serializableObject) serializableObject.deserialize(_textData);
 					dispatchEvent(new Event(Event.COMPLETE));
 				} else {
 					traceDebug("Load error :(");
 					dispatchEvent(new ErrorEvent(ErrorEvent.ERROR));
 				}
-				traceDebug("Loaded data :\n" + textData);
+				traceDebug("Loaded data :\n" + _textData);
 			} else {
 				traceDebug(this, "ERROR! File " + file.nativePath + " not found!");
 			}

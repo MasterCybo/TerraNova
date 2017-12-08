@@ -37,16 +37,16 @@ package ru.aa.game.commands
 			var hero:MoHero = getOf(MoHero);
 			var world:IWorld = hero.position.world;
 			
-			var fileService:GameDataStorage = getOf(GameDataStorage);
-			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
-			fileService.verbose = true;
-			fileService.load(world.dataURL, world);
+			var dataStorage:GameDataStorage = getOf(GameDataStorage);
+			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
+			dataStorage.verbose = true;
+			dataStorage.load(world.dataURL, world);
 		}
 		
 		private function onLoadComplete(event:Event):void
 		{
-			var fileService:GameDataStorage = event.target as GameDataStorage;
-			fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
+			var dataStorage:GameDataStorage = event.target as GameDataStorage;
+			dataStorage.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
 			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
 		}

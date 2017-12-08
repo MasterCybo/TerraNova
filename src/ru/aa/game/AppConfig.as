@@ -3,6 +3,7 @@
  */
 package ru.aa.game
 {
+	import ru.aa.game.collections.Files;
 	import ru.aa.game.commands.CloseApplicationCommand;
 	import ru.aa.game.commands.InitFeathersCommand;
 	import ru.aa.game.commands.StartWorldCommand;
@@ -34,6 +35,7 @@ package ru.aa.game
 	import ru.aa.game.mediators.ContextViewMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
+	import ru.aa.game.models.collections.ItemsKindCollection;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.services.GameDataStorage;
@@ -68,8 +70,9 @@ package ru.aa.game
 			map(GameStateStorage).toValue(new GameStateStorage());
 			map(GameDataStorage).toValue(new GameDataStorage());
 			
+			map(ItemsKindCollection).asSingleton(ItemsKindCollection);
 			map(MoHero).asSingleton(MoHero);
-			map(IWorld).toValue(new MoWorld("res/world01.json"));
+			map(IWorld).toValue(new MoWorld(Files.DEFAULT_WORLD));
 		}
 		
 		private function mapCommands():void
