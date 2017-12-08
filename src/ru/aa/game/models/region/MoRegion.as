@@ -71,7 +71,7 @@ package ru.aa.game.models.region
 		
 		public function parse(params:Object):void
 		{
-			id = params.id || id;
+			__id = params.id || id;
 			name = params.name;
 			description = params.description;
 			_dataURL = params.path;

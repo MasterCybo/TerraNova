@@ -67,7 +67,7 @@ package ru.aa.game.models.world
 		public function deserialize(json:String):void
 		{
 			var data:Object = JSON.parse(json);
-			id = data["id"];
+			__id = data["id"];
 			name = data["name"];
 			description = data["description"];
 			_imageURL = data["image"];

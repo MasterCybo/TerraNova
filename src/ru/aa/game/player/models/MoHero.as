@@ -53,7 +53,7 @@ package ru.aa.game.player.models
 		{
 			var data:Object = JSON.parse(json);
 			name = data.userName || name;
-			id = data.userID || id;
+			__id = data.userID || id;
 		}
 		
 		public function serialize():String
