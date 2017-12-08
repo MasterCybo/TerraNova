@@ -1,6 +1,8 @@
 package ru.aa.game.models.items.actions
 {
-	public class ItemAction
+	import ru.aa.game.models.items.IItemContent;
+	
+	public class ItemAction implements IItemContent
 	{
 		private var _property:EnumActionProperty;
 		private var _value:Number;

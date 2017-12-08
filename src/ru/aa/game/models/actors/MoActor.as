@@ -8,6 +8,9 @@ package ru.aa.game.models.actors
 	import ru.aa.game.models.items.ItemsCollection;
 	import ru.aa.game.player.events.ActorEvent;
 	
+	/**
+	 * Любой персонаж в игре
+	 */
 	public class MoActor extends MoEntityDispatcher implements IActor
 	{
 		private var _position:Position = new Position();

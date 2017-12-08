@@ -2,6 +2,9 @@ package ru.aa.game.models.items.actions
 {
 	import ru.arslanov.core.enum.EnumString;
 	
+	/**
+	 * Идентификаторы действий предмета
+	 */
 	public class EnumActionProperty extends EnumString
 	{
 		public static const HEALTH:EnumActionProperty = new EnumActionProperty("health");

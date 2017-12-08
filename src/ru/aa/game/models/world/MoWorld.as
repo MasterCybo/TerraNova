@@ -10,6 +10,9 @@ package ru.aa.game.models.world
 	import ru.aa.game.models.region.MoRegion;
 	import ru.aa.game.models.utils.RegionRandomFactory;
 	
+	/**
+	 * Игровой мир со списком локаций
+	 */
 	public class MoWorld extends MoEntity implements IWorld
 	{
 		private var _regions:Vector.<IRegion> = new Vector.<IRegion>();

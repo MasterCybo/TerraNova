@@ -7,14 +7,14 @@ package ru.aa.game.core.data
 	{
 		static private var _count:uint = 0;
 		
-		private var _id:String;
+		protected var __id:String;
 		
 		/**
 		 * Базовая модель с уникальным идентификатором
 		 */
 		public function ModelBase()
 		{
-			_id = "" + (++_count);
+			__id = "" + (++_count);
 			super();
 		}
 		
@@ -22,8 +22,7 @@ package ru.aa.game.core.data
 			// override me
 		}
 		
-		public function get id():String { return _id; }
-		public function set id(value:String):void { _id = value; }
+		public function get id():String { return __id; }
 		
 		public function get className():Class { return this["constructor"]; }
 		

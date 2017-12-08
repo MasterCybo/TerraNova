@@ -7,6 +7,9 @@ package ru.aa.game.player.models
 	import ru.aa.game.models.actors.MoActor;
 	import ru.aa.game.player.events.ActorEvent;
 	
+	/**
+	 * Главный герой
+	 */
 	public class MoHero extends MoActor implements ISerializable
 	{
 		private var _hunger:Number = 0; // голод

@@ -7,6 +7,9 @@ package ru.aa.game.models.region
 	import ru.aa.game.models.MoMission;
 	import ru.aa.game.models.collections.Grid;
 	
+	/**
+	 * Локация игрового мира
+	 */
 	public class MoRegion extends MoEntityDispatcher implements IRegion
 	{
 		private var _cols:int;

@@ -7,11 +7,14 @@ package ru.aa.game.models.items
 	
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	
+	/**
+	 * Коллекция предметов
+	 */
 	public class ItemsCollection extends MoEntityDispatcher implements IItemsCollection
 	{
 		private var _items:Vector.<MoItem> = new Vector.<MoItem>();
 		private var _map:Dictionary = new Dictionary(); // id = moItem
-		private var _maxItems:int;
+		private var _maxItems:int = -1;
 		
 		public function ItemsCollection()
 		{

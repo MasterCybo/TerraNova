@@ -8,6 +8,5 @@ package ru.aa.game.core.data
 		function destruct():void;
 		
 		function get id():String;
-		function set id(value:String):void;
 	}
 }

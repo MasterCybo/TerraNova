@@ -1,69 +1,144 @@
-[
-	{
-		"type":1,
-		"name":"Нож",
-		"description":"Простой перочиный нож",
-		"damage":10
-	},
-	{
-		"type":1,
-		"name":"Пистолет Макарова",
-		"description":"Надёжный пистолет. Патрон 9×18 мм ПМ, магазин 8 патронов, прицельная дальность 50 м.",
-		"damage":30
-	},
-	{
-		"type":2,
-		"name":"Костюм Горка",
-		"description":"Комплект одежды повышенной износостойкости и ресурса.",
-		"bonuses":[
-			{
-				"property":"armor",
-				"value":30
-			}
-		]
-	},
-	{
-		"type":3,
-		"name":"Аптечка",
-		"description":"Восстанавливает здоровье",
-		"bonuses":[
-			{
-				"property":"health",
-				"value":10
-			}
-		]
-	},
-	{
-		"type":3,
-		"name":"Бутылка с водой",
-		"description":"Утоляет жажду",
-		"bonuses":[
-			{
-				"property":"thirst",
-				"value":30
-			}
-		]
-	},
-	{
-		"type":3,
-		"name":"Тушёнка",
-		"description":"Утоляет голод",
-		"bonuses":[
-			{
-				"property":"hunger",
-				"value":30
-			}
-		]
-	},
-	{
-		"type":3,
-		"name":"Энергетик",
-		"description":"Уменьшает усталость",
-		"bonuses":[
-			{
-				"property":"energy",
-				"value":30
-			}
-		]
-	}
-]
+{
+	"equipment":[
+		{
+			"group":1,
+			"image":"weapon",
+			"name":"Пистолет Макарова",
+			"description":"Надёжный пистолет. Патрон 9×18 мм ПМ, магазин 8 патронов, прицельная дальность 50 м.",
+			"weight":1.5,
+			"price":6000,
+			"content":[
+				{
+					"property":"damage",
+					"value":60
+				}
+			]
+		},
+		{
+			"group":1,
+			"image":"armor",
+			"name":"Костюм Горка",
+			"description":"Комплект одежды повышенной износостойкости и ресурса.",
+			"weight":3,
+			"price":2500,
+			"content":[
+				{
+					"property":"armor",
+					"value":30
+				}
+			]
+		},
+		{
+			"group":1,
+			"image":"kolobok",
+			"name":"Колобок",
+			"description":"Артефакт, заживляющий раны",
+			"weight":0.65,
+			"price":4500,
+			"content":[
+				{
+					"property":"energy",
+					"value":30
+				}
+			]
+		}
+	],
+	"products":[
+		{
+			"group":2,
+			"image":"medkit",
+			"name":"Аптечка",
+			"description":"Восстанавливает здоровье",
+			"weight":0.8,
+			"price":650,
+			"content":[
+				{
+					"property":"health",
+					"value":10
+				}
+			]
+		},
+		{
+			"group":2,
+			"image":"item",
+			"name":"Бутылка с водой",
+			"description":"Утоляет жажду",
+			"weight":0.5,
+			"price":120,
+			"content":[
+				{
+					"property":"thirst",
+					"value":30
+				}
+			]
+		},
+		{
+			"group":2,
+			"image":"item",
+			"name":"Тушёнка",
+			"description":"Утоляет голод",
+			"weight":0.4,
+			"price":300,
+			"content":[
+				{
+					"property":"hunger",
+					"value":30
+				}
+			]
+		},
+		{
+			"group":2,
+			"image":"item",
+			"name":"Энергетик",
+			"description":"Уменьшает усталость",
+			"weight":0.5,
+			"price":200,
+			"content":[
+				{
+					"property":"energy",
+					"value":30
+				}
+			]
+		}
+	],
+	"box":[
+		{
+			"group":3,
+			"image":"secret",
+			"name":"Контейнер",
+			"description":"Контейнер с предметами",
+			"weight":-1,
+			"price":-1,
+			"content":[
+				{
+					"group":2,
+					"image":"item",
+					"name":"Энергетик",
+					"description":"Уменьшает усталость",
+					"weight":0.5,
+					"price":200,
+					"content":[
+						{
+							"property":"energy",
+							"value":30
+						}
+					]
+				},
+				{
+					"group":2,
+					"image":"item",
+					"name":"Тушёнка",
+					"description":"Утоляет голод",
+					"weight":0.4,
+					"price":250,
+					"content":[
+						{
+							"property":"hunger",
+							"value":30
+						}
+					]
+				}
+			]
+		}
+	]
+}

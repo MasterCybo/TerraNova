@@ -3,33 +3,21 @@
  */
 package ru.aa.game.models.items
 {
-	import ru.aa.game.core.data.MoEntity;
-	import ru.aa.game.models.items.actions.ItemAction;
+	import ru.aa.game.core.data.ModelBase;
 	
-	public class MoItem extends MoEntity
+	/**
+	 * Любой игровой предмет
+	 */
+	public class MoItem extends ModelBase implements IItemContent
 	{
-		private var _type:EnumItemType;
-		private var _price:int;
-		private var _weight:int;
-		private var _image:String;
+		private var _kind:MoItemKind;
 		
-		private var _actions:Vector.<ItemAction> = new Vector.<ItemAction>();
-		
-		public function MoItem(type:EnumItemType, image:String)
+		public function MoItem(kind:MoItemKind)
 		{
 			super();
-			_type = type;
-			_image = image;
+			_kind = kind;
 		}
 		
-		public function get type():EnumItemType {return _type;}
-		
-		public function get image():String {return _image;}
-		
-		public function get price():int {return _price;}
-		public function set price(value:int):void {_price = value;}
-		
-		public function get weight():int {return _weight;}
-		public function set weight(value:int):void {_weight = value;}
+		public function get kind():MoItemKind {return _kind;}
 	}
 }

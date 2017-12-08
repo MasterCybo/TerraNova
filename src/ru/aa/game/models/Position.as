@@ -6,6 +6,9 @@ package ru.aa.game.models
 	import ru.aa.game.models.region.IRegion;
 	import ru.aa.game.models.world.IWorld;
 	
+	/**
+	 * Позиция чего-либо в игре
+	 */
 	public class Position
 	{
 		private var _world:IWorld;

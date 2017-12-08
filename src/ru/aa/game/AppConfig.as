@@ -36,8 +36,8 @@ package ru.aa.game
 	import ru.aa.game.mediators.WorldMapMediator;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
-	import ru.aa.game.services.GameDataService;
-	import ru.aa.game.services.GameStateService;
+	import ru.aa.game.services.GameDataStorage;
+	import ru.aa.game.services.GameStateStorage;
 	import ru.aa.game.player.commands.HeroLoadCommand;
 	import ru.aa.game.player.commands.PlayerSaveCommand;
 	import ru.aa.game.player.events.HeroServiceEvent;
@@ -65,8 +65,8 @@ package ru.aa.game
 		
 		private function mapSingletons():void
 		{
-			map(GameStateService).toValue(new GameStateService());
-			map(GameDataService).toValue(new GameDataService());
+			map(GameStateStorage).toValue(new GameStateStorage());
+			map(GameDataStorage).toValue(new GameDataStorage());
 			
 			map(MoHero).asSingleton(MoHero);
 			map(IWorld).toValue(new MoWorld("res/world01.json"));

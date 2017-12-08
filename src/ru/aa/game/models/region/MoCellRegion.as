@@ -8,6 +8,9 @@ package ru.aa.game.models.region
 	import ru.aa.game.models.items.MoItem;
 	import ru.aa.game.models.region.enum.CellRegionState;
 	
+	/**
+	 * Ячейка игровой локации
+	 */
 	public class MoCellRegion extends ModelBase
 	{
 		private var _state:CellRegionState = CellRegionState.LOCKED;

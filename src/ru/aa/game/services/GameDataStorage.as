@@ -9,12 +9,12 @@ package ru.aa.game.services
 	
 	import ru.aa.game.core.services.FileService;
 	
-	public class GameDataService extends FileService
+	public class GameDataStorage extends FileService
 	{
 		/**
 		 * Сервис загрузки игровых ресурсов
 		 */
-		public function GameDataService()
+		public function GameDataStorage()
 		{
 			super(File.applicationDirectory);
 		}

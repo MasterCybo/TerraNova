@@ -11,7 +11,7 @@ package ru.aa.game.commands
 	
 	import ru.aa.game.models.region.IRegion;
 	import ru.aa.game.player.models.MoHero;
-	import ru.aa.game.services.GameDataService;
+	import ru.aa.game.services.GameDataStorage;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
@@ -31,7 +31,7 @@ package ru.aa.game.commands
 			var hero:MoHero = getOf(MoHero);
 			var region:IRegion = hero.position.region;
 			
-			var fileService:GameDataService = getOf(GameDataService);
+			var fileService:GameDataStorage = getOf(GameDataStorage);
 			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
 			fileService.verbose = true;
 			fileService.load(region.dataURL, region);
@@ -39,7 +39,7 @@ package ru.aa.game.commands
 		
 		private function onLoadComplete(event:Event):void
 		{
-			var fileService:GameDataService = event.target as GameDataService;
+			var fileService:GameDataStorage = event.target as GameDataStorage;
 			fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
 			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.REGION_MAP));
