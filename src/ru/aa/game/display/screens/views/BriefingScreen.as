@@ -84,7 +84,7 @@ package ru.aa.game.display.screens.views
 			super.draw();
 			
 			if (isInvalid(INVALIDATION_FLAG_DATA)) {
-				labelParam(LABEL_TITLE, "Область: " + _region.name);
+				labelParam(LABEL_TITLE, "Локация: " + _region.name);
 				labelParam(LABEL_DESCRIPTION, "Описание: " + _region.description);
 			}
 			
