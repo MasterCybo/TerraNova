@@ -90,11 +90,11 @@ package ru.aa.game.models.collections
 			var kind:MoItemKind;
 			for (var i:int = 0; i < groups.length; i++) {
 				group = groups[i];
-				kinds = data[group];
+				kinds = data[group.value];
 				if (kinds) {
 					for (var j:int = 0; j < kinds.length; j++) {
 						kindData = kinds[j];
-						kind = new MoItemKind();
+						kind = new MoItemKind(group);
 						kind.parse(kindData);
 						addItemKind(kind);
 					}

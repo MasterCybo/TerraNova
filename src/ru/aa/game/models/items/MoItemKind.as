@@ -2,6 +2,7 @@ package ru.aa.game.models.items
 {
 	import ru.aa.game.core.data.MoEntity;
 	import ru.aa.game.core.serialize.IParsable;
+	import ru.aa.game.models.items.actions.ItemAction;
 	
 	/**
 	 * Базовая сущность/прототип предмета
@@ -23,7 +24,7 @@ package ru.aa.game.models.items
 			_image = image;
 		}
 		
-		public function get hashKey():String {return _group + "_" + __id;}
+		public function get hashKey():String {return _group.value + "_" + __id;}
 		
 		public function get group():EnumGroupItems {return _group;}
 		
@@ -39,12 +40,25 @@ package ru.aa.game.models.items
 		
 		public function parse(data:Object):void
 		{
-			_group = data["group"];
 			__id = data["id"];
+			_image = data["image"];
 			_name = data["name"];
 			_description = data["description"];
 			_weight = data["weight"];
 			_price = data["price"];
+			
+			if (!_group.equals(EnumGroupItems.BOX)) {
+				var actionsData:Array = data["content"];
+				var contentData:Object;
+				var action:ItemAction;
+				var len:int = actionsData.length;
+				for (var i:int = 0; i < len; i++) {
+					contentData = actionsData[i];
+					action = new ItemAction();
+					action.parse(contentData);
+					_actions.push(action);
+				}
+			}
 		}
 	}
 }
