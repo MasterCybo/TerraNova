@@ -3,6 +3,7 @@
  */
 package ru.aa.game.display.region
 {
+	import ru.aa.game.collections.Files;
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
@@ -14,9 +15,6 @@ package ru.aa.game.display.region
 	
 	public class RegionMap extends AppSprite
 	{
-		public static const SPRITES_XML:String = "res/atlases/sprites.xml";
-		public static const SPRITES_PNG:String = "res/atlases/sprites.png";
-		
 		public static const BG_NAME:String = "background";
 		
 		public static const SPACE:int = 2;
@@ -60,8 +58,8 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
-			_assets.enqueue(SPRITES_XML);
-			_assets.enqueue(SPRITES_PNG);
+			_assets.enqueue(Files.SPRITES_XML);
+			_assets.enqueue(Files.SPRITES_PNG);
 			_assets.enqueueWithName(_region.imageURL, BG_NAME);
 			_assets.loadQueue(loadingHandler);
 		}

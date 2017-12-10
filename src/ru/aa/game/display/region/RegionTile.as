@@ -73,14 +73,14 @@ package ru.aa.game.display.region
 			
 			if (!touch || (touch.phase != TouchPhase.ENDED && touch.phase != TouchPhase.BEGAN)) return;
 			
-			var isSelf:Boolean = stage.hitTest(touch.getLocation(stage)) == _fog;
+			var isSelfTouch:Boolean = stage.hitTest(touch.getLocation(stage)) == _fog;
 			
 			switch (touch.phase) {
 				case TouchPhase.BEGAN:
 					animatePress();
 					break;
 				case TouchPhase.ENDED:
-					if (isSelf) {
+					if (isSelfTouch) {
 						dispatchEvent(new TileEvent(TileEvent.TAP, true));
 					} else {
 						animateLocked();

@@ -13,6 +13,7 @@ package ru.aa.game
 	import ru.aa.game.commands.events.InitFeathersEvent;
 	import ru.aa.game.commands.events.StartWorldEvent;
 	import ru.aa.game.commands.events.StartRegionEvent;
+	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.display.ContextView;
 	import ru.aa.game.display.screens.mediators.BackpackScreenMediator;
 	import ru.aa.game.display.screens.mediators.BattleScreenMediator;
@@ -69,6 +70,7 @@ package ru.aa.game
 		{
 			map(GameStateStorage).toValue(new GameStateStorage());
 			map(GameDataStorage).toValue(new GameDataStorage());
+			map(Assets).toValue(new Assets());
 			
 			map(ItemsKindCollection).asSingleton(ItemsKindCollection);
 			map(MoHero).asSingleton(MoHero);
