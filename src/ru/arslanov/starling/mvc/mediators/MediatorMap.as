@@ -167,7 +167,11 @@ package ru.arslanov.starling.mvc.mediators
 				var len:uint = _extensions.length - 1;
 				for (var i:int = len; i >= 0; i--) {
 					extension = _extensions[i];
-					if (extension.initialize(view, mediate)) break;
+					if (extension.initialize(view, mediate)) {
+						_extensions.splice(i, 1);
+						i--;
+						break;
+					}
 				}
 			} else {
 				mediate(view);

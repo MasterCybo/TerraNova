@@ -3,6 +3,7 @@
  */
 package ru.arslanov.starling.mvc.extensions
 {
+	import feathers.FEATHERS_VERSION;
 	import feathers.core.FeathersControl;
 	import feathers.events.FeathersEventType;
 	
@@ -11,6 +12,8 @@ package ru.arslanov.starling.mvc.extensions
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
 	
 	import starling.events.Event;
+	
+	use namespace FEATHERS_VERSION;
 	
 	public class FeathersMediatorMapExtension implements IMediatorMapExtension
 	{
@@ -43,7 +46,7 @@ package ru.arslanov.starling.mvc.extensions
 		*/
 		private function onInitialized(event:Event):void
 		{
-//			trace("*execute* " + this + "::onInitialized() : " + event.target);
+			trace("*execute* " + this + "::onInitialized() : " + event.target);
 			callComplete(event);
 		}
 		
@@ -53,8 +56,11 @@ package ru.arslanov.starling.mvc.extensions
 //			feathersControl.removeEventListener(FeathersEventType.CREATION_COMPLETE, onCreated);
 			feathersControl.removeEventListener(FeathersEventType.INITIALIZE, onInitialized);
 			
+			trace("Feathers VERSION: " + FEATHERS_VERSION);
+			
 			var callback:Function = _mapCallbacks[feathersControl];
 			if (callback != null) {
+				trace(this + " Call callback");
 				delete _mapCallbacks[feathersControl];
 				callback(feathersControl);
 			}
