@@ -3,9 +3,11 @@
  */
 package ru.aa.game.display.screens.views
 {
+	import feathers.controls.AutoSizeMode;
 	import feathers.controls.Label;
 	import feathers.controls.LayoutGroup;
 	import feathers.controls.Screen;
+	import feathers.layout.HorizontalAlign;
 	import feathers.layout.HorizontalLayout;
 	import feathers.layout.VerticalLayout;
 	
@@ -51,11 +53,11 @@ package ru.aa.game.display.screens.views
 			addChild(_toolbar);
 			
 			var layoutInfo:VerticalLayout = new VerticalLayout();
-			layoutInfo.horizontalAlign = VerticalLayout.HORIZONTAL_ALIGN_JUSTIFY;
+			layoutInfo.horizontalAlign = HorizontalAlign.JUSTIFY;
 			layoutInfo.gap = 10;
 			
 			_info = new LayoutGroup();
-			_info.autoSizeMode = AUTO_SIZE_MODE_STAGE;
+			_info.autoSizeMode = AutoSizeMode.STAGE;
 			_info.layout = layoutInfo;
 			
 			_info.addChild(labelParam(LABEL_TITLE, " "));
