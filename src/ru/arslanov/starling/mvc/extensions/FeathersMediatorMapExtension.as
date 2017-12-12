@@ -46,7 +46,6 @@ package ru.arslanov.starling.mvc.extensions
 		*/
 		private function onInitialized(event:Event):void
 		{
-			trace("*execute* " + this + "::onInitialized() : " + event.target);
 			callComplete(event);
 		}
 		
