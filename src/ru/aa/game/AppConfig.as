@@ -5,6 +5,7 @@ package ru.aa.game
 {
 	import ru.aa.game.collections.Files;
 	import ru.aa.game.commands.CloseApplicationCommand;
+	import ru.aa.game.commands.StartupAppCommand;
 	import ru.aa.game.commands.InitFeathersCommand;
 	import ru.aa.game.commands.StartWorldCommand;
 	import ru.aa.game.commands.StartRegionCommand;
@@ -13,8 +14,7 @@ package ru.aa.game
 	import ru.aa.game.commands.events.InitFeathersEvent;
 	import ru.aa.game.commands.events.StartWorldEvent;
 	import ru.aa.game.commands.events.StartRegionEvent;
-	import ru.aa.game.core.utils.Assets;
-	import ru.aa.game.display.ContextView;
+	import ru.aa.game.display.AppView;
 	import ru.aa.game.display.screens.mediators.BackpackScreenMediator;
 	import ru.aa.game.display.screens.mediators.BattleScreenMediator;
 	import ru.aa.game.display.screens.mediators.BriefingScreenMediator;
@@ -33,7 +33,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.views.PersonageScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	import ru.aa.game.display.world.WorldMap;
-	import ru.aa.game.mediators.ContextViewMediator;
+	import ru.aa.game.mediators.AppViewMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
 	import ru.aa.game.models.collections.ItemsKindCollection;
@@ -42,7 +42,7 @@ package ru.aa.game
 	import ru.aa.game.services.GameDataStorage;
 	import ru.aa.game.services.GameStateStorage;
 	import ru.aa.game.player.commands.HeroLoadCommand;
-	import ru.aa.game.player.commands.PlayerSaveCommand;
+	import ru.aa.game.player.commands.HeroSaveCommand;
 	import ru.aa.game.player.events.HeroServiceEvent;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.Config;
@@ -62,15 +62,12 @@ package ru.aa.game
 			mapSingletons();
 			mapCommands();
 			mapMediators();
-			
-			context.dispatchEvent(new InitFeathersEvent(InitFeathersEvent.INIT_FEATHERS));
 		}
 		
 		private function mapSingletons():void
 		{
 			map(GameStateStorage).toValue(new GameStateStorage());
 			map(GameDataStorage).toValue(new GameDataStorage());
-			map(Assets).toValue(new Assets());
 			
 			map(ItemsKindCollection).asSingleton(ItemsKindCollection);
 			map(MoHero).asSingleton(MoHero);
@@ -79,20 +76,20 @@ package ru.aa.game
 		
 		private function mapCommands():void
 		{
+			map(AppEvent.STARTUP_APPLICATION).toCommand(StartupAppCommand);
 			map(InitFeathersEvent.INIT_FEATHERS).toCommand(InitFeathersCommand);
-			
 			map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
 			map(AppEvent.START_NEW_GAME).toCommand(NewGameCommand);
 			map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
 			map(StartRegionEvent.START_REGION).toCommand(StartRegionCommand);
 			
 			map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
-			map(HeroServiceEvent.SAVE_STATE).toCommand(PlayerSaveCommand);
+			map(HeroServiceEvent.SAVE_STATE).toCommand(HeroSaveCommand);
 		}
 		
 		private function mapMediators():void
 		{
-			map(ContextViewMediator).toMediate(ContextView);
+			map(AppViewMediator).toMediate(AppView);
 			map(MainMenuScreenMediator).toMediate(MainMenuScreen);
 			map(BackpackScreenMediator).toMediate(BackpackScreen);
 			map(CommunicatorScreenMediator).toMediate(CommunicatorScreen);

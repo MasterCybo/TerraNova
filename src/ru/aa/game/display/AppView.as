@@ -6,6 +6,8 @@ package ru.aa.game.display
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
 	
+	import ru.aa.game.core.utils.Assets;
+	
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.views.BackpackScreen;
 	import ru.aa.game.display.screens.views.BattleScreen;
@@ -16,9 +18,9 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.PersonageScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	
-	public class ContextView extends ScreenNavigator
+	public class AppView extends ScreenNavigator
 	{
-		public function ContextView()
+		public function AppView()
 		{
 			super();
 		}

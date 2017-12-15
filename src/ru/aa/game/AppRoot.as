@@ -3,7 +3,8 @@
  */
 package ru.aa.game
 {
-	import ru.aa.game.display.ContextView;
+	import ru.aa.game.commands.events.AppEvent;
+	import ru.aa.game.display.AppView;
 	import ru.arslanov.starling.mvc.MVCStarling;
 	import ru.arslanov.starling.mvc.extensions.FeathersMediatorMapExtension;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
@@ -13,6 +14,8 @@ package ru.aa.game
 	
 	public class AppRoot extends Sprite
 	{
+		private var context:IContext;
+		
 		public function AppRoot()
 		{
 			super();
@@ -21,13 +24,14 @@ package ru.aa.game
 		
 		private function init(event:Event = null):void
 		{
-			var contextView:ContextView = new ContextView();
+			var appView:AppView = new AppView();
 			
-			var context:IContext = MVCStarling.createContext(contextView)
+			context = MVCStarling.createContext(appView)
 					.extend(FeathersMediatorMapExtension)
 					.configurate(AppConfig);
 			
-			addChild(contextView);
+			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
+			addChild(appView);
 		}
 	}
 }

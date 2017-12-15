@@ -15,11 +15,10 @@ package ru.aa.game.display.region
 	
 	public class RegionMap extends AppSprite
 	{
-		public static const BG_NAME:String = "background";
+		public static const TEX_BACKGROUND:String = "background";
 		
 		public static const SPACE:int = 2;
 		
-		private var _assets:Assets = new Assets();
 		private var _assetsLoaded:Boolean;
 		private var _region:IRegion;
 		private var _tiles:Vector.<RegionTile> = new Vector.<RegionTile>();
@@ -46,7 +45,7 @@ package ru.aa.game.display.region
 		override public function dispose():void
 		{
 			super.dispose();
-			_assets.dispose();
+			Assets.me.removeTexture(TEX_BACKGROUND);
 			_region = null;
 		}
 		
@@ -58,10 +57,10 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
-			_assets.enqueue(Files.SPRITES_XML);
-			_assets.enqueue(Files.SPRITES_PNG);
-			_assets.enqueueWithName(_region.imageURL, BG_NAME);
-			_assets.loadQueue(loadingHandler);
+//			Assets.me.enqueue(Files.SPRITES_XML);
+//			Assets.me.enqueue(Files.SPRITES_PNG);
+			Assets.me.enqueueWithName(_region.imageURL, TEX_BACKGROUND);
+			Assets.me.loadQueue(loadingHandler);
 		}
 		
 		private function loadingHandler(ratio:Number):void
@@ -74,15 +73,15 @@ package ru.aa.game.display.region
 		{
 			if (!_assetsLoaded) return;
 			
-			_background.texture = _assets.getTexture(BG_NAME);
+			_background.texture = Assets.me.getTexture(TEX_BACKGROUND);
 			
 			var tile:RegionTile;
-			var cell:MoCellRegion;
+			var moCell:MoCellRegion;
 			for (var i:int = 0; i < _rows; i++) {
 				for (var j:int = 0; j < _cols; j++) {
-					cell = _region.grid.getCellAt(j, i) as MoCellRegion;
+					moCell = _region.grid.getCellAt(j, i) as MoCellRegion;
 					
-					tile = new RegionTile(cell, _assets);
+					tile = new RegionTile(moCell);
 					_tiles.push(tile);
 				}
 			}

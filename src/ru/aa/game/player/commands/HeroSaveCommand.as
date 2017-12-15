@@ -9,9 +9,9 @@ package ru.aa.game.player.commands
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class PlayerSaveCommand extends Command
+	public class HeroSaveCommand extends Command
 	{
-		public function PlayerSaveCommand(context:IContext, event:HeroServiceEvent)
+		public function HeroSaveCommand(context:IContext, event:HeroServiceEvent)
 		{
 			super(context, event);
 		}

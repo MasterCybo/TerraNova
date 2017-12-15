@@ -11,6 +11,6 @@ package ru.arslanov.starling.mvc.interfaces
 		function unmap(eventType:String):void;
 		function map(eventType:String):ICommandMap;
 		function toCommand(commandClass:Class):void;
-		function tryExecute(event:Event):Boolean;
+		function dispatchEvent(event:Event):Boolean;
 	}
 }

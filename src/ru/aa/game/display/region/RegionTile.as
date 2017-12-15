@@ -25,7 +25,6 @@ package ru.aa.game.display.region
 		public static const FOG_LOCKED:String = "fog_locked";
 		
 		private var _cell:MoCellRegion;
-		private var _assets:Assets;
 		
 		private var _fog:ImageAsset;
 		
@@ -34,11 +33,10 @@ package ru.aa.game.display.region
 		
 		private var _opened:Boolean;
 		
-		public function RegionTile(cell:MoCellRegion, assets:Assets)
+		public function RegionTile(cell:MoCellRegion)
 		{
 			super();
 			_cell = cell;
-			_assets = assets;
 		}
 		
 		public function get cell():MoCellRegion {return _cell;}
@@ -46,7 +44,7 @@ package ru.aa.game.display.region
 		override protected function onAddedToStage(event:Event):void
 		{
 			var texName:String = _cell.locked ? FOG_LOCKED : FOG;
-			_fog = new ImageAsset(_assets.getTexture(texName));
+			_fog = new ImageAsset(Assets.me.getTexture(texName));
 			_fog.name = FOG;
 			_fog.touchable = true;
 			
@@ -63,7 +61,6 @@ package ru.aa.game.display.region
 		{
 			removeEventListener(TouchEvent.TOUCH, touchHandler);
 			super.dispose();
-			_assets = null;
 			_cell = null;
 		}
 		

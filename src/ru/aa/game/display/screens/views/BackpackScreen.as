@@ -6,8 +6,10 @@ package ru.aa.game.display.screens.views
 	import feathers.controls.LayoutGroup;
 	import feathers.controls.Screen;
 	import feathers.layout.HorizontalLayout;
+	import feathers.layout.TiledColumnsLayout;
 	
 	import ru.aa.game.core.display.controls.TextButton;
+	import ru.aa.game.core.display.image.ImageAsset;
 	
 	public class BackpackScreen extends Screen
 	{
@@ -33,7 +35,19 @@ package ru.aa.game.display.screens.views
 			_toolbar.addChild(new TextButton("Назад", BUTTON_BACK));
 			_toolbar.validate();
 			
+			var slotsLayout:TiledColumnsLayout = new TiledColumnsLayout();
+			slotsLayout.typicalItemWidth = 230;
+			slotsLayout.typicalItemHeight = 230;
+			
+			var slots:LayoutGroup = new LayoutGroup();
+			slots.layout = slotsLayout;
+			
+			addChild(slots);
 			addChild(_toolbar);
+			
+			var image:ImageAsset = new ImageAsset();
+			
+			slots.addChild(new ImageAsset());
 		}
 		
 		override protected function draw():void

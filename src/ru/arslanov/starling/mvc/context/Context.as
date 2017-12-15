@@ -78,7 +78,7 @@ package ru.arslanov.starling.mvc.context
 		 */
 		override public function dispatchEvent(event:Event):Boolean
 		{
-			_commandMap.tryExecute(event);
+			_commandMap.dispatchEvent(event);
 			return super.dispatchEvent(event);
 		}
 		

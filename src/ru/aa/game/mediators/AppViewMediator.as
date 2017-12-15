@@ -3,7 +3,9 @@
  */
 package ru.aa.game.mediators
 {
-	import ru.aa.game.display.ContextView;
+	import ru.aa.game.collections.Files;
+	import ru.aa.game.core.utils.Assets;
+	import ru.aa.game.display.AppView;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
@@ -11,14 +13,14 @@ package ru.aa.game.mediators
 	
 	import starling.display.DisplayObject;
 	
-	public class ContextViewMediator extends Mediator
+	public class AppViewMediator extends Mediator
 	{
 		public static const MAX_HISTORY:int = 5;
 		
-		private var _view:ContextView;
+		private var _view:AppView;
 		private var _history:Vector.<String> = new Vector.<String>();
 		
-		public function ContextViewMediator(context:IContext)
+		public function AppViewMediator(context:IContext)
 		{
 			super(context);
 		}
@@ -27,7 +29,12 @@ package ru.aa.game.mediators
 		{
 			super.initialize(displayObject);
 			
-			_view = displayObject as ContextView;
+			_view = displayObject as AppView;
+			
+//			Assets.me.init();
+//			Assets.me.enqueue(Files.SPRITES_XML);
+//			Assets.me.enqueue(Files.SPRITES_PNG);
+//			Assets.me.loadQueue(loadingHandler);
 			
 			showScreen(ScreenName.MAIN_MENU);
 			

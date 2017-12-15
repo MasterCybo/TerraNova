@@ -46,7 +46,7 @@ package ru.arslanov.starling.mvc.commands
 			_mappedType = null;
 		}
 		
-		public function tryExecute(event:Event):Boolean
+		public function dispatchEvent(event:Event):Boolean
 		{
 			if (!hasEventType(event.type)) return false;
 			

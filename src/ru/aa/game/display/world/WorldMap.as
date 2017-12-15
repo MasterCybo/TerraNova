@@ -16,8 +16,6 @@ package ru.aa.game.display.world
 	
 	public class WorldMap extends ScrollContainer
 	{
-		private var _assets:Assets = new Assets();
-		
 		private var _world:IWorld;
 		
 		private var _background:ImageAsset;
@@ -44,7 +42,7 @@ package ru.aa.game.display.world
 //			minimumDragDistance = 0.04; // default
 			
 			_background = new ImageAsset();
-			_background.assetManager = _assets;
+			_background.assetManager = Assets.me;
 			addChild(_background);
 			
 			_tilesContainer = new AppSprite();
