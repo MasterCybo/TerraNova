@@ -25,7 +25,7 @@ package ru.aa.game.commands
 			new TopcoatLightMobileTheme();
 //			new MetalWorksMobileTheme();
 			
-			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
+			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
 		}
 	}
 }

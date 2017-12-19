@@ -30,8 +30,9 @@ package ru.aa.game
 					.extend(FeathersMediatorMapExtension)
 					.configurate(AppConfig);
 			
-			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
 			addChild(appView);
+			
+			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
 			
 		}
 	}

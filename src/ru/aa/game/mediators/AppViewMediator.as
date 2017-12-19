@@ -27,9 +27,6 @@ package ru.aa.game.mediators
 		override public function initialize(displayObject:DisplayObject):void
 		{
 			super.initialize(displayObject);
-			
-			showScreen(ScreenName.MAIN_MENU);
-			
 			addContextListener(ScreenEvent.SHOW_SCREEN, showScreenHandler);
 			addContextListener(ScreenEvent.SHOW_PREVIOUS, showScreenHandler);
 		}
