@@ -42,7 +42,7 @@ package ru.aa.game.display.screens.mediators
 			
 			switch (button.name) {
 				case MainMenuScreen.BUTTON_THE_GAME:
-					dispatchEvent(new AppEvent(AppEvent.START_NEW_GAME));
+					dispatchEvent(new AppEvent(AppEvent.BEGIN_NEW_GAME));
 					break;
 				case MainMenuScreen.BUTTON_QUIT:
 					dispatchEvent(new AppEvent(AppEvent.CLOSE_APPLICATION));

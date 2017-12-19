@@ -45,6 +45,7 @@ package ru.aa.game.display.screens.views
 			addChild(slots);
 			addChild(_toolbar);
 			
+			// TODO make add items
 			var image:ImageAsset = new ImageAsset();
 			
 			slots.addChild(new ImageAsset());

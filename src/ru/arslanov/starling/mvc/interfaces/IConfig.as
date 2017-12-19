@@ -9,6 +9,6 @@ package ru.arslanov.starling.mvc.interfaces
 		
 		function get context():IContext;
 		
-		function map(type:*):IMapper;
+		function map(type:*):IMapSetter;
 	}
 }

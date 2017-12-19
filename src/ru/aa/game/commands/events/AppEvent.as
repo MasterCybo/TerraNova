@@ -9,7 +9,7 @@ package ru.aa.game.commands.events
 	{
 		public static const STARTUP_APPLICATION:String = "initApplicationEvent";
 		public static const CLOSE_APPLICATION:String = "closeApplicationEvent";
-		public static const START_NEW_GAME:String = "startNewGameEvent";
+		public static const BEGIN_NEW_GAME:String = "startNewGameEvent";
 		
 		public function AppEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

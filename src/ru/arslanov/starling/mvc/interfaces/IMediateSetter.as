@@ -3,9 +3,8 @@
  */
 package ru.arslanov.starling.mvc.interfaces
 {
-	public interface IMapper
+	public interface IMediateSetter
 	{
-		function map(type:*):IMapSetter;
-		function unmap(type:*):void;
+		function toMediate(viewClass:Class):void;
 	}
 }

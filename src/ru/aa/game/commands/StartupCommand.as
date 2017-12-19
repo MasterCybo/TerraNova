@@ -1,19 +1,19 @@
-/**
- * Created by Artem-Home on 15.02.2017.
- */
 package ru.aa.game.commands
 {
-	import feathers.themes.MetalWorksMobileTheme;
 	import feathers.themes.TopcoatLightMobileTheme;
 	
 	import flash.events.Event;
 	
+	import ru.aa.game.display.screens.ScreenName;
+	
+	import ru.aa.game.display.screens.events.ScreenEvent;
+	
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class InitFeathersCommand extends Command
+	public class StartupCommand extends Command
 	{
-		public function InitFeathersCommand(context:IContext, event:Event)
+		public function StartupCommand(context:IContext, event:Event)
 		{
 			super(context, event);
 		}
@@ -24,6 +24,8 @@ package ru.aa.game.commands
 			
 			new TopcoatLightMobileTheme();
 //			new MetalWorksMobileTheme();
+			
+			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
 		}
 	}
 }

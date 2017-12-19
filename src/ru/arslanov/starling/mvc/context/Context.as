@@ -9,10 +9,10 @@ package ru.arslanov.starling.mvc.context
 	
 	import ru.arslanov.starling.mvc.Mapper;
 	import ru.arslanov.starling.mvc.commands.CommandMap;
-	import ru.arslanov.starling.mvc.injection.ObjectMap;
+	import ru.arslanov.starling.mvc.injection.InstanceMap;
 	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IObjectMap;
+	import ru.arslanov.starling.mvc.interfaces.IInstanceMap;
 	import ru.arslanov.starling.mvc.interfaces.IMapper;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
@@ -21,13 +21,14 @@ package ru.arslanov.starling.mvc.context
 	import starling.display.DisplayObjectContainer;
 	
 	/**
-	 * ...
+	 * Контекст - основной класс архитектуры, который содержит менеджеры основных сущностей фреймворка.
+	 * В то же время, является центральной шиной событий для связи между модулями приложения.
 	 * @author Artem Arslanov
 	 */
 	public class Context extends EventDispatcher implements IContext
 	{
 		private var _mapper:IMapper;
-		private var _injectionMap:IObjectMap;
+		private var _instanceMap:IInstanceMap;
 		private var _commandMap:ICommandMap;
 		private var _mediatorMap:IMediatorMap;
 		
@@ -36,10 +37,10 @@ package ru.arslanov.starling.mvc.context
 		public function Context(contextView:DisplayObjectContainer)
 		{
 			_contextView = contextView;
-			_injectionMap = new ObjectMap();
+			_instanceMap = new InstanceMap();
 			_mediatorMap = new MediatorMap(this);
 			_commandMap = new CommandMap(this);
-			_mapper = new Mapper(_injectionMap, _mediatorMap, _commandMap);
+			_mapper = new Mapper(_instanceMap, _mediatorMap, _commandMap);
 		}
 		
 		public function get contextView():DisplayObjectContainer { return _contextView; }
@@ -67,11 +68,11 @@ package ru.arslanov.starling.mvc.context
 		}
 		
 		/*
-		 *	ObjectMap for fast access
+		 *	InstanceMap for fast access
 		 */
-		public function getOf(type:*):* { return _injectionMap.getOf(type); }
+		public function getOf(type:*):* { return _instanceMap.getOf(type); }
 		
-		public function hasObject(type:*):Boolean { return _injectionMap.hasObject(type); }
+		public function hasOf(type:*):Boolean { return _instanceMap.hasOf(type); }
 		
 		/*
 		 *	Events

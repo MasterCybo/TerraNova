@@ -2,10 +2,11 @@ package ru.arslanov.starling.mvc
 {
 	import ru.arslanov.starling.mvc.interfaces.IConfig;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IMapper;
+	import ru.arslanov.starling.mvc.interfaces.IMapSetter;
 	
 	/**
-	 * ...
+	 * Конфигурация архитектуры приложения.
+	 * В нём описываются все взаимосвязи между основными объекми архитектуры.
 	 * @author Artem Arslanov
 	 */
 	public class Config implements IConfig
@@ -26,6 +27,6 @@ package ru.arslanov.starling.mvc
 		public function get context():IContext { return _context }
 		
 		// For short access
-		public function map(type:*):IMapper { return _context.mapper.map(type); }
+		public function map(type:*):IMapSetter { return _context.mapper.map(type); }
 	}
 }

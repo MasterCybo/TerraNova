@@ -8,10 +8,10 @@ package ru.arslanov.starling.mvc.interfaces
 	import starling.display.DisplayObjectContainer;
 	
 	/**
-	 * ...
+	 * Интерфейс контекста
 	 * @author Artem Arslanov
 	 */
-	public interface IContext extends IEventDispatcher, IObjectAccessor
+	public interface IContext extends IEventDispatcher, IInstanceGetter
 	{
 		function get contextView():DisplayObjectContainer;
 		function get mapper():IMapper;

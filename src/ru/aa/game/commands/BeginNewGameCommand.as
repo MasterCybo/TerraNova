@@ -16,13 +16,14 @@ package ru.aa.game.commands
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
 	import ru.aa.game.services.GameDataStorage;
+	import ru.aa.game.services.ResourceLoader;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class NewGameCommand extends Command
+	public class BeginNewGameCommand extends Command
 	{
-		public function NewGameCommand(context:IContext, event:Event)
+		public function BeginNewGameCommand(context:IContext, event:Event)
 		{
 			super(context, event);
 		}
@@ -34,6 +35,10 @@ package ru.aa.game.commands
 			var hero:MoHero = getOf(MoHero);
 			var world:IWorld = getOf(IWorld);
 			hero.position.world = world;
+			
+			var resLoader:ResourceLoader = new ResourceLoader(context);
+			mapper.map(ResourceLoader).toValue(resLoader);
+//			resLoader.start();
 			
 			var kindsCollection:ItemsKindCollection = getOf(ItemsKindCollection);
 			

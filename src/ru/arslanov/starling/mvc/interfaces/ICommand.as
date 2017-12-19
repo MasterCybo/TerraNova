@@ -6,7 +6,7 @@ package ru.arslanov.starling.mvc.interfaces
 	 * ...
 	 * @author Artem Arslanov
 	 */
-	public interface ICommand
+	public interface ICommand extends IInstanceGetter
 	{
 		function execute():void;
 		function destruct():void;

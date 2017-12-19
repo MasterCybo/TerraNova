@@ -3,8 +3,6 @@
  */
 package ru.aa.game.mediators
 {
-	import ru.aa.game.collections.Files;
-	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.display.AppView;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
@@ -17,7 +15,6 @@ package ru.aa.game.mediators
 	{
 		public static const MAX_HISTORY:int = 5;
 		
-		private var _view:AppView;
 		private var _history:Vector.<String> = new Vector.<String>();
 		
 		public function AppViewMediator(context:IContext)
@@ -25,16 +22,11 @@ package ru.aa.game.mediators
 			super(context);
 		}
 		
+		public function get view():AppView {return getView() as AppView;}
+		
 		override public function initialize(displayObject:DisplayObject):void
 		{
 			super.initialize(displayObject);
-			
-			_view = displayObject as AppView;
-			
-//			Assets.me.init();
-//			Assets.me.enqueue(Files.SPRITES_XML);
-//			Assets.me.enqueue(Files.SPRITES_PNG);
-//			Assets.me.loadQueue(loadingHandler);
 			
 			showScreen(ScreenName.MAIN_MENU);
 			
@@ -47,7 +39,6 @@ package ru.aa.game.mediators
 			removeContextListener(ScreenEvent.SHOW_SCREEN, showScreenHandler);
 			removeContextListener(ScreenEvent.SHOW_PREVIOUS, showScreenHandler);
 			super.destroy();
-			_view = null;
 		}
 		
 		private function showScreenHandler(event:ScreenEvent):void
@@ -64,9 +55,9 @@ package ru.aa.game.mediators
 		
 		private function showScreen(name:String, properties:Object = null):void
 		{
-			if (!name || name == _view.activeScreenID) return;
-			if (properties) _view.getScreen(name).properties.data = properties;
-			_view.showScreen(name);
+			if (!name || name == view.activeScreenID) return;
+			if (properties) view.getScreen(name).properties.data = properties;
+			view.showScreen(name);
 			pushToHistory(name);
 		}
 		

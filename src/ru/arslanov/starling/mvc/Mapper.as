@@ -4,26 +4,33 @@
 package ru.arslanov.starling.mvc
 {
 	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
-	import ru.arslanov.starling.mvc.interfaces.IObjectMap;
+	import ru.arslanov.starling.mvc.interfaces.IMapSetter;
+	import ru.arslanov.starling.mvc.interfaces.IInstanceMap;
 	import ru.arslanov.starling.mvc.interfaces.IMapper;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	
-	public class Mapper implements IMapper
+	public class Mapper implements IMapper, IMapSetter
 	{
-		private var _injectionMap:IObjectMap;
+		private var _instanceMap:IInstanceMap;
 		private var _mediatorMap:IMediatorMap;
 		private var _commandMap:ICommandMap;
 		
 		private var _mappingType:*;
 		
-		public function Mapper(injectionMap:IObjectMap, mediatorMap:IMediatorMap, commandMap:ICommandMap)
+		/**
+		 * Предоставляет единый интерфейс для связывания медиаторов, событий и команд, типов и объектов
+		 * @param injectionMap
+		 * @param mediatorMap
+		 * @param commandMap
+		 */
+		public function Mapper(injectionMap:IInstanceMap, mediatorMap:IMediatorMap, commandMap:ICommandMap)
 		{
-			_injectionMap = injectionMap;
+			_instanceMap = injectionMap;
 			_mediatorMap = mediatorMap;
 			_commandMap = commandMap;
 		}
 		
-		public function map(type:*):IMapper
+		public function map(type:*):IMapSetter
 		{
 			_mappingType = type;
 			return this;
@@ -37,20 +44,20 @@ package ru.arslanov.starling.mvc
 			return _mediatorMap;
 		}
 		
-		public function asSingleton(singletonClass:Class):IObjectMap
+		public function asSingleton(singletonClass:Class):IInstanceMap
 		{
 			checkType();
-			_injectionMap.map(_mappingType).asSingleton(singletonClass);
+			_instanceMap.map(_mappingType).asSingleton(singletonClass);
 			_mappingType = null;
-			return _injectionMap;
+			return _instanceMap;
 		}
 		
-		public function toValue(value:Object):IObjectMap
+		public function toValue(value:Object):IInstanceMap
 		{
 			checkType();
-			_injectionMap.map(_mappingType).toValue(value);
+			_instanceMap.map(_mappingType).toValue(value);
 			_mappingType = null;
-			return _injectionMap;
+			return _instanceMap;
 		}
 		
 		public function toCommand(commandClass:Class):ICommandMap
@@ -61,21 +68,20 @@ package ru.arslanov.starling.mvc
 			return _commandMap;
 		}
 		
-		public function unmap(type:*):IMapper
+		public function unmap(type:*):void
 		{
 			if (!type) throw new ArgumentError("Argument is null!");
 			switch (true) {
 				case _mediatorMap.hasMediator(type):
 					_mediatorMap.unmap(type);
 					break;
-				case _injectionMap.hasObject(type):
-					_injectionMap.unmap(type);
+				case _instanceMap.hasOf(type):
+					_instanceMap.unmap(type);
 					break;
 				case _commandMap.hasEventType(type):
 					_commandMap.unmap(type);
 					break;
 			}
-			return this;
 		}
 		
 		private function checkType():void

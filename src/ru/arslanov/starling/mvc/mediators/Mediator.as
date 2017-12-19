@@ -10,7 +10,7 @@ package ru.arslanov.starling.mvc.mediators
 
 
 	/**
-	 * ...
+	 * Медиатор - контроллер. Связывающий объект между вьюшкой и моделями, сервисами.
 	 * @author Artem Arslanov
 	 */
 	public class Mediator extends ObjectContext implements IMediator

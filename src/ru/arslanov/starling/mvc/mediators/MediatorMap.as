@@ -4,6 +4,7 @@ package ru.arslanov.starling.mvc.mediators
 	
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.interfaces.IMediator;
+	import ru.arslanov.starling.mvc.interfaces.IMediateSetter;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
 	
@@ -15,7 +16,7 @@ package ru.arslanov.starling.mvc.mediators
 	 * ...
 	 * @author Artem Arslanov
 	 */
-	public class MediatorMap implements IMediatorMap
+	public class MediatorMap implements IMediatorMap, IMediateSetter
 	{
 		private var _context:IContext;
 		private var _mapMediators:Dictionary = new Dictionary(); // DisplayObjectClass = MediatorClass
@@ -76,7 +77,7 @@ package ru.arslanov.starling.mvc.mediators
 		
 		public function hasMediator(mediatorClass:Class):Boolean { return _mapViews[mediatorClass]; }
 		
-		public function map(mediatorClass:Class):IMediatorMap
+		public function map(mediatorClass:Class):IMediateSetter
 		{
 			_mappedClass = mediatorClass;
 			return this;

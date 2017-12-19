@@ -9,7 +9,7 @@ package ru.arslanov.starling.mvc.interfaces
 	 * ...
 	 * @author Artem Arslanov
 	 */
-	public interface IObjectContext extends IObjectAccessor
+	public interface IObjectContext extends IInstanceGetter
 	{
 		function get context():IContext;
 

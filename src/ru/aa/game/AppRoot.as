@@ -32,6 +32,7 @@ package ru.aa.game
 			
 			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
 			addChild(appView);
+			
 		}
 	}
 }

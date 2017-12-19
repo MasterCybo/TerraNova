@@ -34,7 +34,7 @@ package ru.arslanov.starling.mvc.context
 		 *	For fast access
 		 */
 		public function getOf(type:*):* { return _context.getOf(type); }
-		public function hasObject(type:*):Boolean { return _context.hasObject(type); }
+		public function hasOf(type:*):Boolean { return _context.hasOf(type); }
 		
 		/*
 		 *	Events

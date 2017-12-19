@@ -4,15 +4,15 @@ package ru.arslanov.starling.mvc.commands
 	
 	import ru.arslanov.starling.mvc.interfaces.ICommand;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IObjectAccessor;
 	import ru.arslanov.starling.mvc.interfaces.IMapper;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	
 	/**
-	 * ...
+	 * Команда - инициализируется по событию, отправленному через контекст.
+	 * Создание и запуск команд происходит в классе CommandMap
 	 * @author Artem Arslanov
 	 */
-	public class Command implements ICommand, IObjectAccessor
+	public class Command implements ICommand
 	{
 		public var verbose:Boolean = false; // Выводить запуск команды в trace
 		
@@ -24,7 +24,7 @@ package ru.arslanov.starling.mvc.commands
 			_context = context;
 			_event = event;
 		}
-
+		
 		public function execute():void
 		{
 			if (!verbose) trace("[Command " + this + "] execute");
@@ -39,13 +39,14 @@ package ru.arslanov.starling.mvc.commands
 		/*
 		 * For fast access
 		 */
+		public function get context():IContext { return _context; }
 		public function get mapper():IMapper { return _context.mapper; }
 		public function get mediatorMap():IMediatorMap { return _context.mediatorMap; }
 		
 		public function getEvent():Event { return _event }
 		
 		public function getOf(type:*):* { return _context.getOf(type); }
-		public function hasObject(type:*):Boolean { return _context.hasObject(type); }
+		public function hasOf(type:*):Boolean { return _context.hasOf(type); }
 
 		public function dispatchEvent(event:Event):Boolean { return _context.dispatchEvent(event); }
 	}

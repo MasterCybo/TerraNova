@@ -3,12 +3,10 @@
  */
 package ru.arslanov.starling.mvc.interfaces
 {
-	public interface IObjectMap extends IObjectAccessor
+	public interface IInstanceMap extends IInstanceGetter
 	{
 		function unmap(type:*):void;
-		function map(type:*):IObjectMap;
-		function asSingleton(singletonClass:Class):*;
-		function toValue(value:Object):*;
+		function map(type:*):IInstanceSetter;
 		function unmapAll():void;
 		function getAllTypes():Vector.<*>;
 	}
