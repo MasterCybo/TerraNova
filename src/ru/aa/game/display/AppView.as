@@ -15,7 +15,7 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
-	import ru.aa.game.display.screens.views.PersonageScreen;
+	import ru.aa.game.display.screens.views.HeroScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	
 	public class AppView extends ScreenNavigator
@@ -41,7 +41,7 @@ package ru.aa.game.display
 			screenItem = new ScreenNavigatorItem(BackpackScreen);
 			addScreen(ScreenName.BACKPACK, screenItem);
 			
-			screenItem = new ScreenNavigatorItem(PersonageScreen);
+			screenItem = new ScreenNavigatorItem(HeroScreen);
 			addScreen(ScreenName.PERSONAGE, screenItem);
 			
 			screenItem = new ScreenNavigatorItem(BriefingScreen);

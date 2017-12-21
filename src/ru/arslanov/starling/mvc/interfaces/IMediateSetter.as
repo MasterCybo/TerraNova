@@ -5,6 +5,6 @@ package ru.arslanov.starling.mvc.interfaces
 {
 	public interface IMediateSetter
 	{
-		function toMediate(viewClass:Class):void;
+		function toMediator(mediatorClass:Class):void;
 	}
 }

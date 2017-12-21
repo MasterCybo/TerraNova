@@ -13,7 +13,7 @@ package ru.aa.game.display.screens.views
 	import ru.aa.game.core.display.text.AppLabel;
 	import ru.aa.game.player.models.MoHero;
 	
-	public class PersonageScreen extends Screen
+	public class HeroScreen extends Screen
 	{
 		public static const BUTTON_BACK:String = "backButton";
 		public static const BUTTON_BACKPACK:String = "backpackButton";
@@ -29,7 +29,7 @@ package ru.aa.game.display.screens.views
 		private var _toolbar:LayoutGroup;
 		private var _playerParams:LayoutGroup;
 		
-		public function PersonageScreen()
+		public function HeroScreen()
 		{
 			super();
 		}

@@ -27,7 +27,7 @@ package ru.aa.game
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
-	import ru.aa.game.display.screens.views.PersonageScreen;
+	import ru.aa.game.display.screens.views.HeroScreen;
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	import ru.aa.game.display.world.WorldMap;
@@ -86,18 +86,18 @@ package ru.aa.game
 		
 		private function mapMediators():void
 		{
-			map(AppViewMediator).toMediate(AppView);
-			map(MainMenuScreenMediator).toMediate(MainMenuScreen);
-			map(BackpackScreenMediator).toMediate(BackpackScreen);
-			map(CommunicatorScreenMediator).toMediate(CommunicatorScreen);
-			map(BattleScreenMediator).toMediate(BattleScreen);
-			map(BriefingScreenMediator).toMediate(BriefingScreen);
-			map(RegionScreenMediator).toMediate(RegionScreen);
-			map(HeroScreenMediator).toMediate(PersonageScreen);
-			map(WorldScreenMediator).toMediate(WorldScreen);
+			map(AppView).toMediator(AppViewMediator);
+			map(MainMenuScreen).toMediator(MainMenuScreenMediator);
+			map(BackpackScreen).toMediator(BackpackScreenMediator);
+			map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
+			map(BattleScreen).toMediator(BattleScreenMediator);
+			map(BriefingScreen).toMediator(BriefingScreenMediator);
+			map(RegionScreen).toMediator(RegionScreenMediator);
+			map(HeroScreen).toMediator(HeroScreenMediator);
+			map(WorldScreen).toMediator(WorldScreenMediator);
 			
-			map(WorldMapMediator).toMediate(WorldMap);
-			map(RegionMapMediator).toMediate(RegionMap);
+			map(WorldMap).toMediator(WorldMapMediator);
+			map(RegionMap).toMediator(RegionMapMediator);
 		}
 	}
 }

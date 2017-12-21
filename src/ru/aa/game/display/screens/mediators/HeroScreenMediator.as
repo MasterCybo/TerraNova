@@ -6,7 +6,7 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.screens.views.PersonageScreen;
+	import ru.aa.game.display.screens.views.HeroScreen;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
@@ -27,7 +27,7 @@ package ru.aa.game.display.screens.mediators
 			
 			var moHero:MoHero = getOf(MoHero);
 			
-			(getView() as PersonageScreen).player = moHero;
+			(getView() as HeroScreen).player = moHero;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}
@@ -44,10 +44,10 @@ package ru.aa.game.display.screens.mediators
 			if (!button) return;
 			
 			switch (button.name) {
-				case PersonageScreen.BUTTON_BACK:
+				case HeroScreen.BUTTON_BACK:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
-				case PersonageScreen.BUTTON_BACKPACK:
+				case HeroScreen.BUTTON_BACKPACK:
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
 					break;
 			}

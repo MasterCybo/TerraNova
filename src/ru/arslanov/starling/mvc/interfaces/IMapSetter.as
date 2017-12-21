@@ -7,7 +7,7 @@ package ru.arslanov.starling.mvc.interfaces
 	{
 		function asSingleton(singletonClass:Class):IInstanceMap;
 		function toValue(value:Object):IInstanceMap;
-		function toMediate(viewClass:Class):IMediatorMap;
+		function toMediator(mediatorClass:Class):IMediatorMap;
 		function toCommand(commandClass:Class):ICommandMap;
 	}
 }

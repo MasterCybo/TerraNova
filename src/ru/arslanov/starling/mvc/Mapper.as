@@ -15,7 +15,7 @@ package ru.arslanov.starling.mvc
 		private var _mediatorMap:IMediatorMap;
 		private var _commandMap:ICommandMap;
 		
-		private var _mappingType:*;
+		private var _mappedType:*;
 		
 		/**
 		 * Предоставляет единый интерфейс для связывания медиаторов, событий и команд, типов и объектов
@@ -32,39 +32,39 @@ package ru.arslanov.starling.mvc
 		
 		public function map(type:*):IMapSetter
 		{
-			_mappingType = type;
+			_mappedType = type;
 			return this;
 		}
 		
-		public function toMediate(viewClass:Class):IMediatorMap
+		public function toMediator(mediatorClass:Class):IMediatorMap
 		{
 			checkType();
-			_mediatorMap.map(_mappingType).toMediate(viewClass);
-			_mappingType = null;
+			_mediatorMap.map(_mappedType).toMediator(mediatorClass);
+			_mappedType = null;
 			return _mediatorMap;
 		}
 		
 		public function asSingleton(singletonClass:Class):IInstanceMap
 		{
 			checkType();
-			_instanceMap.map(_mappingType).asSingleton(singletonClass);
-			_mappingType = null;
+			_instanceMap.map(_mappedType).asSingleton(singletonClass);
+			_mappedType = null;
 			return _instanceMap;
 		}
 		
 		public function toValue(value:Object):IInstanceMap
 		{
 			checkType();
-			_instanceMap.map(_mappingType).toValue(value);
-			_mappingType = null;
+			_instanceMap.map(_mappedType).toValue(value);
+			_mappedType = null;
 			return _instanceMap;
 		}
 		
 		public function toCommand(commandClass:Class):ICommandMap
 		{
 			checkType();
-			_commandMap.map(_mappingType).toCommand(commandClass);
-			_mappingType = null;
+			_commandMap.map(_mappedType).toCommand(commandClass);
+			_mappedType = null;
 			return _commandMap;
 		}
 		
@@ -86,7 +86,7 @@ package ru.arslanov.starling.mvc
 		
 		private function checkType():void
 		{
-			if (!_mappingType) throw new ArgumentError("Missing type! First call map(type:*) method!");
+			if (!_mappedType) throw new ArgumentError("Missing type! First call map(type:*) method!");
 		}
 	}
 }

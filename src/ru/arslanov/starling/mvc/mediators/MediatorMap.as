@@ -77,7 +77,29 @@ package ru.arslanov.starling.mvc.mediators
 		
 		public function hasMediator(mediatorClass:Class):Boolean { return _mapViews[mediatorClass]; }
 		
-		public function map(mediatorClass:Class):IMediateSetter
+		public function map(viewClass:Class):IMediateSetter
+		{
+			_mappedClass = viewClass;
+			return this;
+		}
+		
+		public function toMediator(mediatorClass:Class):void
+		{
+			if (_mapViews[mediatorClass] != undefined) {
+				trace("WARNING! " + this + "::toMediator() : " + mediatorClass + " already mapped to " + _mappedClass);
+				_mappedClass = null;
+				return;
+			}
+			
+			_mapMediators[_mappedClass] = mediatorClass;
+			_mapViews[mediatorClass] = _mappedClass;
+			
+			trace(this, "Mapped " + _mappedClass + " to mediator " + mediatorClass);
+			
+			_mappedClass = null;
+		}
+		
+		/*public function map(mediatorClass:Class):IMediateSetter
 		{
 			_mappedClass = mediatorClass;
 			return this;
@@ -97,7 +119,7 @@ package ru.arslanov.starling.mvc.mediators
 			trace(this, "Mapped " + _mappedClass + " to mediate " + viewClass);
 			
 			_mappedClass = null;
-		}
+		}*/
 		
 		public function unmap(mediatorClass:Class):void
 		{

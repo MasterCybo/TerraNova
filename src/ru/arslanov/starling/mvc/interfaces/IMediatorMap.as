@@ -7,7 +7,7 @@ package ru.arslanov.starling.mvc.interfaces
 	
 	public interface IMediatorMap
 	{
-		function map(mediatorClass:Class):IMediateSetter;
+		function map(viewClass:Class):IMediateSetter;
 		function unmap(mediatorClass:Class):void;
 		function mediate(view:DisplayObject):void;
 		function unmediate(view:DisplayObject):void;
