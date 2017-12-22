@@ -1,8 +1,10 @@
 package ru.arslanov.starling.mvc
 {
+	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
 	import ru.arslanov.starling.mvc.interfaces.IConfig;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IMapSetter;
+	import ru.arslanov.starling.mvc.interfaces.IInjector;
+	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	
 	/**
 	 * Конфигурация архитектуры приложения.
@@ -25,8 +27,8 @@ package ru.arslanov.starling.mvc
 		}
 		
 		public function get context():IContext { return _context }
-		
-		// For short access
-		public function map(type:*):IMapSetter { return _context.mapper.map(type); }
+		public function get injector():IInjector { return _context.injector; }
+		public function get mediatorMap():IMediatorMap { return _context.mediatorMap; }
+		public function get commandMap():ICommandMap { return _context.commandMap; }
 	}
 }

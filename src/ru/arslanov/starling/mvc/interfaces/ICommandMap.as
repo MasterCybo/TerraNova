@@ -7,10 +7,9 @@ package ru.arslanov.starling.mvc.interfaces
 	
 	public interface ICommandMap
 	{
-		function hasEventType(eventType:String):Boolean;
-		function unmap(eventType:String):void;
-		function map(eventType:String):ICommandMap;
-		function toCommand(commandClass:Class):void;
+		function hasEventCommand(eventType:String, concreteCommand:Class = null):Boolean;
+		function unmap(eventType:String, commandClass:Class = null):void;
+		function map(eventType:String, eventClass:Class = null):ICommandSetter;
 		function dispatchEvent(event:Event):Boolean;
 	}
 }

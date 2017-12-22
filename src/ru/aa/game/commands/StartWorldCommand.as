@@ -13,7 +13,7 @@ package ru.aa.game.commands
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.aa.game.services.GameDataStorage;
+	import ru.aa.game.services.DataLoadService;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
@@ -34,10 +34,10 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			var hero:MoHero = getOf(MoHero);
+			var hero:MoHero = injector.getOf(MoHero);
 			var world:IWorld = hero.position.world;
 			
-			var dataStorage:GameDataStorage = getOf(GameDataStorage);
+			var dataStorage:DataLoadService = injector.getOf(DataLoadService);
 			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
 			dataStorage.verbose = true;
 			dataStorage.load(world.dataURL, world);
@@ -45,7 +45,7 @@ package ru.aa.game.commands
 		
 		private function onLoadComplete(event:Event):void
 		{
-			var dataStorage:GameDataStorage = event.target as GameDataStorage;
+			var dataStorage:DataLoadService = event.target as DataLoadService;
 			dataStorage.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
 			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));

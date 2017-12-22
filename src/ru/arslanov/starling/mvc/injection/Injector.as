@@ -2,21 +2,21 @@ package ru.arslanov.starling.mvc.injection
 {
 	import flash.utils.Dictionary;
 	
-	import ru.arslanov.starling.mvc.interfaces.IInstanceMap;
-	import ru.arslanov.starling.mvc.interfaces.IInstanceSetter;
+	import ru.arslanov.starling.mvc.interfaces.IInjector;
+	import ru.arslanov.starling.mvc.interfaces.IInjectorSetter;
 	
 	/**
 	 * ...
 	 * @author Artem Arslanov
 	 */
-	public class InstanceMap implements IInstanceMap, IInstanceSetter
+	public class Injector implements IInjector, IInjectorSetter
 	{
 		private var _map:Dictionary = new Dictionary();
 		private var _types:Vector.<*> = new Vector.<*>();
 		
 		private var _mappedType:*;
 		
-		public function InstanceMap() {}
+		public function Injector() {}
 		
 		public function getOf(type:*):* { return _map[type]; }
 		public function hasOf(type:*):Boolean { return getOf(type) != null; }
@@ -32,7 +32,7 @@ package ru.arslanov.starling.mvc.injection
 			}
 		}
 		
-		public function map(type:*):IInstanceSetter
+		public function map(type:*):IInjectorSetter
 		{
 			_mappedType = type;
 			return this;
@@ -42,7 +42,7 @@ package ru.arslanov.starling.mvc.injection
 		{
 			var instance:* = getOf(_mappedType);
 			if (instance) {
-				trace("WARNING InstanceMap! Type " + _mappedType + " already mapped to " + instance);
+				trace("WARNING Injector! Type " + _mappedType + " already mapped to " + instance);
 				_mappedType = null;
 				return instance;
 			}
@@ -53,7 +53,7 @@ package ru.arslanov.starling.mvc.injection
 		{
 			var instance:* = getOf(_mappedType);
 			if (instance) {
-				trace("WARNING InstanceMap! Type " + _mappedType + " already to " + instance);
+				trace("WARNING Injector! Type " + _mappedType + " already to " + instance);
 				return instance;
 			}
 			

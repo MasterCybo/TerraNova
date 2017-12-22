@@ -36,18 +36,18 @@ package ru.aa.game.configs
 		{
 			super.initialize();
 			
-			map(AppView).toMediator(AppViewMediator);
-			map(MainMenuScreen).toMediator(MainMenuScreenMediator);
-			map(BackpackScreen).toMediator(BackpackScreenMediator);
-			map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
-			map(BattleScreen).toMediator(BattleScreenMediator);
-			map(BriefingScreen).toMediator(BriefingScreenMediator);
-			map(RegionScreen).toMediator(RegionScreenMediator);
-			map(HeroScreen).toMediator(HeroScreenMediator);
-			map(WorldScreen).toMediator(WorldScreenMediator);
+			mediatorMap.map(AppView).toMediator(AppViewMediator);
+			mediatorMap.map(MainMenuScreen).toMediator(MainMenuScreenMediator);
+			mediatorMap.map(BackpackScreen).toMediator(BackpackScreenMediator);
+			mediatorMap.map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
+			mediatorMap.map(BattleScreen).toMediator(BattleScreenMediator);
+			mediatorMap.map(BriefingScreen).toMediator(BriefingScreenMediator);
+			mediatorMap.map(RegionScreen).toMediator(RegionScreenMediator);
+			mediatorMap.map(HeroScreen).toMediator(HeroScreenMediator);
+			mediatorMap.map(WorldScreen).toMediator(WorldScreenMediator);
 			
-			map(WorldMap).toMediator(WorldMapMediator);
-			map(RegionMap).toMediator(RegionMapMediator);
+			mediatorMap.map(WorldMap).toMediator(WorldMapMediator);
+			mediatorMap.map(RegionMap).toMediator(RegionMapMediator);
 		}
 	}
 }

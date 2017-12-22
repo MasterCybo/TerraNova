@@ -7,13 +7,11 @@ package ru.arslanov.starling.mvc.context
 	import flash.events.EventDispatcher;
 	import flash.utils.describeType;
 	
-	import ru.arslanov.starling.mvc.Mapper;
 	import ru.arslanov.starling.mvc.commands.CommandMap;
-	import ru.arslanov.starling.mvc.injection.InstanceMap;
+	import ru.arslanov.starling.mvc.injection.Injector;
 	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
 	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IInstanceMap;
-	import ru.arslanov.starling.mvc.interfaces.IMapper;
+	import ru.arslanov.starling.mvc.interfaces.IInjector;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
 	import ru.arslanov.starling.mvc.mediators.MediatorMap;
@@ -27,8 +25,7 @@ package ru.arslanov.starling.mvc.context
 	 */
 	public class Context extends EventDispatcher implements IContext
 	{
-		private var _mapper:IMapper;
-		private var _instanceMap:IInstanceMap;
+		private var _instanceMap:IInjector;
 		private var _commandMap:ICommandMap;
 		private var _mediatorMap:IMediatorMap;
 		
@@ -37,17 +34,15 @@ package ru.arslanov.starling.mvc.context
 		public function Context(contextView:DisplayObjectContainer)
 		{
 			_contextView = contextView;
-			_instanceMap = new InstanceMap();
+			_instanceMap = new Injector();
 			_mediatorMap = new MediatorMap(this);
 			_commandMap = new CommandMap(this);
-			_mapper = new Mapper(_instanceMap, _mediatorMap, _commandMap);
 		}
 		
 		public function get contextView():DisplayObjectContainer { return _contextView; }
-		
-		public function get mapper():IMapper { return _mapper; }
-		
+		public function get injector():IInjector { return _instanceMap; }
 		public function get mediatorMap():IMediatorMap { return _mediatorMap; }
+		public function get commandMap():ICommandMap {return _commandMap;}
 		
 		public function install(...extensionClasses):IContext
 		{
@@ -79,13 +74,6 @@ package ru.arslanov.starling.mvc.context
 			}
 			return this;
 		}
-		
-		/*
-		 *	InstanceMap for fast access
-		 */
-		public function getOf(type:*):* { return _instanceMap.getOf(type); }
-		
-		public function hasOf(type:*):Boolean { return _instanceMap.hasOf(type); }
 		
 		/*
 		 *	Events

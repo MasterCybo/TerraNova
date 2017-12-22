@@ -5,7 +5,10 @@ package ru.arslanov.starling.mvc.context
 {
 	import flash.events.Event;
 	
+	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
+	
 	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.interfaces.IInjector;
 	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
 	import ru.arslanov.starling.mvc.interfaces.IObjectContext;
 	
@@ -28,13 +31,9 @@ package ru.arslanov.starling.mvc.context
 		}
 
 		public function get context():IContext { return _context; }
+		public function get injector():IInjector { return _context.injector; }
 		public function get mediatorMap():IMediatorMap { return _context.mediatorMap; }
-		
-		/*
-		 *	For fast access
-		 */
-		public function getOf(type:*):* { return _context.getOf(type); }
-		public function hasOf(type:*):Boolean { return _context.hasOf(type); }
+		public function get commandMap():ICommandMap { return _context.commandMap; }
 		
 		/*
 		 *	Events

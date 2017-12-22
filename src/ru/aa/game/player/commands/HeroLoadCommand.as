@@ -20,9 +20,9 @@ package ru.aa.game.player.commands
 		{
 			super.execute();
 			
-			var hero:MoHero = getOf(MoHero);
+			var hero:MoHero = injector.getOf(MoHero);
 			
-			var fileService:FileService = getOf(FileService);
+			var fileService:FileService = injector.getOf(FileService);
 			fileService.load("player.txt", hero);
 		}
 	}

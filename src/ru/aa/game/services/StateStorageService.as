@@ -7,12 +7,12 @@ package ru.aa.game.services
 	
 	import ru.aa.game.core.services.FileService;
 	
-	public class GameStateStorage extends FileService
+	public class StateStorageService extends FileService
 	{
 		/**
 		 * Сервис загрузки и сохранения текущего состояния игры
 		 */
-		public function GameStateStorage():void
+		public function StateStorageService():void
 		{
 			super(File.applicationStorageDirectory);
 		}

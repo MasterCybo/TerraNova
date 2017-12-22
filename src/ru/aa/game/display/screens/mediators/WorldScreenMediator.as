@@ -27,7 +27,7 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			var hero:MoHero = getOf(MoHero);
+			var hero:MoHero = injector.getOf(MoHero);
 			view.world = hero.position.world;
 			
 			trace("Display world : " + hero.position.world);

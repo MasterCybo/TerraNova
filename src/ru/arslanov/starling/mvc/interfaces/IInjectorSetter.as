@@ -1,6 +1,6 @@
 package ru.arslanov.starling.mvc.interfaces
 {
-	public interface IInstanceSetter
+	public interface IInjectorSetter
 	{
 		function asSingleton(singletonClass:Class):*;
 		function toValue(value:Object):*;

@@ -15,7 +15,7 @@ package ru.aa.game.commands
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.aa.game.services.GameDataStorage;
+	import ru.aa.game.services.DataLoadService;
 	import ru.aa.game.services.ResourceLoader;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
@@ -32,17 +32,17 @@ package ru.aa.game.commands
 		{
 			super.execute();
 			
-			var hero:MoHero = getOf(MoHero);
-			var world:IWorld = getOf(IWorld);
+			var hero:MoHero = injector.getOf(MoHero);
+			var world:IWorld = injector.getOf(IWorld);
 			hero.position.world = world;
 			
 			var resLoader:ResourceLoader = new ResourceLoader(context);
-			mapper.map(ResourceLoader).toValue(resLoader);
+			injector.map(ResourceLoader).toValue(resLoader);
 //			resLoader.start();
 			
-			var kindsCollection:ItemsKindCollection = getOf(ItemsKindCollection);
+			var kindsCollection:ItemsKindCollection = injector.getOf(ItemsKindCollection);
 			
-			var dataStorage:GameDataStorage = getOf(GameDataStorage);
+			var dataStorage:DataLoadService =injector. getOf(DataLoadService);
 			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
 			dataStorage.verbose = true;
 			dataStorage.load(Files.ITEMS_KIND, kindsCollection);
@@ -50,7 +50,7 @@ package ru.aa.game.commands
 		
 		private function onLoadComplete(event:Event):void
 		{
-			var dataStorage:GameDataStorage = event.target as GameDataStorage;
+			var dataStorage:DataLoadService = event.target as DataLoadService;
 			dataStorage.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
 			dispatchEvent(new StartWorldEvent(StartWorldEvent.START_WORLD));

@@ -3,10 +3,13 @@
  */
 package ru.arslanov.starling.mvc.interfaces
 {
-	public interface IInstanceMap extends IInstanceGetter
+	public interface IInjector
 	{
+		function hasOf(type:*):Boolean;
+		function getOf(type:*):*;
+		
 		function unmap(type:*):void;
-		function map(type:*):IInstanceSetter;
+		function map(type:*):IInjectorSetter;
 		function unmapAll():void;
 		function getAllTypes():Vector.<*>;
 	}

@@ -26,7 +26,7 @@ package ru.aa.game.mediators
 		{
 			super.initialize(displayObject);
 			
-			var hero:MoHero = getOf(MoHero);
+			var hero:MoHero = injector.getOf(MoHero);
 			hero.position.clearRegion();
 			
 			addViewListener(TileEvent.TAP, touchHandler);
@@ -47,7 +47,7 @@ package ru.aa.game.mediators
 			var tile:WorldTile = event.target as WorldTile;
 			
 			if (tile) {
-				var hero:MoHero = getOf(MoHero);
+				var hero:MoHero = injector.getOf(MoHero);
 				var world:IWorld = hero.position.world;
 				
 				hero.position.region = world.getRegion(tile.name);

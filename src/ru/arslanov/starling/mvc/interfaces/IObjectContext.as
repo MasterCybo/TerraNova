@@ -9,9 +9,12 @@ package ru.arslanov.starling.mvc.interfaces
 	 * ...
 	 * @author Artem Arslanov
 	 */
-	public interface IObjectContext extends IInstanceGetter
+	public interface IObjectContext
 	{
 		function get context():IContext;
+		function get injector():IInjector;
+		function get mediatorMap():IMediatorMap;
+		function get commandMap():ICommandMap;
 
 		function destroy():void;
 		

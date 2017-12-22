@@ -25,14 +25,15 @@ package ru.aa.game.configs
 		{
 			super.initialize();
 			
-			map(AppEvent.STARTUP_APPLICATION).toCommand(StartupCommand);
-			map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
-			map(AppEvent.BEGIN_NEW_GAME).toCommand(BeginNewGameCommand);
-			map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
-			map(StartRegionEvent.START_REGION).toCommand(StartRegionCommand);
+			commandMap.map(AppEvent.STARTUP_APPLICATION).toCommand(StartupCommand);
+			commandMap.map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
+			commandMap.map(AppEvent.BEGIN_NEW_GAME).toCommand(BeginNewGameCommand);
 			
-			map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
-			map(HeroServiceEvent.SAVE_STATE).toCommand(HeroSaveCommand);
+			commandMap.map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
+			commandMap.map(StartRegionEvent.START_REGION).toCommand(StartRegionCommand);
+			
+			commandMap.map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
+			commandMap.map(HeroServiceEvent.SAVE_STATE).toCommand(HeroSaveCommand);
 		}
 	}
 }

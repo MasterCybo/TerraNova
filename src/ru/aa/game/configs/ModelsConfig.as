@@ -19,9 +19,9 @@ package ru.aa.game.configs
 		{
 			super.initialize();
 			
-			map(ItemsKindCollection).asSingleton(ItemsKindCollection);
-			map(MoHero).asSingleton(MoHero);
-			map(IWorld).toValue(new MoWorld(Files.DEFAULT_WORLD));
+			injector.map(ItemsKindCollection).asSingleton(ItemsKindCollection);
+			injector.map(MoHero).asSingleton(MoHero);
+			injector.map(IWorld).toValue(new MoWorld(Files.DEFAULT_WORLD));
 		}
 	}
 }

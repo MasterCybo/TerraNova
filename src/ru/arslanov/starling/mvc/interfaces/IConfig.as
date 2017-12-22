@@ -8,7 +8,8 @@ package ru.arslanov.starling.mvc.interfaces
 		function initialize():void;
 		
 		function get context():IContext;
-		
-		function map(type:*):IMapSetter;
+		function get injector():IInjector;
+		function get mediatorMap():IMediatorMap;
+		function get commandMap():ICommandMap;
 	}
 }

@@ -26,7 +26,7 @@ package ru.aa.game.display.screens.mediators
 		{
 			super.initialize(displayObject);
 			
-			var hero:MoHero = getOf(MoHero);
+			var hero:MoHero = injector.getOf(MoHero);
 			view.region = hero.position.region;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
