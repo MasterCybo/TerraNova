@@ -56,6 +56,7 @@ package ru.arslanov.starling.mvc.commands
 		
 		public function map(eventType:String, eventClass:Class = null):ICommandSetter
 		{
+			// eventClass пока не используется
 			_mappedType = eventType;
 			return this;
 		}
