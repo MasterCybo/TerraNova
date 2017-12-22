@@ -14,6 +14,8 @@ package ru.aa.game.display.screens.views
 	
 	public class LoaderScreen extends Screen
 	{
+		private var _progress:Number = 0;
+		
 		public function LoaderScreen()
 		{
 			super();
@@ -24,6 +26,12 @@ package ru.aa.game.display.screens.views
 			super.initialize();
 			
 			Assets.me.enqueue();
+		}
+		
+		public function set progress(value:Number):void
+		{
+			if (value == _progress) return;
+			_progress = value;
 		}
 		
 		override protected function draw():void

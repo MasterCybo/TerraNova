@@ -4,6 +4,10 @@
 package ru.aa.game
 {
 	import ru.aa.game.commands.events.AppEvent;
+	import ru.aa.game.configs.CommandsConfig;
+	import ru.aa.game.configs.MediatorsConfig;
+	import ru.aa.game.configs.ModelsConfig;
+	import ru.aa.game.configs.ServicesConfig;
 	import ru.aa.game.display.AppView;
 	import ru.arslanov.starling.mvc.MVCStarling;
 	import ru.arslanov.starling.mvc.extensions.FeathersMediatorMapExtension;
@@ -27,8 +31,8 @@ package ru.aa.game
 			var appView:AppView = new AppView();
 			
 			context = MVCStarling.createContext(appView)
-					.extend(FeathersMediatorMapExtension)
-					.configurate(AppConfig);
+					.install(FeathersMediatorMapExtension)
+					.configure(ModelsConfig, MediatorsConfig, CommandsConfig, ServicesConfig);
 			
 			addChild(appView);
 			

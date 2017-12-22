@@ -49,21 +49,34 @@ package ru.arslanov.starling.mvc.context
 		
 		public function get mediatorMap():IMediatorMap { return _mediatorMap; }
 		
-		public function extend(extensionClass:Class):IContext
+		public function install(...extensionClasses):IContext
 		{
-			switch (true) {
-				case isImplementsOf(extensionClass, IMediatorMapExtension):
-					_mediatorMap.addExtension(extensionClass);
-					break;
-//				case isImplementsOf(extensionClass, ICommandMapExtension):
+			var extClass:Class;
+			for (var i:int = 0; i < extensionClasses.length; i++) {
+				extClass = extensionClasses[i];
+				switch (true) {
+					case isImplementsOf(extClass, IMediatorMapExtension):
+						_mediatorMap.addExtension(extClass);
+						break;
+//				case isImplementsOf(extClass, ICommandMapExtension):
 //					break;
+				}
 			}
+			
 			return this;
 		}
 		
-		public function configurate(configClass:Class):IContext
+		public function configure(...configClasses):IContext
 		{
-			new configClass(this).initialize();
+			var config:Object;
+			var ConfClass:Class;
+			for (var i:int = 0; i < configClasses.length; i++) {
+				ConfClass = configClasses[ i ];
+				if (ConfClass) {
+					config = new ConfClass(this);
+					if (config["initialize"] != null) config.initialize();
+				}
+			}
 			return this;
 		}
 		

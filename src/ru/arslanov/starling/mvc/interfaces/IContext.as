@@ -17,7 +17,7 @@ package ru.arslanov.starling.mvc.interfaces
 		function get mapper():IMapper;
 		function get mediatorMap():IMediatorMap;
 		
-		function extend(extensionClass:Class):IContext;
-		function configurate(configClass:Class):IContext;
+		function install(...extensionClasses):IContext;
+		function configure(...configClasses):IContext;
 	}
 }

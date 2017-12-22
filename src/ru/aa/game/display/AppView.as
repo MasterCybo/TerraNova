@@ -13,6 +13,7 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.BattleScreen;
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
+	import ru.aa.game.display.screens.views.LoaderScreen;
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.display.screens.views.HeroScreen;
@@ -29,7 +30,10 @@ package ru.aa.game.display
 		{
 			super.initialize();
 			
-			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(MainMenuScreen);
+			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(LoaderScreen);
+			addScreen(ScreenName.LOADER_SCREEN, screenItem);
+			
+			screenItem = new ScreenNavigatorItem(MainMenuScreen);
 			addScreen(ScreenName.MAIN_MENU, screenItem);
 			
 			screenItem = new ScreenNavigatorItem(WorldScreen);

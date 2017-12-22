@@ -13,5 +13,6 @@ package ru.aa.game.display.screens
 		public static const MAIN_MENU:String = "mainMenuScreen";
 		public static const PERSONAGE:String = "personageScreen";
 		public static const WORLD_MAP:String = "worldMapScreen";
+		public static const LOADER_SCREEN:String = "loaderScreen";
 	}
 }

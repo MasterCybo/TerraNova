@@ -18,7 +18,7 @@ package ru.arslanov.starling.mvc
 	{
 		static public function createContext(contextView:DisplayObjectContainer):IContext
 		{
-			return new Context(contextView).extend(StarlingMediatorMapExtension);
+			return new Context(contextView).install(StarlingMediatorMapExtension);
 		}
 	}
 }
