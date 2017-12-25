@@ -3,6 +3,8 @@
  */
 package ru.aa.game.mediators
 {
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.events.TileEvent;
@@ -10,23 +12,24 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.world.WorldTile;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
-	
-	public class WorldMapMediator extends Mediator
+	public class WorldMapMediator extends StarlingMediator
 	{
-		public function WorldMapMediator(context:IContext)
+		[Inject]
+		public var hero:MoHero;
+		
+		[Inject]
+		public var view:WorldMap;
+		
+		public function WorldMapMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			super.initialize();
 			
-			var hero:MoHero = injector.getOf(MoHero);
 			hero.position.clearRegion();
 			
 			addViewListener(TileEvent.TAP, touchHandler);
@@ -38,8 +41,6 @@ package ru.aa.game.mediators
 			super.destroy();
 		}
 		
-		private function get view():WorldMap { return getView() as WorldMap; }
-		
 		private function touchHandler(event:TileEvent):void
 		{
 			if (view.isScrolling) return;
@@ -47,12 +48,11 @@ package ru.aa.game.mediators
 			var tile:WorldTile = event.target as WorldTile;
 			
 			if (tile) {
-				var hero:MoHero = injector.getOf(MoHero);
 				var world:IWorld = hero.position.world;
 				
 				hero.position.region = world.getRegion(tile.name);
 				
-				dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BRIEFING));
+				eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BRIEFING));
 			}
 		}
 	}

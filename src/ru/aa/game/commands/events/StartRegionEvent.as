@@ -3,20 +3,15 @@
  */
 package ru.aa.game.commands.events
 {
-	import flash.events.Event;
+	import starling.events.Event;
 	
 	public class StartRegionEvent extends Event
 	{
 		public static const START_REGION:String = "startRegionEvent";
 		
-		public function StartRegionEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
+		public function StartRegionEvent(type:String, bubbles:Boolean = false, data:Object = null)
 		{
-			super(type, bubbles, cancelable);
-		}
-		
-		override public function clone():Event
-		{
-			return new StartRegionEvent(type, bubbles, cancelable);
+			super(type, bubbles, data);
 		}
 	}
 }

@@ -3,6 +3,8 @@
  */
 package ru.aa.game.display.screens.mediators
 {
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
@@ -16,18 +18,23 @@ package ru.aa.game.display.screens.mediators
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class WorldScreenMediator extends Mediator
+	public class WorldScreenMediator extends StarlingMediator
 	{
-		public function WorldScreenMediator(context:IContext)
+		[Inject]
+		public var hero:MoHero;
+		
+		[Inject]
+		public var view:WorldScreen;
+		
+		public function WorldScreenMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			super.initialize();
 			
-			var hero:MoHero = injector.getOf(MoHero);
 			view.world = hero.position.world;
 			
 			trace("Display world : " + hero.position.world);
@@ -41,8 +48,6 @@ package ru.aa.game.display.screens.mediators
 			super.destroy();
 		}
 		
-		private function get view():WorldScreen { return getView() as WorldScreen; }
-		
 		private function buttonHandler(event:Event):void
 		{
 			var button:AppButton = event.target as AppButton;
@@ -50,16 +55,16 @@ package ru.aa.game.display.screens.mediators
 			
 			switch (button.name) {
 				case WorldScreen.BUTTON_MAIN_MENU:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
 					break;
 				case WorldScreen.BUTTON_COMMUNICATOR:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.COMMUNICATOR));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.COMMUNICATOR));
 					break;
 				case WorldScreen.BUTTON_BACKPACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
 					break;
 				case WorldScreen.BUTTON_PERSONAGE:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.PERSONAGE));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.PERSONAGE));
 					break;
 			}
 		}

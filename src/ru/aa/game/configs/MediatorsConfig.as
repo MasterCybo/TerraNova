@@ -1,6 +1,9 @@
 package ru.aa.game.configs
 {
-	import ru.aa.game.display.AppView;
+	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+	import robotlegs.bender.framework.api.IConfig;
+	
+	import ru.aa.game.AppScreenNavigator;
 	import ru.aa.game.display.region.RegionMap;
 	import ru.aa.game.display.screens.mediators.BackpackScreenMediator;
 	import ru.aa.game.display.screens.mediators.BattleScreenMediator;
@@ -19,35 +22,35 @@ package ru.aa.game.configs
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	import ru.aa.game.display.world.WorldMap;
-	import ru.aa.game.mediators.AppViewMediator;
+	import ru.aa.game.mediators.AppScreenNavigatorMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class MediatorsConfig extends Config
+	public class MediatorsConfig implements IConfig
 	{
-		public function MediatorsConfig(context:IContext)
+		[Inject]
+		public var mediatorMap:IMediatorMap;
+		
+		
+		public function MediatorsConfig()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize():void
+		public function configure():void
 		{
-			super.initialize();
-			
-			mediatorMap.map(AppView).toMediator(AppViewMediator);
-			mediatorMap.map(MainMenuScreen).toMediator(MainMenuScreenMediator);
-			mediatorMap.map(BackpackScreen).toMediator(BackpackScreenMediator);
-			mediatorMap.map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
-			mediatorMap.map(BattleScreen).toMediator(BattleScreenMediator);
-			mediatorMap.map(BriefingScreen).toMediator(BriefingScreenMediator);
-			mediatorMap.map(RegionScreen).toMediator(RegionScreenMediator);
-			mediatorMap.map(HeroScreen).toMediator(HeroScreenMediator);
-			mediatorMap.map(WorldScreen).toMediator(WorldScreenMediator);
-			
-			mediatorMap.map(WorldMap).toMediator(WorldMapMediator);
-			mediatorMap.map(RegionMap).toMediator(RegionMapMediator);
+			mediatorMap.map(AppScreenNavigator).toMediator(AppScreenNavigatorMediator);
+//			mediatorMap.map(MainMenuScreen).toMediator(MainMenuScreenMediator);
+//			mediatorMap.map(BackpackScreen).toMediator(BackpackScreenMediator);
+//			mediatorMap.map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
+//			mediatorMap.map(BattleScreen).toMediator(BattleScreenMediator);
+//			mediatorMap.map(BriefingScreen).toMediator(BriefingScreenMediator);
+//			mediatorMap.map(RegionScreen).toMediator(RegionScreenMediator);
+//			mediatorMap.map(HeroScreen).toMediator(HeroScreenMediator);
+//			mediatorMap.map(WorldScreen).toMediator(WorldScreenMediator);
+//
+//			mediatorMap.map(WorldMap).toMediator(WorldMapMediator);
+//			mediatorMap.map(RegionMap).toMediator(RegionMapMediator);
 		}
 	}
 }

@@ -3,30 +3,31 @@
  */
 package ru.aa.game.mediators
 {
-	import ru.aa.game.display.AppView;
-	import ru.aa.game.display.screens.ScreenName;
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
+	import ru.aa.game.AppScreenNavigator;
 	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
-	
-	public class AppViewMediator extends Mediator
+	public class AppScreenNavigatorMediator extends StarlingMediator
 	{
+		[Inject]
+		public var view:AppScreenNavigator;
+		
+		[Inject]
+		public var event:ScreenEvent;
+		
 		public static const MAX_HISTORY:int = 5;
 		
 		private var _history:Vector.<String> = new Vector.<String>();
 		
-		public function AppViewMediator(context:IContext)
+		public function AppScreenNavigatorMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		public function get view():AppView {return getView() as AppView;}
-		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			trace("*execute* " + this + "::initialize()");
 			addContextListener(ScreenEvent.SHOW_SCREEN, showScreenHandler);
 			addContextListener(ScreenEvent.SHOW_PREVIOUS, showScreenHandler);
 		}
@@ -40,6 +41,7 @@ package ru.aa.game.mediators
 		
 		private function showScreenHandler(event:ScreenEvent):void
 		{
+			trace("*execute* " + this + "::showScreenHandler()");
 			switch (event.type) {
 				case ScreenEvent.SHOW_SCREEN:
 					showScreen(event.name, event.data);

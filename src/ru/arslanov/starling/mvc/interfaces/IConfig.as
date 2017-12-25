@@ -5,7 +5,7 @@ package ru.arslanov.starling.mvc.interfaces
 {
 	public interface IConfig
 	{
-		function initialize():void;
+		function configure():void;
 		
 		function get context():IContext;
 		function get injector():IInjector;

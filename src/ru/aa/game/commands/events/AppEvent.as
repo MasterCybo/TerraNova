@@ -3,7 +3,7 @@
  */
 package ru.aa.game.commands.events
 {
-	import flash.events.Event;
+	import starling.events.Event;
 	
 	public class AppEvent extends Event
 	{
@@ -11,14 +11,9 @@ package ru.aa.game.commands.events
 		public static const CLOSE_APPLICATION:String = "closeApplicationEvent";
 		public static const BEGIN_NEW_GAME:String = "startNewGameEvent";
 		
-		public function AppEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
+		public function AppEvent(type:String, bubbles:Boolean = false, data:Object = null)
 		{
-			super(type, bubbles, cancelable);
-		}
-		
-		override public function clone():Event
-		{
-			return new AppEvent(type, bubbles, cancelable);
+			super(type, bubbles, data);
 		}
 	}
 }

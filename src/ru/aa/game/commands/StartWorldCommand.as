@@ -5,6 +5,8 @@ package ru.aa.game.commands
 {
 	import flash.events.Event;
 	
+	import robotlegs.bender.bundles.mvcs.Command;
+	
 	import ru.aa.game.commands.events.StartWorldEvent;
 	
 	import ru.aa.game.core.services.FileService;
@@ -15,29 +17,37 @@ package ru.aa.game.commands
 	import ru.aa.game.player.models.MoHero;
 	import ru.aa.game.services.DataLoadService;
 	
-	import ru.arslanov.starling.mvc.commands.Command;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import starling.events.EventDispatcher;
 	
 	/**
 	 * Первая команда старта нового мира
 	 */
 	public class StartWorldCommand extends Command
 	{
-		public function StartWorldCommand(context:IContext, event:Event)
-		{
-			super(context, event);
-		}
+		[Inject]
+		public var event:StartWorldEvent;
 		
-		private function get event():StartWorldEvent { return getEvent() as StartWorldEvent; }
+		[Inject]
+		public var hero:MoHero;
+		
+		[Inject]
+		public var dataStorage:DataLoadService;
+		
+		[Inject]
+		public var eventDispatcher:EventDispatcher;
+		
+		
+		public function StartWorldCommand()
+		{
+			super();
+		}
 		
 		override public function execute():void
 		{
 			super.execute();
 			
-			var hero:MoHero = injector.getOf(MoHero);
 			var world:IWorld = hero.position.world;
 			
-			var dataStorage:DataLoadService = injector.getOf(DataLoadService);
 			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
 			dataStorage.verbose = true;
 			dataStorage.load(world.dataURL, world);
@@ -48,7 +58,7 @@ package ru.aa.game.commands
 			var dataStorage:DataLoadService = event.target as DataLoadService;
 			dataStorage.removeEventListener(Event.COMPLETE, onLoadComplete);
 			
-			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
+			eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.WORLD_MAP));
 		}
 	}
 }

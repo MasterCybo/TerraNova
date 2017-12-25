@@ -3,31 +3,34 @@
  */
 package ru.aa.game.display.screens.mediators
 {
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.HeroScreen;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class HeroScreenMediator extends Mediator
+	public class HeroScreenMediator extends StarlingMediator
 	{
-		public function HeroScreenMediator(context:IContext)
+		[Inject]
+		public var hero:MoHero;
+		
+		[Inject]
+		public var view:HeroScreen;
+		
+		public function HeroScreenMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			super.initialize();
 			
-			var moHero:MoHero = injector.getOf(MoHero);
-			
-			(getView() as HeroScreen).player = moHero;
+			view.player = hero;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}
@@ -45,10 +48,10 @@ package ru.aa.game.display.screens.mediators
 			
 			switch (button.name) {
 				case HeroScreen.BUTTON_BACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
 				case HeroScreen.BUTTON_BACKPACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
 					break;
 			}
 		}

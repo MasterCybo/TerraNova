@@ -3,26 +3,27 @@
  */
 package ru.aa.game.display.screens.mediators
 {
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
 	import ru.aa.game.core.display.controls.AppButton;
-	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.BackpackScreen;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class BackpackScreenMediator extends Mediator
+	public class BackpackScreenMediator extends StarlingMediator
 	{
-		public function BackpackScreenMediator(context:IContext)
+		[Inject]
+		public var view:BackpackScreen;
+		
+		public function BackpackScreenMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			super.initialize();
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
 		}
@@ -40,7 +41,7 @@ package ru.aa.game.display.screens.mediators
 			
 			switch (button.name) {
 				case BackpackScreen.BUTTON_BACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
 //				case BackpackScreen.BUTTON_BACKPACK:
 //					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));

@@ -20,9 +20,9 @@ package ru.arslanov.starling.mvc
 			_context = context;
 		}
 		
-		public function initialize():void
+		public function configure():void
 		{
-			trace(this + "::initialize()");
+			trace(this + "::configure()");
 			// override me
 		}
 		

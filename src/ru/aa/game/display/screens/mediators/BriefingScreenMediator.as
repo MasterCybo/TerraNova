@@ -3,30 +3,33 @@
  */
 package ru.aa.game.display.screens.mediators
 {
+	import robotlegs.bender.extensions.palidor.starlingIntegration.starlingViewMap.impl.StarlingMediator;
+	
 	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.core.display.controls.AppButton;
-	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class BriefingScreenMediator extends Mediator
+	public class BriefingScreenMediator extends StarlingMediator
 	{
-		public function BriefingScreenMediator(context:IContext)
+		[Inject]
+		public var hero:MoHero;
+		
+		[Inject]
+		public var view:BriefingScreen;
+		
+		public function BriefingScreenMediator()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize():void
 		{
-			super.initialize(displayObject);
+			super.initialize();
 			
-			var hero:MoHero = injector.getOf(MoHero);
 			view.region = hero.position.region;
 			
 			addViewListener(Event.TRIGGERED, buttonHandler);
@@ -38,8 +41,6 @@ package ru.aa.game.display.screens.mediators
 			super.destroy();
 		}
 		
-		public function get view():BriefingScreen { return getView() as BriefingScreen; }
-		
 		private function buttonHandler(event:Event):void
 		{
 			var button:AppButton = event.target as AppButton;
@@ -47,10 +48,10 @@ package ru.aa.game.display.screens.mediators
 			
 			switch (button.name) {
 				case BriefingScreen.BUTTON_BACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
+					eventDispatcher.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
 				case BriefingScreen.BUTTON_BEGIN:
-					dispatchEvent(new StartRegionEvent(StartRegionEvent.START_REGION));
+					eventDispatcher.dispatchEvent(new StartRegionEvent(StartRegionEvent.START_REGION));
 					break;
 			}
 		}

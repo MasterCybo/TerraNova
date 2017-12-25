@@ -3,7 +3,7 @@
  */
 package ru.aa.game.display.screens.events
 {
-	import flash.events.Event;
+	import starling.events.Event;
 	
 	public class ScreenEvent extends Event
 	{
@@ -11,21 +11,13 @@ package ru.aa.game.display.screens.events
 		public static const SHOW_PREVIOUS:String = "showPreviousEvent";
 		
 		private var _name:String;
-		private var _data:Object;
 		
 		public function ScreenEvent(type:String, name:String = null, data:Object = null)
 		{
-			super(type, bubbles, cancelable);
+			super(type, false, data);
 			_name = name;
-			_data = data;
 		}
 		
 		public function get name():String { return _name; }
-		public function get data():Object { return _data; }
-		
-		override public function clone():Event
-		{
-			return new ScreenEvent(type, name, data);
-		}
 	}
 }

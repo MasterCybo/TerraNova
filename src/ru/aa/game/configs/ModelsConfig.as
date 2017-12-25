@@ -1,24 +1,26 @@
 package ru.aa.game.configs
 {
+	import robotlegs.bender.framework.api.IConfig;
+	import robotlegs.bender.framework.api.IInjector;
+	
 	import ru.aa.game.collections.Files;
 	import ru.aa.game.models.collections.ItemsKindCollection;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
 	
-	public class ModelsConfig extends Config
+	public class ModelsConfig implements IConfig
 	{
-		public function ModelsConfig(context:IContext)
+		[Inject]
+		public var injector:IInjector;
+		
+		public function ModelsConfig()
 		{
-			super(context);
+			super();
 		}
 		
-		override public function initialize():void
+		public function configure():void
 		{
-			super.initialize();
-			
 			injector.map(ItemsKindCollection).asSingleton(ItemsKindCollection);
 			injector.map(MoHero).asSingleton(MoHero);
 			injector.map(IWorld).toValue(new MoWorld(Files.DEFAULT_WORLD));

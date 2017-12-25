@@ -1,33 +1,32 @@
 /**
- * Created by Artem-Home on 15.02.2017.
+ * Created by Artem-Home on 11.02.2017.
  */
-package ru.aa.game.display
+package ru.aa.game
 {
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
-	
-	import ru.aa.game.core.utils.Assets;
 	
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.views.BackpackScreen;
 	import ru.aa.game.display.screens.views.BattleScreen;
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
-	import ru.aa.game.display.screens.views.LoaderScreen;
-	import ru.aa.game.display.screens.views.RegionScreen;
-	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.display.screens.views.HeroScreen;
+	import ru.aa.game.display.screens.views.LoaderScreen;
+	import ru.aa.game.display.screens.views.MainMenuScreen;
+	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	
-	public class AppView extends ScreenNavigator
+	public class AppScreenNavigator extends ScreenNavigator
 	{
-		public function AppView()
+		public function AppScreenNavigator()
 		{
 			super();
 		}
 		
 		override protected function initialize():void
 		{
+			trace("*execute* " + this + "::initialize()");
 			super.initialize();
 			
 			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(LoaderScreen);
