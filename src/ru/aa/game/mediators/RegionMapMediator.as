@@ -6,7 +6,7 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.region.RegionTile;
 	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.models.region.MoCellRegion;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;

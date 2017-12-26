@@ -1,4 +1,4 @@
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.injection
 {
 	public interface IInjectorSetter
 	{

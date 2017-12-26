@@ -5,7 +5,7 @@ package ru.arslanov.starling.mvc
 {
 	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.extensions.StarlingMediatorMapExtension;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 
 	import starling.display.DisplayObjectContainer;
 

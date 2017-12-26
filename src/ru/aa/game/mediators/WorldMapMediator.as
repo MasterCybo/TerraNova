@@ -10,7 +10,7 @@ package ru.aa.game.mediators
 	import ru.aa.game.display.world.WorldTile;
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;

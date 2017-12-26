@@ -3,7 +3,7 @@
  */
 package ru.aa.game.display.screens.mediators
 {
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.display.DisplayObject;

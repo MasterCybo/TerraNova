@@ -1,4 +1,4 @@
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.mediators
 {
 	import starling.display.DisplayObject;
 	

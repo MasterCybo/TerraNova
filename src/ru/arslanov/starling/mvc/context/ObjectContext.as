@@ -5,12 +5,12 @@ package ru.arslanov.starling.mvc.context
 {
 	import flash.events.Event;
 	
-	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
+	import ru.arslanov.starling.mvc.commands.ICommandMap;
 	
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IInjector;
-	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
-	import ru.arslanov.starling.mvc.interfaces.IObjectContext;
+	import ru.arslanov.starling.mvc.context.IContext;
+	import ru.arslanov.starling.mvc.injection.IInjector;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
+	import ru.arslanov.starling.mvc.context.IObjectContext;
 	
 	/**
 	 * ...

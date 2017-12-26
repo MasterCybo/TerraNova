@@ -11,7 +11,7 @@ package ru.aa.game
 	import ru.aa.game.display.AppView;
 	import ru.arslanov.starling.mvc.MVCStarling;
 	import ru.arslanov.starling.mvc.extensions.FeathersMediatorMapExtension;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;

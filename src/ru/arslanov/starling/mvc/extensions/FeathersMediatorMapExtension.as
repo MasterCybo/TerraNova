@@ -9,7 +9,7 @@ package ru.arslanov.starling.mvc.extensions
 	
 	import flash.utils.Dictionary;
 	
-	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMapExtension;
 	
 	import starling.events.Event;
 	

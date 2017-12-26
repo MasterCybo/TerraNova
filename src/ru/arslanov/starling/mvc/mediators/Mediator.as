@@ -1,8 +1,8 @@
 package ru.arslanov.starling.mvc.mediators
 {
 	import ru.arslanov.starling.mvc.context.ObjectContext;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IMediator;
+	import ru.arslanov.starling.mvc.context.IContext;
+	import ru.arslanov.starling.mvc.mediators.IMediator;
 	
 	import starling.display.DisplayObject;
 	

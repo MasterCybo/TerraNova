@@ -5,8 +5,8 @@ package ru.aa.game.configs
 	import ru.aa.game.models.world.IWorld;
 	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.config.Config;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class ModelsConfig extends Config
 	{

@@ -9,7 +9,7 @@ package ru.aa.game.commands
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class StartupCommand extends Command
 	{

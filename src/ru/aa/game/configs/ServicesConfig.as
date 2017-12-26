@@ -2,8 +2,8 @@ package ru.aa.game.configs
 {
 	import ru.aa.game.services.DataLoadService;
 	import ru.aa.game.services.StateStorageService;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.config.Config;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class ServicesConfig extends Config
 	{

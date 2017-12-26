@@ -11,8 +11,8 @@ package ru.aa.game.configs
 	import ru.aa.game.player.commands.HeroLoadCommand;
 	import ru.aa.game.player.commands.HeroSaveCommand;
 	import ru.aa.game.player.events.HeroServiceEvent;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.config.Config;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class CommandsConfig extends Config
 	{

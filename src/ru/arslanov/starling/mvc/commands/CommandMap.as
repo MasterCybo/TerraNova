@@ -3,10 +3,10 @@ package ru.arslanov.starling.mvc.commands
 	import flash.events.Event;
 	import flash.utils.Dictionary;
 	
-	import ru.arslanov.starling.mvc.interfaces.ICommand;
-	import ru.arslanov.starling.mvc.interfaces.ICommandMap;
-	import ru.arslanov.starling.mvc.interfaces.ICommandSetter;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.commands.ICommand;
+	import ru.arslanov.starling.mvc.commands.ICommandMap;
+	import ru.arslanov.starling.mvc.commands.ICommandSetter;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	/**
 	 * Карта команд

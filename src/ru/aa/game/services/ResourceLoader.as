@@ -1,7 +1,7 @@
 package ru.aa.game.services
 {
 	import ru.arslanov.starling.mvc.context.ObjectContext;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class ResourceLoader extends ObjectContext
 	{

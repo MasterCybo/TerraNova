@@ -1,8 +1,9 @@
 /**
  * Created by Artem-Home on 13.02.2017.
  */
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.injection
 {
+	import ru.arslanov.starling.mvc.interfaces.*;
 	public interface IInjector
 	{
 		function hasOf(type:*):Boolean;

@@ -7,7 +7,7 @@ package ru.aa.game.commands
 	import flash.events.Event;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	import starling.core.Starling;
 	

@@ -1,8 +1,9 @@
 /**
  * Created by Artem-Home on 13.02.2017.
  */
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.mediators
 {
+	import ru.arslanov.starling.mvc.interfaces.*;
 	import starling.display.DisplayObject;
 	
 	public interface IMediatorMap

@@ -2,11 +2,11 @@ package ru.arslanov.starling.mvc.mediators
 {
 	import flash.utils.Dictionary;
 	
-	import ru.arslanov.starling.mvc.interfaces.IContext;
-	import ru.arslanov.starling.mvc.interfaces.IMediator;
-	import ru.arslanov.starling.mvc.interfaces.IMediateSetter;
-	import ru.arslanov.starling.mvc.interfaces.IMediatorMap;
-	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
+	import ru.arslanov.starling.mvc.context.IContext;
+	import ru.arslanov.starling.mvc.mediators.IMediator;
+	import ru.arslanov.starling.mvc.mediators.IMediateSetter;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMapExtension;
 	
 	import starling.display.DisplayObject;
 	import starling.display.DisplayObjectContainer;

@@ -7,7 +7,7 @@ package ru.aa.game.player.commands
 	import ru.aa.game.player.events.HeroServiceEvent;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.commands.Command;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class HeroSaveCommand extends Command
 	{

@@ -22,8 +22,8 @@ package ru.aa.game.configs
 	import ru.aa.game.mediators.AppViewMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
-	import ru.arslanov.starling.mvc.Config;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.config.Config;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class MediatorsConfig extends Config
 	{

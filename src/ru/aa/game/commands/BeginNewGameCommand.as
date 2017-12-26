@@ -19,7 +19,7 @@ package ru.aa.game.commands
 	import ru.aa.game.services.ResourceLoader;
 	
 	import ru.arslanov.starling.mvc.commands.Command;
-	import ru.arslanov.starling.mvc.interfaces.IContext;
+	import ru.arslanov.starling.mvc.context.IContext;
 	
 	public class BeginNewGameCommand extends Command
 	{

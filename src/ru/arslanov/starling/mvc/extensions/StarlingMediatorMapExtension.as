@@ -3,7 +3,7 @@
  */
 package ru.arslanov.starling.mvc.extensions
 {
-	import ru.arslanov.starling.mvc.interfaces.IMediatorMapExtension;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMapExtension;
 	
 	public class StarlingMediatorMapExtension implements IMediatorMapExtension
 	{

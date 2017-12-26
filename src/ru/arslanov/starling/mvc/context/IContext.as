@@ -1,9 +1,15 @@
 /**
  * Copyright (c) 2015 SmartHead. All rights reserved.
  */
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.context
 {
+	import ru.arslanov.starling.mvc.interfaces.*;
 	import flash.events.IEventDispatcher;
+	
+	import ru.arslanov.starling.mvc.commands.ICommandMap;
+	
+	import ru.arslanov.starling.mvc.injection.IInjector;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
 	
 	import starling.display.DisplayObjectContainer;
 	

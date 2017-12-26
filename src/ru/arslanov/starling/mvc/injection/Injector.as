@@ -2,8 +2,8 @@ package ru.arslanov.starling.mvc.injection
 {
 	import flash.utils.Dictionary;
 	
-	import ru.arslanov.starling.mvc.interfaces.IInjector;
-	import ru.arslanov.starling.mvc.interfaces.IInjectorSetter;
+	import ru.arslanov.starling.mvc.injection.IInjector;
+	import ru.arslanov.starling.mvc.injection.IInjectorSetter;
 	
 	/**
 	 * ...

@@ -1,6 +1,10 @@
-package ru.arslanov.starling.mvc.interfaces
+package ru.arslanov.starling.mvc.commands
 {
+	import ru.arslanov.starling.mvc.interfaces.*;
 	import flash.events.Event;
+	
+	import ru.arslanov.starling.mvc.injection.IInjector;
+	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
 	
 	/**
 	 * ...
