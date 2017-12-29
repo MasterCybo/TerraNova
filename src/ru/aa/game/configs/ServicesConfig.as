@@ -12,9 +12,9 @@ package ru.aa.game.configs
 			super(context);
 		}
 		
-		override public function initialize():void
+		override public function configure():void
 		{
-			super.initialize();
+			super.configure();
 			
 			injector.map(StateStorageService).toValue(new StateStorageService());
 			injector.map(DataLoadService).toValue(new DataLoadService());

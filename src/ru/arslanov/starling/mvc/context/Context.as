@@ -8,6 +8,8 @@ package ru.arslanov.starling.mvc.context
 	import flash.utils.describeType;
 	
 	import ru.arslanov.starling.mvc.commands.CommandMap;
+	import ru.arslanov.starling.mvc.config.ConfigsManager;
+	import ru.arslanov.starling.mvc.extensions.ExtensionInstaller;
 	import ru.arslanov.starling.mvc.injection.Injector;
 	import ru.arslanov.starling.mvc.commands.ICommandMap;
 	import ru.arslanov.starling.mvc.context.IContext;
@@ -29,6 +31,9 @@ package ru.arslanov.starling.mvc.context
 		private var _commandMap:ICommandMap;
 		private var _mediatorMap:IMediatorMap;
 		
+		private var _extensionInstaller:ExtensionInstaller;
+		private var _configsManager:ConfigsManager;
+		
 		private var _contextView:DisplayObjectContainer;
 		
 		public function Context(contextView:DisplayObjectContainer)
@@ -37,6 +42,8 @@ package ru.arslanov.starling.mvc.context
 			_instanceMap = new Injector();
 			_mediatorMap = new MediatorMap(this);
 			_commandMap = new CommandMap(this);
+			_extensionInstaller = new ExtensionInstaller(this);
+			_configsManager = new ConfigsManager(this);
 		}
 		
 		public function get contextView():DisplayObjectContainer { return _contextView; }
@@ -44,11 +51,12 @@ package ru.arslanov.starling.mvc.context
 		public function get mediatorMap():IMediatorMap { return _mediatorMap; }
 		public function get commandMap():ICommandMap {return _commandMap;}
 		
-		public function install(...extensionClasses):IContext
+		public function install(...extensions):IContext
 		{
 			var extClass:Class;
-			for (var i:int = 0; i < extensionClasses.length; i++) {
-				extClass = extensionClasses[i];
+			for (var i:int = 0; i < extensions.length; i++) {
+				_extensionInstaller.install(extensions[i]);
+				extClass = extensions[i];
 				switch (true) {
 					case isImplementsOf(extClass, IMediatorMapExtension):
 						_mediatorMap.addExtension(extClass);
@@ -61,16 +69,10 @@ package ru.arslanov.starling.mvc.context
 			return this;
 		}
 		
-		public function configure(...configClasses):IContext
+		public function configure(...configs):IContext
 		{
-			var config:Object;
-			var ConfClass:Class;
-			for (var i:int = 0; i < configClasses.length; i++) {
-				ConfClass = configClasses[ i ];
-				if (ConfClass) {
-					config = new ConfClass(this);
-					if (config["initialize"] != null) config.initialize();
-				}
+			for (var i:int = 0; i < configs.length; i++) {
+				_configsManager.configure(configs[i]);
 			}
 			return this;
 		}

@@ -21,9 +21,9 @@ package ru.aa.game.configs
 			super(context);
 		}
 		
-		override public function initialize():void
+		override public function configure():void
 		{
-			super.initialize();
+			super.configure();
 			
 			commandMap.map(AppEvent.STARTUP_APPLICATION).toCommand(StartupCommand);
 			commandMap.map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);

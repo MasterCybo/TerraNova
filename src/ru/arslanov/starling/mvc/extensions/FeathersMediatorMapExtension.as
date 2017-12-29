@@ -28,22 +28,13 @@ package ru.arslanov.starling.mvc.extensions
 			var feathersControl:FeathersControl = displayObject as FeathersControl;
 			if (!feathersControl) return false;
 			
-//			trace("*execute* " + this + "::initialize() : " + displayObject);
 			_mapCallbacks[feathersControl] = onComplete;
 			
-//			feathersControl.addEventListener(FeathersEventType.CREATION_COMPLETE, onCreated);
 			feathersControl.addEventListener(FeathersEventType.INITIALIZE, onInitialized);
 			
-//			trace(this + " initialized " + displayObject);
 			return true;
 		}
-		/*
-		private function onCreated(event:Event):void
-		{
-			trace("*execute* " + this + "::onCreated() : " + event.target);
-			callComplete(event);
-		}
-		*/
+		
 		private function onInitialized(event:Event):void
 		{
 			callComplete(event);
@@ -52,7 +43,6 @@ package ru.arslanov.starling.mvc.extensions
 		private function callComplete(event:Event):void
 		{
 			var feathersControl:FeathersControl = event.target as FeathersControl;
-//			feathersControl.removeEventListener(FeathersEventType.CREATION_COMPLETE, onCreated);
 			feathersControl.removeEventListener(FeathersEventType.INITIALIZE, onInitialized);
 			
 			trace("Feathers VERSION: " + FEATHERS_VERSION);

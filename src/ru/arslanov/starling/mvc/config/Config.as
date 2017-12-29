@@ -1,7 +1,6 @@
 package ru.arslanov.starling.mvc.config
 {
 	import ru.arslanov.starling.mvc.commands.ICommandMap;
-	import ru.arslanov.starling.mvc.config.IConfig;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.injection.IInjector;
 	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
@@ -11,7 +10,7 @@ package ru.arslanov.starling.mvc.config
 	 * В нём описываются все взаимосвязи между основными объекми архитектуры.
 	 * @author Artem Arslanov
 	 */
-	public class Config implements IConfig
+	public class Config
 	{
 		private var _context:IContext;
 		
@@ -20,7 +19,7 @@ package ru.arslanov.starling.mvc.config
 			_context = context;
 		}
 		
-		public function initialize():void
+		public function configure():void
 		{
 			trace(this + "::initialize()");
 			// override me

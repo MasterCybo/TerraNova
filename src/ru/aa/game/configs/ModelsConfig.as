@@ -15,9 +15,9 @@ package ru.aa.game.configs
 			super(context);
 		}
 		
-		override public function initialize():void
+		override public function configure():void
 		{
-			super.initialize();
+			super.configure();
 			
 			injector.map(ItemsKindCollection).asSingleton(ItemsKindCollection);
 			injector.map(MoHero).asSingleton(MoHero);

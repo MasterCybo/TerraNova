@@ -3,7 +3,9 @@
  */
 package ru.arslanov.starling.mvc.mediators
 {
-	public interface IMediatorMapExtension
+	import ru.arslanov.starling.mvc.extensions.IExtension;
+	
+	public interface IMediatorMapExtension extends IExtension
 	{
 		function initialize(displayObject:*, onComplete:Function):Boolean;
 	}
