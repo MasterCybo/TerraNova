@@ -1,14 +1,10 @@
 package ru.arslanov.starling.mvc.mediators
 {
-	import ru.arslanov.starling.mvc.context.ObjectContext;
 	import ru.arslanov.starling.mvc.context.IContext;
-	import ru.arslanov.starling.mvc.mediators.IMediator;
+	import ru.arslanov.starling.mvc.context.ObjectContext;
 	
 	import starling.display.DisplayObject;
 	
-	import starling.display.DisplayObjectContainer;
-
-
 	/**
 	 * Медиатор - контроллер. Связывающий объект между вьюшкой и моделями, сервисами.
 	 * @author Artem Arslanov
@@ -24,9 +20,9 @@ package ru.arslanov.starling.mvc.mediators
 			super(context);
 		}
 		
-		public function initialize(displayObject:DisplayObject):void
+		public function initialize(displayObject:Object):void
 		{
-			_view = displayObject;
+			_view = displayObject as DisplayObject;
 			if (verbose) trace("[Mediator " + this + "] initialize");
 			// override me
 		}
@@ -39,7 +35,7 @@ package ru.arslanov.starling.mvc.mediators
 			// override me
 		}
 
-		public function getView():DisplayObject  { return _view; }
+		public function getView():Object  { return _view; }
 
 		public function addViewListener(eventType:String, listener:Function):void { _view.addEventListener(eventType, listener); }
 		public function removeViewListener(eventType:String, listener:Function = null):void { _view.removeEventListener(eventType, listener); }

@@ -13,8 +13,6 @@ package ru.aa.game.mediators
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
-	
 	public class WorldMapMediator extends Mediator
 	{
 		public function WorldMapMediator(context:IContext)
@@ -22,7 +20,7 @@ package ru.aa.game.mediators
 			super(context);
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize(displayObject:Object):void
 		{
 			super.initialize(displayObject);
 			

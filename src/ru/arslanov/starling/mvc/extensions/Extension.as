@@ -2,7 +2,7 @@ package ru.arslanov.starling.mvc.extensions
 {
 	import ru.arslanov.starling.mvc.context.IContext;
 	
-	public class Extension implements IExtension
+	public class Extension
 	{
 		private var _context:IContext;
 		
@@ -11,13 +11,11 @@ package ru.arslanov.starling.mvc.extensions
 			_context = context;
 		}
 		
+		protected function get context():IContext {return _context;}
+		
 		public function initialize():void
 		{
-		}
-		
-		public function afterInitialize(handler:Function):IExtension
-		{
-			return this;
+			throw new Error("This abstract method!");
 		}
 	}
 }

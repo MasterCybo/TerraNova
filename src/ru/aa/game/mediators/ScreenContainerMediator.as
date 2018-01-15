@@ -3,28 +3,25 @@
  */
 package ru.aa.game.mediators
 {
-	import ru.aa.game.display.AppView;
-	import ru.aa.game.display.screens.ScreenName;
+	import ru.aa.game.display.ScreenContainer;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
-	
-	public class AppViewMediator extends Mediator
+	public class ScreenContainerMediator extends Mediator
 	{
 		public static const MAX_HISTORY:int = 5;
 		
 		private var _history:Vector.<String> = new Vector.<String>();
 		
-		public function AppViewMediator(context:IContext)
+		public function ScreenContainerMediator(context:IContext)
 		{
 			super(context);
 		}
 		
-		public function get view():AppView {return getView() as AppView;}
+		public function get view():ScreenContainer {return getView() as ScreenContainer;}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize(displayObject:Object):void
 		{
 			super.initialize(displayObject);
 			addContextListener(ScreenEvent.SHOW_SCREEN, showScreenHandler);

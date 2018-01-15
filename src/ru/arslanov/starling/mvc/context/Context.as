@@ -8,17 +8,14 @@ package ru.arslanov.starling.mvc.context
 	import flash.utils.describeType;
 	
 	import ru.arslanov.starling.mvc.commands.CommandMap;
-	import ru.arslanov.starling.mvc.config.ConfigsManager;
-	import ru.arslanov.starling.mvc.extensions.ExtensionInstaller;
-	import ru.arslanov.starling.mvc.injection.Injector;
 	import ru.arslanov.starling.mvc.commands.ICommandMap;
-	import ru.arslanov.starling.mvc.context.IContext;
+	import ru.arslanov.starling.mvc.config.ConfigsManager;
+	import ru.arslanov.starling.mvc.events.ContextEvent;
+	import ru.arslanov.starling.mvc.extensions.ExtensionInstaller;
 	import ru.arslanov.starling.mvc.injection.IInjector;
+	import ru.arslanov.starling.mvc.injection.Injector;
 	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
-	import ru.arslanov.starling.mvc.mediators.IMediatorMapExtension;
 	import ru.arslanov.starling.mvc.mediators.MediatorMap;
-	
-	import starling.display.DisplayObjectContainer;
 	
 	/**
 	 * Контекст - основной класс архитектуры, который содержит менеджеры основных сущностей фреймворка.
@@ -27,43 +24,33 @@ package ru.arslanov.starling.mvc.context
 	 */
 	public class Context extends EventDispatcher implements IContext
 	{
-		private var _instanceMap:IInjector;
-		private var _commandMap:ICommandMap;
+		private static var _instanceMap:IInjector;
+		private static var _commandMap:ICommandMap;
 		private var _mediatorMap:IMediatorMap;
 		
 		private var _extensionInstaller:ExtensionInstaller;
 		private var _configsManager:ConfigsManager;
 		
-		private var _contextView:DisplayObjectContainer;
+		private var _contextView:Object;
 		
-		public function Context(contextView:DisplayObjectContainer)
+		public function Context()
 		{
-			_contextView = contextView;
-			_instanceMap = new Injector();
+			if (!_instanceMap) _instanceMap = new Injector();
+			if (!_commandMap) _commandMap = new CommandMap(this);
 			_mediatorMap = new MediatorMap(this);
-			_commandMap = new CommandMap(this);
 			_extensionInstaller = new ExtensionInstaller(this);
 			_configsManager = new ConfigsManager(this);
 		}
 		
-		public function get contextView():DisplayObjectContainer { return _contextView; }
+		public function get contextView():Object { return _contextView; }
 		public function get injector():IInjector { return _instanceMap; }
 		public function get mediatorMap():IMediatorMap { return _mediatorMap; }
 		public function get commandMap():ICommandMap {return _commandMap;}
 		
 		public function install(...extensions):IContext
 		{
-			var extClass:Class;
 			for (var i:int = 0; i < extensions.length; i++) {
 				_extensionInstaller.install(extensions[i]);
-				extClass = extensions[i];
-				switch (true) {
-					case isImplementsOf(extClass, IMediatorMapExtension):
-						_mediatorMap.addExtension(extClass);
-						break;
-//				case isImplementsOf(extClass, ICommandMapExtension):
-//					break;
-				}
 			}
 			
 			return this;
@@ -71,8 +58,16 @@ package ru.arslanov.starling.mvc.context
 		
 		public function configure(...configs):IContext
 		{
+			var config:*;
+			
 			for (var i:int = 0; i < configs.length; i++) {
-				_configsManager.configure(configs[i]);
+				config = configs[i];
+				if ("stage" in config) {
+					_contextView = config;
+					dispatchEvent(new ContextEvent(ContextEvent.CONTEXT_VIEW_ADDED));
+				} else {
+					_configsManager.configure(config);
+				}
 			}
 			return this;
 		}

@@ -6,8 +6,6 @@ package ru.aa.game.display.screens.mediators
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
-	
 	public class BattleScreenMediator extends Mediator
 	{
 		public function BattleScreenMediator(context:IContext)
@@ -15,7 +13,7 @@ package ru.aa.game.display.screens.mediators
 			super(context);
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize(displayObject:Object):void
 		{
 			trace("*execute* " + this + "::initialize()");
 			super.initialize(displayObject);

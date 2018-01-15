@@ -3,15 +3,11 @@
  */
 package ru.arslanov.starling.mvc.context
 {
-	import ru.arslanov.starling.mvc.interfaces.*;
 	import flash.events.IEventDispatcher;
 	
 	import ru.arslanov.starling.mvc.commands.ICommandMap;
-	
 	import ru.arslanov.starling.mvc.injection.IInjector;
 	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
-	
-	import starling.display.DisplayObjectContainer;
 	
 	/**
 	 * Интерфейс контекста
@@ -19,7 +15,7 @@ package ru.arslanov.starling.mvc.context
 	 */
 	public interface IContext extends IEventDispatcher
 	{
-		function get contextView():DisplayObjectContainer;
+		function get contextView():Object;
 		function get injector():IInjector;
 		function get mediatorMap():IMediatorMap;
 		function get commandMap():ICommandMap;

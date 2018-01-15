@@ -3,14 +3,6 @@ package ru.arslanov.starling.mvc.mediators
 	import flash.utils.Dictionary;
 	
 	import ru.arslanov.starling.mvc.context.IContext;
-	import ru.arslanov.starling.mvc.mediators.IMediator;
-	import ru.arslanov.starling.mvc.mediators.IMediateSetter;
-	import ru.arslanov.starling.mvc.mediators.IMediatorMap;
-	import ru.arslanov.starling.mvc.mediators.IMediatorMapExtension;
-	
-	import starling.display.DisplayObject;
-	import starling.display.DisplayObjectContainer;
-	import starling.events.Event;
 	
 	/**
 	 * ...
@@ -22,60 +14,20 @@ package ru.arslanov.starling.mvc.mediators
 		private var _mapMediators:Dictionary = new Dictionary(); // DisplayObjectClass = MediatorClass
 		private var _mapInstances:Dictionary = new Dictionary(); // displayObject = mediator
 		private var _mapViews:Dictionary = new Dictionary(); // MediatorClass = DisplayObjectClass
-		private var _extensions:Vector.<IMediatorMapExtension> = new Vector.<IMediatorMapExtension>();
-		private var _mapExtensions:Dictionary = new Dictionary(); // extensionClass = IMediatorMapExtension
 		
 		private var _mappedClass:Class;
 		
 		public function MediatorMap(context:IContext)
 		{
 			_context = context;
-			
-			if (_context.contextView.stage) {
-				mediateContextView(true);
-			}
-			_context.contextView.addEventListener(Event.ADDED_TO_STAGE, contextViewHandler);
-			_context.contextView.addEventListener(Event.REMOVED_FROM_STAGE, contextViewHandler);
-		}
-		
-		private function contextViewHandler(event:Event):void
-		{
-			switch (event.type) {
-				case Event.ADDED_TO_STAGE:
-					mediateContextView(true);
-					break;
-				case Event.REMOVED_FROM_STAGE:
-					mediateContextView(false);
-					break;
-			}
-		}
-		
-		private function mediateContextView(value:Boolean):void
-		{
-			if (value) {
-				_context.contextView.stage.addEventListener(Event.ADDED, onAdded);
-				_context.contextView.stage.addEventListener(Event.REMOVED, onRemoved);
-				mediate(_context.contextView);
-			} else {
-				_context.contextView.stage.removeEventListener(Event.ADDED, onAdded);
-				_context.contextView.stage.removeEventListener(Event.REMOVED, onRemoved);
-				unmediate(_context.contextView);
-			}
-		}
-		
-		public function addExtension(extensionClass:Class):void
-		{
-			if (_mapExtensions[extensionClass] != undefined) {
-				trace("WARNING! " + extensionClass + " already added!");
-				return;
-			}
-			var extension:IMediatorMapExtension = new extensionClass();
-			_mapExtensions[extensionClass] = extension;
-			_extensions.push(extension);
-			trace(this, "Extension added " + extensionClass);
 		}
 		
 		public function hasMediator(mediatorClass:Class):Boolean { return _mapViews[mediatorClass]; }
+		public function isMapped(view:Object):Boolean
+		{
+			var viewClass:Class = view["constructor"];
+			return _mapMediators[viewClass];
+		}
 		
 		public function map(viewClass:Class):IMediateSetter
 		{
@@ -99,28 +51,6 @@ package ru.arslanov.starling.mvc.mediators
 			_mappedClass = null;
 		}
 		
-		/*public function map(mediatorClass:Class):IMediateSetter
-		{
-			_mappedClass = mediatorClass;
-			return this;
-		}
-		
-		public function toMediate(viewClass:Class):void
-		{
-			if (_mapMediators[viewClass] != undefined) {
-				trace("WARNING! " + this + "::toMediate() : " + _mappedClass + " already mapped to " + viewClass);
-				_mappedClass = null;
-				return;
-			}
-			
-			_mapMediators[viewClass] = _mappedClass;
-			_mapViews[_mappedClass] = viewClass;
-			
-			trace(this, "Mapped " + _mappedClass + " to mediate " + viewClass);
-			
-			_mappedClass = null;
-		}*/
-		
 		public function unmap(mediatorClass:Class):void
 		{
 			var viewClass:Class = _mapViews[mediatorClass];
@@ -132,7 +62,7 @@ package ru.arslanov.starling.mvc.mediators
 			}
 		}
 				
-		public function mediate(view:DisplayObject):void
+		public function mediate(view:Object):void
 		{
 			var viewClass:Class = view["constructor"];
 			var mediatorClass:Class = _mapMediators[viewClass];
@@ -146,7 +76,7 @@ package ru.arslanov.starling.mvc.mediators
 			mediator.initialize(view);
 		}
 		
-		public function unmediate(view:DisplayObject):void
+		public function unmediate(view:Object):void
 		{
 			var viewClass:Class = view["constructor"];
 			var mediator:IMediator = _mapInstances[viewClass];
@@ -157,69 +87,6 @@ package ru.arslanov.starling.mvc.mediators
 			
 			mediator.destroy();
 			delete _mapInstances[viewClass];
-		}
-		
-		private function onAdded(event:Event):void
-		{
-//			trace("------------------------------------------------------");
-//			trace("*execute* " + this + "::onAdded() : " + event.target);
-			processMediateRecursively(event.target as DisplayObject);
-		}
-		
-		private function processMediateRecursively(view:DisplayObject):void
-		{
-//			trace("*execute* " + this + "::processMediateRecursively() : " + view);
-			var container:DisplayObjectContainer = view as DisplayObjectContainer;
-			if (container) {
-				processExtensionsMediate(container);
-				
-				var child:DisplayObject;
-				for (var i:int = 0; i < container.numChildren; i++) {
-					child = container.getChildAt(i);
-					processMediateRecursively(child);
-				}
-			} else {
-				processExtensionsMediate(view);
-			}
-		}
-		
-		private function processExtensionsMediate(view:DisplayObject):void
-		{
-			if (_extensions.length > 0) {
-				var extension:IMediatorMapExtension;
-				var len:uint = _extensions.length - 1;
-				for (var i:int = len; i >= 0; i--) {
-					extension = _extensions[i];
-					if (extension.initialize(view, mediate)) {
-						_extensions.splice(i, 1);
-						i--;
-						break;
-					}
-				}
-			} else {
-				mediate(view);
-			}
-		}
-		
-		private function onRemoved(event:Event):void
-		{
-			processUnmediateRecursively(event.target as DisplayObject);
-		}
-		
-		private function processUnmediateRecursively(view:DisplayObject):void
-		{
-			var container:DisplayObjectContainer = view as DisplayObjectContainer;
-			if (container) {
-				unmediate(container);
-				
-				var child:DisplayObject;
-				for (var i:int = 0; i < container.numChildren; i++) {
-					child = container.getChildAt(i);
-					processUnmediateRecursively(child);
-				}
-			} else {
-				unmediate(view);
-			}
 		}
 	}
 }

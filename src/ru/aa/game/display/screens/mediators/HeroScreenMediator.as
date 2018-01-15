@@ -11,7 +11,6 @@ package ru.aa.game.display.screens.mediators
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
 	public class HeroScreenMediator extends Mediator
@@ -21,7 +20,7 @@ package ru.aa.game.display.screens.mediators
 			super(context);
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize(displayObject:Object):void
 		{
 			super.initialize(displayObject);
 			

@@ -3,7 +3,6 @@
  */
 package ru.arslanov.starling.mvc.injection
 {
-	import ru.arslanov.starling.mvc.interfaces.*;
 	public interface IInjector
 	{
 		function hasOf(type:*):Boolean;

@@ -3,7 +3,6 @@
  */
 package ru.arslanov.starling.mvc.commands
 {
-	import ru.arslanov.starling.mvc.interfaces.*;
 	import flash.events.Event;
 	
 	public interface ICommandMap

@@ -5,14 +5,12 @@ package ru.aa.game.display.screens.mediators
 {
 	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.core.display.controls.AppButton;
-	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.player.models.MoHero;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
-	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
 	public class BriefingScreenMediator extends Mediator
@@ -22,7 +20,7 @@ package ru.aa.game.display.screens.mediators
 			super(context);
 		}
 		
-		override public function initialize(displayObject:DisplayObject):void
+		override public function initialize(displayObject:Object):void
 		{
 			super.initialize(displayObject);
 			

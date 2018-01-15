@@ -8,10 +8,10 @@ package ru.aa.game
 	import ru.aa.game.configs.MediatorsConfig;
 	import ru.aa.game.configs.ModelsConfig;
 	import ru.aa.game.configs.ServicesConfig;
-	import ru.aa.game.display.AppView;
-	import ru.arslanov.starling.mvc.MVCStarling;
-	import ru.arslanov.starling.mvc.extensions.FeathersMediatorMapExtension;
+	import ru.aa.game.display.ScreenContainer;
+	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.context.IContext;
+	import ru.arslanov.starling.mvc.extensions.FeathersBandle;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -28,13 +28,12 @@ package ru.aa.game
 		
 		private function init(event:Event = null):void
 		{
-			var appView:AppView = new AppView();
+			var screenContainer:ScreenContainer = new ScreenContainer();
+			addChild(screenContainer);
 			
-			context = MVCStarling.createContext(appView)
-					.install(FeathersMediatorMapExtension)
-					.configure(ModelsConfig, MediatorsConfig, CommandsConfig, ServicesConfig);
-			
-			addChild(appView);
+			context = new Context()
+					.install(FeathersBandle)
+					.configure(ModelsConfig, MediatorsConfig, CommandsConfig, ServicesConfig, screenContainer);
 			
 			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
 			

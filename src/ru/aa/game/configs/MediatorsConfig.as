@@ -1,6 +1,6 @@
 package ru.aa.game.configs
 {
-	import ru.aa.game.display.AppView;
+	import ru.aa.game.display.ScreenContainer;
 	import ru.aa.game.display.region.RegionMap;
 	import ru.aa.game.display.screens.mediators.BackpackScreenMediator;
 	import ru.aa.game.display.screens.mediators.BattleScreenMediator;
@@ -19,8 +19,8 @@ package ru.aa.game.configs
 	import ru.aa.game.display.screens.views.RegionScreen;
 	import ru.aa.game.display.screens.views.WorldScreen;
 	import ru.aa.game.display.world.WorldMap;
-	import ru.aa.game.mediators.AppViewMediator;
 	import ru.aa.game.mediators.RegionMapMediator;
+	import ru.aa.game.mediators.ScreenContainerMediator;
 	import ru.aa.game.mediators.WorldMapMediator;
 	import ru.arslanov.starling.mvc.config.Config;
 	import ru.arslanov.starling.mvc.context.IContext;
@@ -36,7 +36,7 @@ package ru.aa.game.configs
 		{
 			super.configure();
 			
-			mediatorMap.map(AppView).toMediator(AppViewMediator);
+			mediatorMap.map(ScreenContainer).toMediator(ScreenContainerMediator);
 			mediatorMap.map(MainMenuScreen).toMediator(MainMenuScreenMediator);
 			mediatorMap.map(BackpackScreen).toMediator(BackpackScreenMediator);
 			mediatorMap.map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
