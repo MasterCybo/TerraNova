@@ -26,6 +26,7 @@ package ru.arslanov.starling.mvc.context
 	{
 		private static var _instanceMap:IInjector;
 		private static var _commandMap:ICommandMap;
+		
 		private var _mediatorMap:IMediatorMap;
 		
 		private var _extensionInstaller:ExtensionInstaller;

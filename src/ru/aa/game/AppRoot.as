@@ -11,7 +11,7 @@ package ru.aa.game
 	import ru.aa.game.display.ScreenContainer;
 	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.context.IContext;
-	import ru.arslanov.starling.mvc.extensions.FeathersBandle;
+	import ru.arslanov.starling.mvc.extensions.FeathersBundle;
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -32,7 +32,7 @@ package ru.aa.game
 			addChild(screenContainer);
 			
 			context = new Context()
-					.install(FeathersBandle)
+					.install(FeathersBundle)
 					.configure(ModelsConfig, MediatorsConfig, CommandsConfig, ServicesConfig, screenContainer);
 			
 			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));

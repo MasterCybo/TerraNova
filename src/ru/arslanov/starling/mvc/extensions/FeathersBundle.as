@@ -9,9 +9,9 @@ package ru.arslanov.starling.mvc.extensions
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	
-	public class FeathersBandle extends StarlingBundle
+	public class FeathersBundle extends StarlingBundle
 	{
-		public function FeathersBandle(context:IContext)
+		public function FeathersBundle(context:IContext)
 		{
 			super(context);
 			trace("Feathers VERSION : " + FEATHERS_VERSION);
