@@ -4,7 +4,6 @@ package ru.aa.game.configs
 	import ru.aa.game.commands.CloseApplicationCommand;
 	import ru.aa.game.commands.StartRegionCommand;
 	import ru.aa.game.commands.StartWorldCommand;
-	import ru.aa.game.commands.StartupCommand;
 	import ru.aa.game.commands.events.AppEvent;
 	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.commands.events.StartWorldEvent;
@@ -25,7 +24,6 @@ package ru.aa.game.configs
 		{
 			super.configure();
 			
-			commandMap.map(AppEvent.STARTUP_APPLICATION).toCommand(StartupCommand);
 			commandMap.map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
 			commandMap.map(AppEvent.BEGIN_NEW_GAME).toCommand(BeginNewGameCommand);
 			

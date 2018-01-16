@@ -38,7 +38,8 @@ package ru.arslanov.starling.mvc.mediators
 		public function getView():Object  { return _view; }
 
 		public function addViewListener(eventType:String, listener:Function):void { _view.addEventListener(eventType, listener); }
-		public function removeViewListener(eventType:String, listener:Function = null):void { _view.removeEventListener(eventType, listener); }
+		public function removeViewListener(eventType:String, listener:Function = null):void {_view.removeEventListener(eventType, listener);}
+		
 	}
 
 }

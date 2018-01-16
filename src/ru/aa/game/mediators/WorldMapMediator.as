@@ -40,6 +40,7 @@ package ru.aa.game.mediators
 		
 		private function touchHandler(event:TileEvent):void
 		{
+			
 			if (view.isScrolling) return;
 			
 			var tile:WorldTile = event.target as WorldTile;

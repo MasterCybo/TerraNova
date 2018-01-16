@@ -58,7 +58,7 @@ package ru.arslanov.starling.mvc.extensions
 		
 		private function mediateView(view:DisplayObject):void
 		{
-			context.mediatorMap.mediate(view);
+			if (!context.mediatorMap.isMediated(view)) context.mediatorMap.mediate(view);
 			mediateChildren(view as DisplayObjectContainer);
 		}
 		
@@ -75,7 +75,7 @@ package ru.arslanov.starling.mvc.extensions
 		
 		private function unmediateView(view:DisplayObject):void
 		{
-			context.mediatorMap.unmediate(view);
+			if (context.mediatorMap.isMediated(view)) context.mediatorMap.unmediate(view);
 			unmediateChildren(view as DisplayObjectContainer);
 		}
 		

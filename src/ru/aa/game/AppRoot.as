@@ -3,12 +3,14 @@
  */
 package ru.aa.game
 {
-	import ru.aa.game.commands.events.AppEvent;
 	import ru.aa.game.configs.CommandsConfig;
+	import ru.aa.game.configs.FeathersConfig;
 	import ru.aa.game.configs.MediatorsConfig;
 	import ru.aa.game.configs.ModelsConfig;
 	import ru.aa.game.configs.ServicesConfig;
 	import ru.aa.game.display.ScreenContainer;
+	import ru.aa.game.display.screens.ScreenName;
+	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.extensions.FeathersBundle;
@@ -33,9 +35,16 @@ package ru.aa.game
 			
 			context = new Context()
 					.install(FeathersBundle)
-					.configure(ModelsConfig, MediatorsConfig, CommandsConfig, ServicesConfig, screenContainer);
+					.configure(
+							FeathersConfig,
+							ModelsConfig,
+							MediatorsConfig,
+							CommandsConfig,
+							ServicesConfig,
+							screenContainer
+					);
 			
-			context.dispatchEvent(new AppEvent(AppEvent.STARTUP_APPLICATION));
+			context.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
 			
 		}
 	}

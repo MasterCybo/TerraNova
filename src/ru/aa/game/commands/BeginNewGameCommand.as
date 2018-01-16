@@ -6,18 +6,11 @@ package ru.aa.game.commands
 	import flash.events.Event;
 	
 	import ru.aa.game.collections.Files;
-	
 	import ru.aa.game.commands.events.StartWorldEvent;
-	
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.models.collections.ItemsKindCollection;
 	import ru.aa.game.models.world.IWorld;
-	import ru.aa.game.models.world.MoWorld;
 	import ru.aa.game.player.models.MoHero;
 	import ru.aa.game.services.DataLoadService;
-	import ru.aa.game.services.ResourceLoader;
-	
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.context.IContext;
 	
@@ -36,13 +29,13 @@ package ru.aa.game.commands
 			var world:IWorld = injector.getOf(IWorld);
 			hero.position.world = world;
 			
-			var resLoader:ResourceLoader = new ResourceLoader(context);
-			injector.map(ResourceLoader).toValue(resLoader);
+//			var resLoader:ResourceLoader = new ResourceLoader(context);
+//			injector.map(ResourceLoader).toValue(resLoader);
 //			resLoader.start();
 			
 			var kindsCollection:ItemsKindCollection = injector.getOf(ItemsKindCollection);
 			
-			var dataStorage:DataLoadService =injector. getOf(DataLoadService);
+			var dataStorage:DataLoadService = injector.getOf(DataLoadService);
 			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
 			dataStorage.verbose = true;
 			dataStorage.load(Files.ITEMS_KIND, kindsCollection);

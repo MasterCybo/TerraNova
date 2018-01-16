@@ -12,7 +12,7 @@ package ru.arslanov.starling.mvc.mediators
 	{
 		private var _context:IContext;
 		private var _mapMediators:Dictionary = new Dictionary(); // DisplayObjectClass = MediatorClass
-		private var _mapInstances:Dictionary = new Dictionary(); // displayObject = mediator
+		private var _mapViewMediator:Dictionary = new Dictionary(); // displayObject = mediator
 		private var _mapViews:Dictionary = new Dictionary(); // MediatorClass = DisplayObjectClass
 		
 		private var _mappedClass:Class;
@@ -28,6 +28,8 @@ package ru.arslanov.starling.mvc.mediators
 			var viewClass:Class = view["constructor"];
 			return _mapMediators[viewClass];
 		}
+		
+		public function isMediated(view:Object):Boolean { return _mapViewMediator[view]; }
 		
 		public function map(viewClass:Class):IMediateSetter
 		{
@@ -46,7 +48,7 @@ package ru.arslanov.starling.mvc.mediators
 			_mapMediators[_mappedClass] = mediatorClass;
 			_mapViews[mediatorClass] = _mappedClass;
 			
-			trace(this, "Mapped " + _mappedClass + " to mediator " + mediatorClass);
+			trace(this, "mapped " + _mappedClass + " to mediator " + mediatorClass);
 			
 			_mappedClass = null;
 		}
@@ -58,7 +60,7 @@ package ru.arslanov.starling.mvc.mediators
 			if (viewClass) {
 				delete _mapMediators[viewClass];
 				delete _mapViews[mediatorClass];
-				trace(this, "Unmapped " + mediatorClass + " to mediate " + viewClass);
+				trace(this, "unmapped " + mediatorClass + " to mediate " + viewClass);
 			}
 		}
 				
@@ -68,25 +70,26 @@ package ru.arslanov.starling.mvc.mediators
 			var mediatorClass:Class = _mapMediators[viewClass];
 			
 			if (!mediatorClass) return;
+			if (_mapViewMediator[view]) throw new Error(mediatorClass + " already mediated to " + viewClass + "!");
 			
-			trace(this, "Mediate " + viewClass);
+			trace(this, "mediate " + viewClass);
 			
 			var mediator:IMediator = new mediatorClass(_context);
-			_mapInstances[viewClass] = mediator;
+			_mapViewMediator[view] = mediator;
 			mediator.initialize(view);
 		}
 		
 		public function unmediate(view:Object):void
 		{
 			var viewClass:Class = view["constructor"];
-			var mediator:IMediator = _mapInstances[viewClass];
+			var mediator:IMediator = _mapViewMediator[view];
 			
-			if (!mediator) return;
+			if (!mediator) throw new Error(mediator + " already unmediated from " + viewClass + "!");
 			
-			trace(this, "Unmediate " + viewClass);
+			trace(this, "unmediate " + viewClass);
 			
 			mediator.destroy();
-			delete _mapInstances[viewClass];
+			delete _mapViewMediator[view];
 		}
 	}
 }

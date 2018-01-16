@@ -11,5 +11,6 @@ package ru.arslanov.starling.mvc.mediators
 		function unmediate(view:Object):void;
 		function hasMediator(mediatorClass:Class):Boolean;
 		function isMapped(view:Object):Boolean;
+		function isMediated(view:Object):Boolean;
 	}
 }

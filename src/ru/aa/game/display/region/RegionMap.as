@@ -57,8 +57,8 @@ package ru.aa.game.display.region
 			
 			_assetsLoaded = false;
 			
-//			Assets.me.enqueue(Files.SPRITES_XML);
-//			Assets.me.enqueue(Files.SPRITES_PNG);
+			Assets.me.enqueue(Files.SPRITES_XML);
+			Assets.me.enqueue(Files.SPRITES_PNG);
 			Assets.me.enqueueWithName(_region.imageURL, TEX_BACKGROUND);
 			Assets.me.loadQueue(loadingHandler);
 		}
