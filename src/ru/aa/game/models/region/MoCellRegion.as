@@ -68,7 +68,7 @@ package ru.aa.game.models.region
 			_region.grid.addCellAt(col, row, this);
 		}
 		
-		public function isAccessible():Boolean
+		public function available():Boolean
 		{
 			var neighboring:MoCellRegion = _region.grid.getCellAt(_col, _row-1) as MoCellRegion;
 			var leftOpened:Boolean = neighboring ? neighboring.opened : false;
