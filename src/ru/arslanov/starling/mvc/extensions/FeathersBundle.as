@@ -4,6 +4,8 @@ package ru.arslanov.starling.mvc.extensions
 	import feathers.core.FeathersControl;
 	import feathers.events.FeathersEventType;
 	
+	import ru.arslanov.core.utils.Log;
+	
 	import ru.arslanov.starling.mvc.context.IContext;
 	
 	import starling.display.DisplayObject;
@@ -14,7 +16,7 @@ package ru.arslanov.starling.mvc.extensions
 		public function FeathersBundle(context:IContext)
 		{
 			super(context);
-			trace("Feathers VERSION : " + FEATHERS_VERSION);
+			Log.traceText("VERSION Feathers " + FEATHERS_VERSION);
 		}
 		
 		override protected function onAdded(event:Event):void

@@ -33,7 +33,7 @@ package ru.arslanov.starling
 		{
 			if (_isInited) return;
 			
-			Log.traceText("CALL >> StarlingFactory.init");
+			Log.traceText("CALL >> StarlingManager.init");
 			
 			_stageNative = stage;
 			_stageBounds = stageBounds || new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);
@@ -89,9 +89,9 @@ package ru.arslanov.starling
 			//NativeApplication.nativeApplication.addEventListener( Event.DEACTIVATE, engineStop );
 			
 			//Log.traceText( "Display : " + Display.stageWidth + " x " + Display.stageHeight );
+			Log.traceText("VERSION Starling " + Starling.VERSION);
 			Log.traceText("Starling ViewPort : " + _viewport);
 			Log.traceText("starling contentScaleFactor : " + starling.contentScaleFactor);
-			Log.traceText("Starling VERSION : " + Starling.VERSION);
 			Log.traceText("StarlingFactory successful inited.");
 			
 			_isInited = true;

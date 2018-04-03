@@ -3,8 +3,6 @@ package ru.aa.game
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
-	import ru.aa.game.AppRoot;
-	
 	import ru.arslanov.starling.StarlingManager;
 	
 	[SWF(frameRate = "60")]
