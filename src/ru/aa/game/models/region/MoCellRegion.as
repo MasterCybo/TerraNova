@@ -65,21 +65,21 @@ package ru.aa.game.models.region
 			_region = region;
 			_col = col;
 			_row = row;
-			_region.grid.addCellAt(col, row, this);
+			_region.grid.addAt(col, row, this);
 		}
 		
 		public function available():Boolean
 		{
-			var neighboring:MoCellRegion = _region.grid.getCellAt(_col, _row-1) as MoCellRegion;
+			var neighboring:MoCellRegion = _region.grid.getAt(_col, _row-1) as MoCellRegion;
 			var leftOpened:Boolean = neighboring ? neighboring.opened : false;
 			
-			neighboring = _region.grid.getCellAt(_col, _row+1) as MoCellRegion;
+			neighboring = _region.grid.getAt(_col, _row+1) as MoCellRegion;
 			var rightOpened:Boolean = neighboring ? neighboring.opened : false;
 			
-			neighboring = _region.grid.getCellAt(_col+1, _row) as MoCellRegion;
+			neighboring = _region.grid.getAt(_col+1, _row) as MoCellRegion;
 			var bottomOpened:Boolean = neighboring ? neighboring.opened : false;
 			
-			neighboring = _region.grid.getCellAt(_col-1, _row) as MoCellRegion;
+			neighboring = _region.grid.getAt(_col-1, _row) as MoCellRegion;
 			var topOpened:Boolean = neighboring ? neighboring.opened : false;
 			
 			return (leftOpened || rightOpened || bottomOpened || topOpened) && !locked;

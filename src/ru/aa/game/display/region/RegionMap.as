@@ -79,7 +79,7 @@ package ru.aa.game.display.region
 			var moCell:MoCellRegion;
 			for (var i:int = 0; i < _rows; i++) {
 				for (var j:int = 0; j < _cols; j++) {
-					moCell = _region.grid.getCellAt(j, i) as MoCellRegion;
+					moCell = _region.grid.getAt(j, i) as MoCellRegion;
 					
 					tile = new RegionTile(moCell);
 					_tiles.push(tile);

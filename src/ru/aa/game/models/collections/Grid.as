@@ -1,15 +1,12 @@
 package ru.aa.game.models.collections
 {
 	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
-	
-	import ru.aa.game.core.data.ModelBase;
 	
 	public class Grid extends EventDispatcher
 	{
 		private var _cols:int;
 		private var _rows:int;
-		private var _objects:Vector.<Vector.<ModelBase>>;
+		private var _objects:Vector.<Vector.<*>>;
 		
 		public function Grid(cols:uint, rows:uint)
 		{
@@ -17,25 +14,25 @@ package ru.aa.game.models.collections
 			_cols = cols;
 			_rows = rows;
 			
-			_objects = new Vector.<Vector.<ModelBase>>(_cols);
+			_objects = new Vector.<Vector.<*>>(_cols);
 			
 			for (var i:int = 0; i < _cols; i++) {
-				_objects[i] = new Vector.<ModelBase>(_rows);
+				_objects[i] = new Vector.<*>(_rows);
 			}
 		}
 		
 		public function get cols():int {return _cols;}
 		public function get rows():int {return _rows;}
 		
-		public function addCellAt(col:int, row:int, object:ModelBase):void
+		public function addAt(col:int, row:int, value:*):void
 		{
 			if ((col >= _cols) || (col < 0)) throw new RangeError("Column out of range " + col + " / " + _cols);
 			if ((row >= _rows) || (row < 0)) throw new RangeError("Row out of range " + row + " / " + _rows);
 			
-			_objects[col][row] = object;
+			_objects[col][row] = value;
 		}
 		
-		public function getCellAt(col:int, row:int):ModelBase
+		public function getAt(col:int, row:int):*
 		{
 			if (col >= _cols || col < 0) return null;
 			if (row >= _rows || row < 0) return null;
