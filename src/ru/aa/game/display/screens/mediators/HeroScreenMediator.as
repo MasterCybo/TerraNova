@@ -7,7 +7,7 @@ package ru.aa.game.display.screens.mediators
 	import ru.aa.game.display.screens.ScreenName;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.HeroScreen;
-	import ru.aa.game.player.models.MoHero;
+	import ru.aa.game.hero.models.MoHero;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	

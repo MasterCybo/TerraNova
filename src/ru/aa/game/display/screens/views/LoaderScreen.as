@@ -3,13 +3,8 @@
  */
 package ru.aa.game.display.screens.views
 {
-	import feathers.controls.LayoutGroup;
 	import feathers.controls.Screen;
-	import feathers.layout.HorizontalLayout;
-	import feathers.layout.TiledColumnsLayout;
 	
-	import ru.aa.game.core.display.controls.TextButton;
-	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.utils.Assets;
 	
 	public class LoaderScreen extends Screen

@@ -11,7 +11,7 @@ package ru.aa.game.display.screens.views
 	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
-	import ru.aa.game.player.models.MoHero;
+	import ru.aa.game.hero.models.MoHero;
 	
 	public class HeroScreen extends Screen
 	{

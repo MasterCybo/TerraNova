@@ -6,7 +6,6 @@ package ru.aa.game.services
 	import flash.filesystem.File;
 	
 	import ru.aa.game.core.serialize.ISerializable;
-	
 	import ru.aa.game.core.services.FileService;
 	
 	public class DataLoadService extends FileService

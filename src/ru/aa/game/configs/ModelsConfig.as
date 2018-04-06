@@ -1,10 +1,10 @@
 package ru.aa.game.configs
 {
 	import ru.aa.game.collections.Files;
-	import ru.aa.game.models.collections.ItemsKindCollection;
-	import ru.aa.game.models.world.IWorld;
-	import ru.aa.game.models.world.MoWorld;
-	import ru.aa.game.player.models.MoHero;
+	import ru.aa.game.common.collections.ItemsKindCollection;
+	import ru.aa.game.hero.models.MoHero;
+	import ru.aa.game.world.models.IWorld;
+	import ru.aa.game.world.models.MoWorld;
 	import ru.arslanov.starling.mvc.config.Config;
 	import ru.arslanov.starling.mvc.context.IContext;
 	

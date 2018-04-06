@@ -13,7 +13,7 @@ package ru.aa.game.display.screens.views
 	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
-	import ru.aa.game.models.region.IRegion;
+	import ru.aa.game.location.models.ILocation;
 	
 	public class BriefingScreen extends Screen
 	{
@@ -23,7 +23,7 @@ package ru.aa.game.display.screens.views
 		private static const LABEL_TITLE:String = "labelName";
 		private static const LABEL_DESCRIPTION:String = "labelDescription";
 		
-		private var _region:IRegion;
+		private var _region:ILocation;
 		
 		private var _toolbar:LayoutGroup;
 		private var _info:LayoutGroup;
@@ -75,7 +75,7 @@ package ru.aa.game.display.screens.views
 			_region = null;
 		}
 		
-		public function set region(value:IRegion):void
+		public function set region(value:ILocation):void
 		{
 			_region = value;
 			invalidate(INVALIDATION_FLAG_DATA);

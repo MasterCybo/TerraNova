@@ -6,11 +6,11 @@ package ru.aa.game.commands
 	import flash.events.Event;
 	
 	import ru.aa.game.collections.Files;
-	import ru.aa.game.commands.events.StartWorldEvent;
-	import ru.aa.game.models.collections.ItemsKindCollection;
-	import ru.aa.game.models.world.IWorld;
-	import ru.aa.game.player.models.MoHero;
+	import ru.aa.game.common.collections.ItemsKindCollection;
+	import ru.aa.game.hero.models.MoHero;
 	import ru.aa.game.services.DataLoadService;
+	import ru.aa.game.world.events.StartWorldEvent;
+	import ru.aa.game.world.models.IWorld;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.context.IContext;
 	

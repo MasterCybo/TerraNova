@@ -3,11 +3,11 @@
  */
 package ru.aa.game.display.screens.mediators
 {
-	import ru.aa.game.commands.events.StartRegionEvent;
 	import ru.aa.game.core.display.controls.AppButton;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.display.screens.views.BriefingScreen;
-	import ru.aa.game.player.models.MoHero;
+	import ru.aa.game.hero.models.MoHero;
+	import ru.aa.game.location.events.StartLocationEvent;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
@@ -48,7 +48,7 @@ package ru.aa.game.display.screens.mediators
 					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
 					break;
 				case BriefingScreen.BUTTON_BEGIN:
-					dispatchEvent(new StartRegionEvent(StartRegionEvent.START_REGION));
+					dispatchEvent(new StartLocationEvent(StartLocationEvent.START_REGION));
 					break;
 			}
 		}

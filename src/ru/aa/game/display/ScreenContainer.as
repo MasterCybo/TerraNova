@@ -14,8 +14,8 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.HeroScreen;
 	import ru.aa.game.display.screens.views.LoaderScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
-	import ru.aa.game.display.screens.views.RegionScreen;
-	import ru.aa.game.display.screens.views.WorldScreen;
+	import ru.aa.game.location.views.LocationScreen;
+	import ru.aa.game.world.views.WorldScreen;
 	
 	public class ScreenContainer extends ScreenNavigator
 	{
@@ -49,7 +49,7 @@ package ru.aa.game.display
 			screenItem = new ScreenNavigatorItem(BriefingScreen);
 			addScreen(ScreenName.BRIEFING, screenItem);
 			
-			screenItem = new ScreenNavigatorItem(RegionScreen);
+			screenItem = new ScreenNavigatorItem(LocationScreen);
 			addScreen(ScreenName.REGION_MAP, screenItem);
 			
 			screenItem = new ScreenNavigatorItem(BattleScreen);
