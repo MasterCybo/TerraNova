@@ -6,12 +6,14 @@ package ru.aa.game.configs
 	import ru.aa.game.display.screens.mediators.BriefingScreenMediator;
 	import ru.aa.game.display.screens.mediators.CommunicatorScreenMediator;
 	import ru.aa.game.display.screens.mediators.HeroScreenMediator;
+	import ru.aa.game.display.screens.mediators.LoadingScreenMediator;
 	import ru.aa.game.display.screens.mediators.MainMenuScreenMediator;
 	import ru.aa.game.display.screens.views.BackpackScreen;
 	import ru.aa.game.display.screens.views.BattleScreen;
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
 	import ru.aa.game.display.screens.views.HeroScreen;
+	import ru.aa.game.display.screens.views.LoadingScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.location.mediators.LocationMapMediator;
 	import ru.aa.game.location.mediators.LocationScreenMediator;
@@ -37,7 +39,10 @@ package ru.aa.game.configs
 			super.configure();
 			
 			mediatorMap.map(ScreenContainer).toMediator(ScreenContainerMediator);
+			mediatorMap.map(LoadingScreen).toMediator(LoadingScreenMediator);
+			
 			mediatorMap.map(MainMenuScreen).toMediator(MainMenuScreenMediator);
+			
 			mediatorMap.map(BackpackScreen).toMediator(BackpackScreenMediator);
 			mediatorMap.map(CommunicatorScreen).toMediator(CommunicatorScreenMediator);
 			mediatorMap.map(BattleScreen).toMediator(BattleScreenMediator);

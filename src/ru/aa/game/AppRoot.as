@@ -10,6 +10,8 @@ package ru.aa.game
 	import ru.aa.game.configs.ServicesConfig;
 	import ru.aa.game.display.ScreenContainer;
 	import ru.aa.game.display.screens.ScreenName;
+	import ru.aa.game.display.screens.data.LoadCommonAssetsAction;
+	import ru.aa.game.display.screens.data.LoadingScreenAction;
 	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.context.IContext;
@@ -44,7 +46,8 @@ package ru.aa.game
 							screenContainer
 					);
 			
-			context.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
+//			context.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.MAIN_MENU));
+			context.dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.LOADING_SCREEN, new LoadCommonAssetsAction(ScreenName.MAIN_MENU)));
 			
 		}
 	}

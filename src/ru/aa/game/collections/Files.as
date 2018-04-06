@@ -10,5 +10,7 @@ package ru.aa.game.collections
 		
 		public static const DEFAULT_WORLD:String = "res/world01.json";
 		public static const ITEMS_KIND:String = "res/items.json";
+		
+		public static const LOADING_01:String = "res/images/loading_01.jpg";
 	}
 }

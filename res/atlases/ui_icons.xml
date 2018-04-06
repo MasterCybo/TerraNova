@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="ui_icons.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="back"	x="180"	y="0"	width="130"	height="137" frameX="-0" frameY="-0" frameWidth="130" frameHeight="137"/>
+	<SubTexture name="backpack"	x="0"	y="281"	width="143"	height="143" frameX="-0" frameY="-0" frameWidth="143" frameHeight="143"/>
+	<SubTexture name="bolt"	x="160"	y="144"	width="134"	height="134" frameX="-0" frameY="-0" frameWidth="134" frameHeight="134"/>
+	<SubTexture name="equipment"	x="0"	y="0"	width="179"	height="143" frameX="-0" frameY="-0" frameWidth="179" frameHeight="143"/>
+	<SubTexture name="mission_accept"	x="0"	y="144"	width="159"	height="136" frameX="-0" frameY="-0" frameWidth="159" frameHeight="136"/>
+	<SubTexture name="mission_refuse"	x="144"	y="281"	width="139"	height="138" frameX="-0" frameY="-0" frameWidth="139" frameHeight="138"/>
+	<SubTexture name="pda"	x="284"	y="279"	width="106"	height="143" frameX="-0" frameY="-0" frameWidth="106" frameHeight="143"/>
+</TextureAtlas>

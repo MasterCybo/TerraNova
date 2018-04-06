@@ -12,7 +12,7 @@ package ru.aa.game.display
 	import ru.aa.game.display.screens.views.BriefingScreen;
 	import ru.aa.game.display.screens.views.CommunicatorScreen;
 	import ru.aa.game.display.screens.views.HeroScreen;
-	import ru.aa.game.display.screens.views.LoaderScreen;
+	import ru.aa.game.display.screens.views.LoadingScreen;
 	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.location.views.LocationScreen;
 	import ru.aa.game.world.views.WorldScreen;
@@ -28,32 +28,25 @@ package ru.aa.game.display
 		{
 			super.initialize();
 			
-			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(LoaderScreen);
-			addScreen(ScreenName.LOADER_SCREEN, screenItem);
+			setupScreenItem(LoadingScreen, 		ScreenName.LOADING_SCREEN);
 			
-			screenItem = new ScreenNavigatorItem(MainMenuScreen);
-			addScreen(ScreenName.MAIN_MENU, screenItem);
+			setupScreenItem(MainMenuScreen, 	ScreenName.MAIN_MENU);
 			
-			screenItem = new ScreenNavigatorItem(WorldScreen);
-			addScreen(ScreenName.WORLD_MAP, screenItem);
+			setupScreenItem(CommunicatorScreen, ScreenName.COMMUNICATOR);
+			setupScreenItem(BackpackScreen, 	ScreenName.BACKPACK);
+			setupScreenItem(HeroScreen, 		ScreenName.PERSONAGE);
+			setupScreenItem(BriefingScreen, 	ScreenName.BRIEFING);
 			
-			screenItem = new ScreenNavigatorItem(CommunicatorScreen);
-			addScreen(ScreenName.COMMUNICATOR, screenItem);
+			setupScreenItem(WorldScreen, 		ScreenName.WORLD_MAP);
+			setupScreenItem(LocationScreen, 	ScreenName.REGION_MAP);
 			
-			screenItem = new ScreenNavigatorItem(BackpackScreen);
-			addScreen(ScreenName.BACKPACK, screenItem);
-			
-			screenItem = new ScreenNavigatorItem(HeroScreen);
-			addScreen(ScreenName.PERSONAGE, screenItem);
-			
-			screenItem = new ScreenNavigatorItem(BriefingScreen);
-			addScreen(ScreenName.BRIEFING, screenItem);
-			
-			screenItem = new ScreenNavigatorItem(LocationScreen);
-			addScreen(ScreenName.REGION_MAP, screenItem);
-			
-			screenItem = new ScreenNavigatorItem(BattleScreen);
-			addScreen(ScreenName.BATTLE, screenItem);
+			setupScreenItem(BattleScreen, 		ScreenName.BATTLE);
+		}
+		
+		private function setupScreenItem(screen:Class, name:String):void
+		{
+			var screenItem:ScreenNavigatorItem = new ScreenNavigatorItem(screen);
+			addScreen(name, screenItem);
 		}
 	}
 }
