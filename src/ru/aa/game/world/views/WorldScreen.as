@@ -7,8 +7,11 @@ package ru.aa.game.world.views
 	import feathers.controls.Screen;
 	import feathers.layout.HorizontalLayout;
 	
+	import ru.aa.game.core.display.controls.IconButton;
+	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
+	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.world.models.IWorld;
 	
 	public class WorldScreen extends Screen
@@ -45,10 +48,10 @@ package ru.aa.game.world.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Меню", BUTTON_MAIN_MENU));
-			_toolbar.addChild(new TextButton("КПК", BUTTON_COMMUNICATOR));
-			_toolbar.addChild(new TextButton("Снаряжение", BUTTON_PERSONAGE));
-			_toolbar.addChild(new TextButton("Рюкзак", BUTTON_BACKPACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_MAIN_MENU));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("pda"), BUTTON_COMMUNICATOR));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("equipment"), BUTTON_PERSONAGE));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("backpack"), BUTTON_BACKPACK));
 			_toolbar.validate();
 			
 			addChild(_toolbar);

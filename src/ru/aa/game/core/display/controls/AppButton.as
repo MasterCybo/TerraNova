@@ -9,9 +9,10 @@ package ru.aa.game.core.display.controls
 	
 	public class AppButton extends Button
 	{
-		public function AppButton()
+		public function AppButton(name:String)
 		{
 			super();
+			this.name = name;
 		}
 		
 		override protected function initialize():void

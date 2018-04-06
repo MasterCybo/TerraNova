@@ -8,8 +8,11 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.HorizontalLayout;
 	import feathers.layout.TiledColumnsLayout;
 	
+	import ru.aa.game.core.display.controls.IconButton;
+	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.image.ImageAsset;
+	import ru.aa.game.core.utils.Assets;
 	
 	public class BackpackScreen extends Screen
 	{
@@ -32,7 +35,7 @@ package ru.aa.game.display.screens.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Назад", BUTTON_BACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_BACK));
 			_toolbar.validate();
 			
 			var slotsLayout:TiledColumnsLayout = new TiledColumnsLayout();

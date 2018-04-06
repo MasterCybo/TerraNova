@@ -7,9 +7,8 @@ package ru.aa.game.core.display.controls
 	{
 		public function TextButton(label:String, name:String)
 		{
-			super();
+			super(name);
 			this.label = label;
-			this.name = name;
 		}
 	}
 }

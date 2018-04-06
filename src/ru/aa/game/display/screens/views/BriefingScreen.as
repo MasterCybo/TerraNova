@@ -11,8 +11,11 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.HorizontalLayout;
 	import feathers.layout.VerticalLayout;
 	
+	import ru.aa.game.core.display.controls.IconButton;
+	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
+	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.location.models.ILocation;
 	
 	public class BriefingScreen extends Screen
@@ -46,8 +49,8 @@ package ru.aa.game.display.screens.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Отказ", BUTTON_BACK));
-			_toolbar.addChild(new TextButton("Начать", BUTTON_BEGIN));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("mission_refuse"), BUTTON_BACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("mission_accept"), BUTTON_BEGIN));
 			_toolbar.validate();
 			
 			addChild(_toolbar);

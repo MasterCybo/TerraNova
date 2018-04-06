@@ -9,7 +9,10 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.VerticalAlign;
 	import feathers.layout.VerticalLayout;
 	
+	import ru.aa.game.collections.Files;
+	
 	import ru.aa.game.core.display.controls.TextButton;
+	import ru.aa.game.core.utils.Assets;
 	
 	public class MainMenuScreen extends Screen
 	{
@@ -19,6 +22,11 @@ package ru.aa.game.display.screens.views
 		public function MainMenuScreen()
 		{
 			super();
+		}
+		
+		override protected function initialize():void
+		{
+			super.initialize();
 			
 			var layoutScreen:VerticalLayout = new VerticalLayout();
 			layoutScreen.horizontalAlign = HorizontalAlign.CENTER;
@@ -36,6 +44,17 @@ package ru.aa.game.display.screens.views
 			groupButtons.addChild(new TextButton("Выход", BUTTON_QUIT));
 			
 			addChild(groupButtons);
+			
+			Assets.me.enqueue(Files.UI_ICONS_XML);
+			Assets.me.enqueue(Files.UI_ICONS_PNG);
+			Assets.me.loadQueue(loadingHandler);
+		}
+		
+		private function loadingHandler(ratio:Number):void
+		{
+			trace("ratio: " + ratio);
+//			_assetsLoaded = ratio == 1.0;
+//			if (_assetsLoaded) drawField();
 		}
 	}
 }

@@ -9,8 +9,11 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.HorizontalLayout;
 	import feathers.layout.VerticalLayout;
 	
+	import ru.aa.game.core.display.controls.IconButton;
+	
 	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
+	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.hero.models.MoHero;
 	
 	public class HeroScreen extends Screen
@@ -65,8 +68,8 @@ package ru.aa.game.display.screens.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Назад", BUTTON_BACK));
-			_toolbar.addChild(new TextButton("Рюкзак", BUTTON_BACKPACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_BACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("backpack"), BUTTON_BACKPACK));
 			_toolbar.validate();
 			
 			addChild(_toolbar);

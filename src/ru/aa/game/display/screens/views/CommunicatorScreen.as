@@ -7,7 +7,10 @@ package ru.aa.game.display.screens.views
 	import feathers.controls.Screen;
 	import feathers.layout.HorizontalLayout;
 	
+	import ru.aa.game.core.display.controls.IconButton;
+	
 	import ru.aa.game.core.display.controls.TextButton;
+	import ru.aa.game.core.utils.Assets;
 	
 	public class CommunicatorScreen extends Screen
 	{
@@ -30,7 +33,7 @@ package ru.aa.game.display.screens.views
 			_toolbar = new LayoutGroup();
 			_toolbar.layout = layoutMenu;
 			
-			_toolbar.addChild(new TextButton("Назад", BUTTON_BACK));
+			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_BACK));
 			_toolbar.validate();
 			
 			addChild(_toolbar);
