@@ -8,8 +8,6 @@ package ru.aa.game.world.views
 	import feathers.layout.HorizontalLayout;
 	
 	import ru.aa.game.core.display.controls.IconButton;
-	
-	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.world.models.IWorld;

@@ -5,11 +5,10 @@ package ru.aa.game.commands
 {
 	import flash.events.Event;
 	
-	import ru.aa.game.collections.Files;
-	import ru.aa.game.common.collections.ItemsKindCollection;
 	import ru.aa.game.hero.models.MoHero;
-	import ru.aa.game.services.DataLoadService;
-	import ru.aa.game.world.events.StartWorldEvent;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.data.LoadWorldDataAction;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.aa.game.world.models.IWorld;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.context.IContext;
@@ -29,24 +28,8 @@ package ru.aa.game.commands
 			var world:IWorld = injector.getOf(IWorld);
 			hero.position.world = world;
 			
-//			var resLoader:ResourceLoader = new ResourceLoader(context);
-//			injector.map(ResourceLoader).toValue(resLoader);
-//			resLoader.start();
-			
-			var kindsCollection:ItemsKindCollection = injector.getOf(ItemsKindCollection);
-			
-			var dataStorage:DataLoadService = injector.getOf(DataLoadService);
-			dataStorage.addEventListener(Event.COMPLETE, onLoadComplete);
-			dataStorage.verbose = true;
-			dataStorage.load(Files.ITEMS_KIND, kindsCollection);
-		}
-		
-		private function onLoadComplete(event:Event):void
-		{
-			var dataStorage:DataLoadService = event.target as DataLoadService;
-			dataStorage.removeEventListener(Event.COMPLETE, onLoadComplete);
-			
-			dispatchEvent(new StartWorldEvent(StartWorldEvent.START_WORLD));
+			var loadingAction:LoadWorldDataAction = new LoadWorldDataAction(injector, ScreenName.WORLD_MAP);
+			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.LOADING_SCREEN, loadingAction));
 		}
 	}
 }

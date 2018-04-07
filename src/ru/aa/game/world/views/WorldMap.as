@@ -16,6 +16,8 @@ package ru.aa.game.world.views
 	
 	public class WorldMap extends ScrollContainer
 	{
+		public static const BACKGROUND:String = "backgroundWorldMap";
+		
 		private var _world:IWorld;
 		
 		private var _background:ImageAsset;
@@ -42,7 +44,6 @@ package ru.aa.game.world.views
 //			minimumDragDistance = 0.04; // default
 			
 			_background = new ImageAsset();
-			_background.assetManager = Assets.me;
 			addChild(_background);
 			
 			_tilesContainer = new AppSprite();
@@ -77,15 +78,13 @@ package ru.aa.game.world.views
 			}
 			
 			if (isInvalid(INVALIDATION_FLAG_DATA)) {
-				if (_world) _background.load(_world.imageURL, onLoadComplete);
+				if (_world) {
+					_background.texture = Assets.me.getTexture(BACKGROUND);
+					invalidate(INVALIDATION_FLAG_SIZE);
+					readjustLayout();
+					drawLocations();
+				}
 			}
-		}
-		
-		private function onLoadComplete():void
-		{
-			invalidate(INVALIDATION_FLAG_SIZE);
-			readjustLayout();
-			drawLocations();
 		}
 		
 		private function drawLocations():void

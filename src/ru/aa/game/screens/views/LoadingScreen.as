@@ -3,6 +3,8 @@
  */
 package ru.aa.game.screens.views
 {
+	import aze.motion.eaze;
+	
 	import feathers.controls.ImageLoader;
 	import feathers.controls.Screen;
 	
@@ -30,6 +32,7 @@ package ru.aa.game.screens.views
 			super.initialize();
 			
 			_image = new ImageLoader();
+			_image.alpha = 0;
 			_image.addEventListener(Event.COMPLETE, imageCompleteHandler);
 			_image.source = Files.LOADING_01;
 			_image.width = stage.stageWidth;
@@ -39,6 +42,10 @@ package ru.aa.game.screens.views
 		
 		private function imageCompleteHandler(event:Event):void
 		{
+			eaze(_image).to(0.2, {alpha:1}).onComplete(executeAction);
+		}
+		
+		private function executeAction():void {
 			data.addEventListener(LoadingActionEvent.COMPLETE, completeHandler);
 			data.addEventListener(LoadingActionEvent.PROGRESS, progressHandler);
 			data.execute();
@@ -54,8 +61,11 @@ package ru.aa.game.screens.views
 			data.removeEventListener(LoadingActionEvent.PROGRESS, progressHandler);
 			data.removeEventListener(LoadingActionEvent.COMPLETE, completeHandler);
 			
+			eaze(_image).to(0.2, {alpha:0}).onComplete(executeComplete);
+		}
+		
+		private function executeComplete():void {
 			removeChild(_image, true);
-			
 			dispatchEvent(new Event(COMPLETE, true, data.nextScreenName));
 		}
 	}

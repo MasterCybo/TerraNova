@@ -8,8 +8,6 @@ package ru.aa.game.configs
 	import ru.aa.game.hero.events.HeroServiceEvent;
 	import ru.aa.game.location.commands.StartLocationCommand;
 	import ru.aa.game.location.events.StartLocationEvent;
-	import ru.aa.game.world.commands.StartWorldCommand;
-	import ru.aa.game.world.events.StartWorldEvent;
 	import ru.arslanov.starling.mvc.config.Config;
 	import ru.arslanov.starling.mvc.context.IContext;
 	
@@ -27,7 +25,6 @@ package ru.aa.game.configs
 			commandMap.map(AppEvent.CLOSE_APPLICATION).toCommand(CloseApplicationCommand);
 			commandMap.map(AppEvent.BEGIN_NEW_GAME).toCommand(BeginNewGameCommand);
 			
-			commandMap.map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
 			commandMap.map(StartLocationEvent.START_LOCATION).toCommand(StartLocationCommand);
 			
 			commandMap.map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
