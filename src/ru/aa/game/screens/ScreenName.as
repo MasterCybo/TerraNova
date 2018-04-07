@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 15.02.2017.
  */
-package ru.aa.game.display.screens
+package ru.aa.game.screens
 {
 	public class ScreenName
 	{
@@ -9,7 +9,7 @@ package ru.aa.game.display.screens
 		public static const BATTLE:String = "battleScreen";
 		public static const BRIEFING:String = "briefingScreen";
 		public static const COMMUNICATOR:String = "communicatorScreen";
-		public static const REGION_MAP:String = "regionMapScreen";
+		public static const LOCATION_MAP:String = "locationMapScreen";
 		public static const MAIN_MENU:String = "mainMenuScreen";
 		public static const PERSONAGE:String = "personageScreen";
 		public static const WORLD_MAP:String = "worldMapScreen";

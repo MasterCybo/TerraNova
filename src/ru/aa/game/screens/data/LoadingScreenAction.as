@@ -1,8 +1,8 @@
-package ru.aa.game.display.screens.data
+package ru.aa.game.screens.data
 {
 	import flash.events.EventDispatcher;
 	
-	import ru.aa.game.display.screens.events.LoadingEvent;
+	import ru.aa.game.screens.events.LoadingActionEvent;
 	
 	public class LoadingScreenAction extends EventDispatcher
 	{
@@ -23,7 +23,7 @@ package ru.aa.game.display.screens.data
 		
 		protected function progress(ratio:Number):void
 		{
-			dispatchEvent(new LoadingEvent(LoadingEvent.PROGRESS, ratio));
+			dispatchEvent(new LoadingActionEvent(LoadingActionEvent.PROGRESS, ratio));
 			if (ratio == 1.0) {
 				complete();
 			}
@@ -31,7 +31,7 @@ package ru.aa.game.display.screens.data
 		
 		protected function complete():void
 		{
-			dispatchEvent(new LoadingEvent(LoadingEvent.COMPLETE));
+			dispatchEvent(new LoadingActionEvent(LoadingActionEvent.COMPLETE));
 		}
 	}
 }

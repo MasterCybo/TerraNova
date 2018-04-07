@@ -7,7 +7,7 @@ package ru.aa.game.location.events
 	
 	public class StartLocationEvent extends Event
 	{
-		public static const START_REGION:String = "startRegionEvent";
+		public static const START_LOCATION:String = "startLocationEvent";
 		
 		public function StartLocationEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

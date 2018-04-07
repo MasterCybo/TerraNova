@@ -5,12 +5,10 @@ package ru.aa.game.location.commands
 {
 	import flash.events.Event;
 	
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.hero.models.MoHero;
 	import ru.aa.game.location.events.StartLocationEvent;
-	import ru.aa.game.location.models.ILocation;
-	import ru.aa.game.services.DataLoadService;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.data.LoadLocationDataAction;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.commands.Command;
 	import ru.arslanov.starling.mvc.context.IContext;
 	
@@ -27,21 +25,9 @@ package ru.aa.game.location.commands
 		{
 			super.execute();
 			
-			var hero:MoHero = injector.getOf(MoHero);
-			var region:ILocation = hero.position.region;
+			var loadingAction:LoadLocationDataAction = new LoadLocationDataAction(injector, ScreenName.LOCATION_MAP);
 			
-			var fileService:DataLoadService = injector.getOf(DataLoadService);
-			fileService.addEventListener(Event.COMPLETE, onLoadComplete);
-			fileService.verbose = true;
-			fileService.load(region.dataURL, region);
-		}
-		
-		private function onLoadComplete(event:Event):void
-		{
-			var fileService:DataLoadService = event.target as DataLoadService;
-			fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
-			
-			dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.REGION_MAP));
+            dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.LOADING_SCREEN, loadingAction));
 		}
 	}
 }

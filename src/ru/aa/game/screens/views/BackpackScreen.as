@@ -1,24 +1,24 @@
 /**
  * Created by Artem-Home on 14.02.2017.
  */
-package ru.aa.game.display.screens.views
+package ru.aa.game.screens.views
 {
 	import feathers.controls.LayoutGroup;
 	import feathers.controls.Screen;
 	import feathers.layout.HorizontalLayout;
+	import feathers.layout.TiledColumnsLayout;
 	
 	import ru.aa.game.core.display.controls.IconButton;
-	
-	import ru.aa.game.core.display.controls.TextButton;
+	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.utils.Assets;
 	
-	public class CommunicatorScreen extends Screen
+	public class BackpackScreen extends Screen
 	{
 		public static const BUTTON_BACK:String = "backButton";
 		
 		private var _toolbar:LayoutGroup;
 		
-		public function CommunicatorScreen()
+		public function BackpackScreen()
 		{
 			super();
 		}
@@ -36,9 +36,20 @@ package ru.aa.game.display.screens.views
 			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_BACK));
 			_toolbar.validate();
 			
+			var slotsLayout:TiledColumnsLayout = new TiledColumnsLayout();
+			slotsLayout.typicalItemWidth = 230;
+			slotsLayout.typicalItemHeight = 230;
+			
+			var slots:LayoutGroup = new LayoutGroup();
+			slots.layout = slotsLayout;
+			
+			addChild(slots);
 			addChild(_toolbar);
 			
-			invalidate(INVALIDATION_FLAG_SIZE);
+			// TODO make add items
+			var image:ImageAsset = new ImageAsset();
+			
+			slots.addChild(new ImageAsset());
 		}
 		
 		override protected function draw():void

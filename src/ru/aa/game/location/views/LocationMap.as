@@ -3,7 +3,6 @@
  */
 package ru.aa.game.location.views
 {
-	import ru.aa.game.collections.Files;
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
@@ -19,7 +18,6 @@ package ru.aa.game.location.views
 		
 		public static const SPACE:int = 2;
 		
-		private var _assetsLoaded:Boolean;
 		private var _region:ILocation;
 		private var _tiles:Vector.<LocationTile> = new Vector.<LocationTile>();
 		private var _tilesContainer:AppSprite;
@@ -55,24 +53,11 @@ package ru.aa.game.location.views
 			_cols = _region.cols;
 			_rows = _region.rows;
 			
-			_assetsLoaded = false;
-			
-			Assets.me.enqueue(Files.LOC_TILES_XML);
-			Assets.me.enqueue(Files.LOC_TILES_PNG);
-			Assets.me.enqueueWithName(_region.imageURL, TEX_BACKGROUND);
-			Assets.me.loadQueue(loadingHandler);
-		}
-		
-		private function loadingHandler(ratio:Number):void
-		{
-			_assetsLoaded = ratio == 1.0;
-			if (_assetsLoaded) drawField();
+			drawField();
 		}
 		
 		private function drawField():void
 		{
-			if (!_assetsLoaded) return;
-			
 			_background.texture = Assets.me.getTexture(TEX_BACKGROUND);
 			
 			var tile:LocationTile;

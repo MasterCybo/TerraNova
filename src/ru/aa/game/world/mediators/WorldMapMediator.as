@@ -3,10 +3,10 @@
  */
 package ru.aa.game.world.mediators
 {
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.hero.models.MoHero;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.events.ScreenEvent;
+	import ru.aa.game.screens.events.TileEvent;
 	import ru.aa.game.world.models.IWorld;
 	import ru.aa.game.world.views.WorldMap;
 	import ru.aa.game.world.views.WorldTile;

@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 15.02.2017.
  */
-package ru.aa.game.display.screens.mediators
+package ru.aa.game.screens.mediators
 {
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;

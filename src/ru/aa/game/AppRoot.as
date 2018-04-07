@@ -8,11 +8,10 @@ package ru.aa.game
 	import ru.aa.game.configs.MediatorsConfig;
 	import ru.aa.game.configs.ModelsConfig;
 	import ru.aa.game.configs.ServicesConfig;
-	import ru.aa.game.display.ScreenContainer;
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.data.LoadCommonAssetsAction;
-	import ru.aa.game.display.screens.data.LoadingScreenAction;
-	import ru.aa.game.display.screens.events.ScreenEvent;
+	import ru.aa.game.screens.ScreenContainer;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.data.LoadCommonAssetsAction;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.Context;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.extensions.FeathersBundle;

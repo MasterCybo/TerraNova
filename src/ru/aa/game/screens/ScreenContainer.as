@@ -1,20 +1,19 @@
 /**
  * Created by Artem-Home on 15.02.2017.
  */
-package ru.aa.game.display
+package ru.aa.game.screens
 {
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
 	
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.views.BackpackScreen;
-	import ru.aa.game.display.screens.views.BattleScreen;
-	import ru.aa.game.display.screens.views.BriefingScreen;
-	import ru.aa.game.display.screens.views.CommunicatorScreen;
-	import ru.aa.game.display.screens.views.HeroScreen;
-	import ru.aa.game.display.screens.views.LoadingScreen;
-	import ru.aa.game.display.screens.views.MainMenuScreen;
 	import ru.aa.game.location.views.LocationScreen;
+	import ru.aa.game.screens.views.BackpackScreen;
+	import ru.aa.game.screens.views.BattleScreen;
+	import ru.aa.game.screens.views.BriefingScreen;
+	import ru.aa.game.screens.views.CommunicatorScreen;
+	import ru.aa.game.screens.views.HeroScreen;
+	import ru.aa.game.screens.views.LoadingScreen;
+	import ru.aa.game.screens.views.MainMenuScreen;
 	import ru.aa.game.world.views.WorldScreen;
 	
 	public class ScreenContainer extends ScreenNavigator
@@ -38,7 +37,7 @@ package ru.aa.game.display
 			setupScreenItem(BriefingScreen, 	ScreenName.BRIEFING);
 			
 			setupScreenItem(WorldScreen, 		ScreenName.WORLD_MAP);
-			setupScreenItem(LocationScreen, 	ScreenName.REGION_MAP);
+			setupScreenItem(LocationScreen, 	ScreenName.LOCATION_MAP);
 			
 			setupScreenItem(BattleScreen, 		ScreenName.BATTLE);
 		}

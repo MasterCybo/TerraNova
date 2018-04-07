@@ -5,7 +5,7 @@ package ru.aa.game
 	
 	import ru.arslanov.starling.StarlingManager;
 	
-	[SWF(frameRate = "60")]
+	[SWF(frameRate = "60", backgroundColor = "0x000000")]
 	public class Main extends Sprite
 	{
 		public function Main()

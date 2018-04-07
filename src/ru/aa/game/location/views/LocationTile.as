@@ -10,8 +10,8 @@ package ru.aa.game.location.views
 	import ru.aa.game.core.display.image.ImageAsset;
 	import ru.aa.game.core.display.views.AppSprite;
 	import ru.aa.game.core.utils.Assets;
-	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.location.models.MoCellLocation;
+	import ru.aa.game.screens.events.TileEvent;
 	
 	import starling.events.Event;
 	import starling.events.Touch;

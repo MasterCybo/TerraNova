@@ -4,10 +4,10 @@
 package ru.aa.game.location.mediators
 {
 	import ru.aa.game.core.display.controls.AppButton;
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.hero.models.MoHero;
 	import ru.aa.game.location.views.LocationScreen;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	

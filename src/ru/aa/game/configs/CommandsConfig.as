@@ -28,7 +28,7 @@ package ru.aa.game.configs
 			commandMap.map(AppEvent.BEGIN_NEW_GAME).toCommand(BeginNewGameCommand);
 			
 			commandMap.map(StartWorldEvent.START_WORLD).toCommand(StartWorldCommand);
-			commandMap.map(StartLocationEvent.START_REGION).toCommand(StartLocationCommand);
+			commandMap.map(StartLocationEvent.START_LOCATION).toCommand(StartLocationCommand);
 			
 			commandMap.map(HeroServiceEvent.LOAD_STATE).toCommand(HeroLoadCommand);
 			commandMap.map(HeroServiceEvent.SAVE_STATE).toCommand(HeroSaveCommand);

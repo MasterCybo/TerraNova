@@ -1,7 +1,7 @@
-package ru.aa.game.display.screens.mediators
+package ru.aa.game.screens.mediators
 {
-	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.screens.views.LoadingScreen;
+	import ru.aa.game.screens.events.ScreenEvent;
+	import ru.aa.game.screens.views.LoadingScreen;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	

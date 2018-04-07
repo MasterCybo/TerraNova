@@ -1,4 +1,4 @@
-package ru.aa.game.display.screens.events
+package ru.aa.game.screens.events
 {
 	import starling.events.Event;
 	

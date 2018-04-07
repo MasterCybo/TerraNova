@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 16.02.2017.
  */
-package ru.aa.game.display.screens.events
+package ru.aa.game.screens.events
 {
 	import flash.events.Event;
 	

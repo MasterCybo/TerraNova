@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 14.02.2017.
  */
-package ru.aa.game.display.screens.views
+package ru.aa.game.screens.views
 {
 	import feathers.controls.Label;
 	import feathers.controls.LayoutGroup;
@@ -10,8 +10,6 @@ package ru.aa.game.display.screens.views
 	import feathers.layout.VerticalLayout;
 	
 	import ru.aa.game.core.display.controls.IconButton;
-	
-	import ru.aa.game.core.display.controls.TextButton;
 	import ru.aa.game.core.display.text.AppLabel;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.hero.models.MoHero;

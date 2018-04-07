@@ -3,8 +3,8 @@
  */
 package ru.aa.game.mediators
 {
-	import ru.aa.game.display.ScreenContainer;
-	import ru.aa.game.display.screens.events.ScreenEvent;
+	import ru.aa.game.screens.ScreenContainer;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	

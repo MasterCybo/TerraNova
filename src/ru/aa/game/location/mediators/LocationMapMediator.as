@@ -3,9 +3,9 @@
  */
 package ru.aa.game.location.mediators
 {
-	import ru.aa.game.display.screens.events.TileEvent;
 	import ru.aa.game.location.models.MoCellLocation;
 	import ru.aa.game.location.views.LocationTile;
+	import ru.aa.game.screens.events.TileEvent;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	

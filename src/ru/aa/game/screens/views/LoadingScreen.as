@@ -1,14 +1,14 @@
 /**
  * Created by Artem-Home on 14.02.2017.
  */
-package ru.aa.game.display.screens.views
+package ru.aa.game.screens.views
 {
 	import feathers.controls.ImageLoader;
 	import feathers.controls.Screen;
 	
 	import ru.aa.game.collections.Files;
-	import ru.aa.game.display.screens.data.LoadingScreenAction;
-	import ru.aa.game.display.screens.events.LoadingEvent;
+	import ru.aa.game.screens.data.LoadingScreenAction;
+	import ru.aa.game.screens.events.LoadingActionEvent;
 	
 	import starling.events.Event;
 	
@@ -39,20 +39,20 @@ package ru.aa.game.display.screens.views
 		
 		private function imageCompleteHandler(event:Event):void
 		{
-			data.addEventListener(LoadingEvent.COMPLETE, completeHandler);
-			data.addEventListener(LoadingEvent.PROGRESS, progressHandler);
+			data.addEventListener(LoadingActionEvent.COMPLETE, completeHandler);
+			data.addEventListener(LoadingActionEvent.PROGRESS, progressHandler);
 			data.execute();
 		}
 		
-		private function progressHandler(event:LoadingEvent):void
+		private function progressHandler(event:LoadingActionEvent):void
 		{
-			trace("event.ratio: " + event.ratio);
+			trace("...loading: " + Math.round(event.ratio * 100) + " %");
 		}
 		
-		private function completeHandler(event:LoadingEvent):void
+		private function completeHandler(event:LoadingActionEvent):void
 		{
-			data.removeEventListener(LoadingEvent.PROGRESS, progressHandler);
-			data.removeEventListener(LoadingEvent.COMPLETE, completeHandler);
+			data.removeEventListener(LoadingActionEvent.PROGRESS, progressHandler);
+			data.removeEventListener(LoadingActionEvent.COMPLETE, completeHandler);
 			
 			removeChild(_image, true);
 			

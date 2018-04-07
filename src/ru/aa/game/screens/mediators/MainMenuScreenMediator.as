@@ -1,19 +1,19 @@
 /**
  * Created by Artem-Home on 15.02.2017.
  */
-package ru.aa.game.display.screens.mediators
+package ru.aa.game.screens.mediators
 {
+	import ru.aa.game.commands.events.AppEvent;
 	import ru.aa.game.core.display.controls.AppButton;
-	import ru.aa.game.display.screens.events.ScreenEvent;
-	import ru.aa.game.display.screens.views.BackpackScreen;
+	import ru.aa.game.screens.views.MainMenuScreen;
 	import ru.arslanov.starling.mvc.context.IContext;
 	import ru.arslanov.starling.mvc.mediators.Mediator;
 	
 	import starling.events.Event;
 	
-	public class BackpackScreenMediator extends Mediator
+	public class MainMenuScreenMediator extends Mediator
 	{
-		public function BackpackScreenMediator(context:IContext)
+		public function MainMenuScreenMediator(context:IContext)
 		{
 			super(context);
 		}
@@ -37,15 +37,12 @@ package ru.aa.game.display.screens.mediators
 			if (!button) return;
 			
 			switch (button.name) {
-				case BackpackScreen.BUTTON_BACK:
-					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_PREVIOUS));
+				case MainMenuScreen.BUTTON_THE_GAME:
+					dispatchEvent(new AppEvent(AppEvent.BEGIN_NEW_GAME));
 					break;
-//				case BackpackScreen.BUTTON_BACKPACK:
-//					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.BACKPACK));
-//					break;
-//				case BackpackScreen.BUTTON_PERSONAGE:
-//					dispatchEvent(new ScreenEvent(ScreenEvent.SHOW_SCREEN, ScreenName.PERSONAGE));
-//					break;
+				case MainMenuScreen.BUTTON_QUIT:
+					dispatchEvent(new AppEvent(AppEvent.CLOSE_APPLICATION));
+					break;
 			}
 		}
 	}

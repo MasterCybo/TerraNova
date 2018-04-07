@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 14.02.2017.
  */
-package ru.aa.game.display.screens.views
+package ru.aa.game.screens.views
 {
 	import feathers.controls.LayoutGroup;
 	import feathers.controls.Screen;

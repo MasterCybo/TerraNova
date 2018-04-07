@@ -8,7 +8,7 @@ package ru.aa.game.world.views
 	import aze.motion.eaze;
 	
 	import ru.aa.game.core.display.views.AppSprite;
-	import ru.aa.game.display.screens.events.TileEvent;
+	import ru.aa.game.screens.events.TileEvent;
 	
 	import starling.display.Canvas;
 	import starling.events.Event;

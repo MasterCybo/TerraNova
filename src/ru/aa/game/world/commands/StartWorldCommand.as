@@ -5,9 +5,9 @@ package ru.aa.game.world.commands
 {
 	import flash.events.Event;
 	
-	import ru.aa.game.display.screens.ScreenName;
-	import ru.aa.game.display.screens.events.ScreenEvent;
 	import ru.aa.game.hero.models.MoHero;
+	import ru.aa.game.screens.ScreenName;
+	import ru.aa.game.screens.events.ScreenEvent;
 	import ru.aa.game.services.DataLoadService;
 	import ru.aa.game.world.events.StartWorldEvent;
 	import ru.aa.game.world.models.IWorld;
