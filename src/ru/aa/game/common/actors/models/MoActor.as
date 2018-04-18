@@ -4,7 +4,7 @@
 package ru.aa.game.common.actors.models
 {
 	import ru.aa.game.common.actors.events.ActorEvent;
-	import ru.aa.game.common.items.ItemsCollection;
+	import ru.aa.game.common.items.services.ItemsCollection;
 	import ru.aa.game.common.utils.Position;
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	

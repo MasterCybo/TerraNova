@@ -1,7 +1,7 @@
 /**
  * Created by Artem-Home on 17.02.2017.
  */
-package ru.aa.game.common.items
+package ru.aa.game.common.items.models
 {
 	import ru.aa.game.core.data.ModelBase;
 	

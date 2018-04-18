@@ -1,5 +1,7 @@
-package ru.aa.game.common.items
+package ru.aa.game.common.items.models
 {
+	import ru.aa.game.common.items.services.ItemsCollection;
+	
 	/**
 	 * Контейнер с предметами
 	 */

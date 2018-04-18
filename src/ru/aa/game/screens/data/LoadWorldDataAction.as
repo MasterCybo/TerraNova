@@ -3,7 +3,7 @@ package ru.aa.game.screens.data
 	import flash.events.Event;
 	
 	import ru.aa.game.collections.Files;
-	import ru.aa.game.common.collections.ItemsKindCollection;
+	import ru.aa.game.common.items.services.ItemsKindCollection;
 	import ru.aa.game.core.utils.Assets;
 	import ru.aa.game.hero.models.MoHero;
 	import ru.aa.game.services.DataLoadService;

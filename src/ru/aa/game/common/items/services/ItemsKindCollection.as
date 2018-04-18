@@ -1,9 +1,9 @@
-package ru.aa.game.common.collections
+package ru.aa.game.common.items.services
 {
 	import flash.utils.Dictionary;
 	
-	import ru.aa.game.common.items.EnumGroupItems;
-	import ru.aa.game.common.items.MoItemKind;
+	import ru.aa.game.common.items.collections.EnumGroupItems;
+	import ru.aa.game.common.items.models.MoItemKind;
 	import ru.aa.game.core.serialize.ISerializable;
 	
 	/**

@@ -4,7 +4,7 @@
 package ru.aa.game.location.models
 {
 	import ru.aa.game.common.actors.models.MoActor;
-	import ru.aa.game.common.items.MoItem;
+	import ru.aa.game.common.items.models.MoItem;
 	import ru.aa.game.core.data.ModelBase;
 	import ru.aa.game.location.enum.CellLocationState;
 	

@@ -1,6 +1,6 @@
 package ru.aa.game.common.items.actions
 {
-	import ru.aa.game.common.items.IItemContent;
+	import ru.aa.game.common.items.models.IItemContent;
 	import ru.aa.game.core.serialize.IParsable;
 	import ru.arslanov.core.enum.Enum;
 	

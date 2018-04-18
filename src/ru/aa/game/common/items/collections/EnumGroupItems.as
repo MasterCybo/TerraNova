@@ -1,4 +1,4 @@
-package ru.aa.game.common.items
+package ru.aa.game.common.items.collections
 {
 	import ru.arslanov.core.enum.EnumString;
 	

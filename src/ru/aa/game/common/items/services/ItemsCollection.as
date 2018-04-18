@@ -1,10 +1,11 @@
 /**
  * Created by Artem-Home on 21.02.2017.
  */
-package ru.aa.game.common.items
+package ru.aa.game.common.items.services
 {
 	import flash.utils.Dictionary;
 	
+	import ru.aa.game.common.items.models.MoItem;
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	
 	/**

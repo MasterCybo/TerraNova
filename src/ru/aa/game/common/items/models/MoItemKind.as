@@ -1,6 +1,7 @@
-package ru.aa.game.common.items
+package ru.aa.game.common.items.models
 {
 	import ru.aa.game.common.items.actions.ItemAction;
+	import ru.aa.game.common.items.collections.EnumGroupItems;
 	import ru.aa.game.core.data.MoEntity;
 	import ru.aa.game.core.serialize.IParsable;
 	
