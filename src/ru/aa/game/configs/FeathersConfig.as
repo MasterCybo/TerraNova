@@ -1,7 +1,6 @@
 package ru.aa.game.configs
 {
-	import feathers.themes.TopcoatLightMobileTheme;
-	
+	import ru.aa.game.gui.AppTheme;
 	import ru.arslanov.starling.mvc.config.Config;
 	import ru.arslanov.starling.mvc.context.IContext;
 	
@@ -16,7 +15,7 @@ package ru.aa.game.configs
 		{
 			super.configure();
 			
-			new TopcoatLightMobileTheme();
+			new AppTheme();
 //			new MetalWorksMobileTheme();
 		}
 	}
