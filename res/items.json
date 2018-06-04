@@ -1,144 +1,214 @@
 {
-	"equipment":[
+  "equipment": [
+	{
+	  "id": 1,
+	  "image": "weapon",
+	  "name": "Пистолет 1",
+	  "description": "Хорошее оружие для ближнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
 		{
-			"id":1,
-			"image":"weapon",
-			"name":"Пистолет Макарова",
-			"description":"Надёжный пистолет. Патрон 9×18 мм ПМ, магазин 8 патронов, прицельная дальность 50 м.",
-			"weight":1.5,
-			"price":6000,
-			"content":[
-				{
-					"property":"damage",
-					"value":60
-				}
-			]
-		},
-		{
-			"id":2,
-			"image":"armor",
-			"name":"Костюм Горка",
-			"description":"Комплект одежды повышенной износостойкости и ресурса.",
-			"weight":3,
-			"price":2500,
-			"content":[
-				{
-					"property":"armor",
-					"value":30
-				}
-			]
-		},
-		{
-			"id":3,
-			"image":"kolobok",
-			"name":"Колобок",
-			"description":"Артефакт, заживляющий раны",
-			"weight":0.65,
-			"price":4500,
-			"content":[
-				{
-					"property":"energy",
-					"value":30
-				}
-			]
+		  "property": "damage",
+		  "value": 60
 		}
-	],
-	"product":[
+	  ]
+	},
+	{
+	  "id": 2,
+	  "image": "weapon",
+	  "name": "Пистолет 2",
+	  "description": "Хорошее оружие для ближнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
 		{
-			"id":1,
-			"image":"medkit",
-			"name":"Аптечка",
-			"description":"Восстанавливает здоровье",
-			"weight":0.8,
-			"price":650,
-			"content":[
-				{
-					"property":"health",
-					"value":10
-				}
-			]
-		},
-		{
-			"id":2,
-			"image":"item",
-			"name":"Бутылка с водой",
-			"description":"Утоляет жажду",
-			"weight":0.5,
-			"price":120,
-			"content":[
-				{
-					"property":"thirst",
-					"value":30
-				}
-			]
-		},
-		{
-			"id":3,
-			"image":"item",
-			"name":"Тушёнка",
-			"description":"Утоляет голод",
-			"weight":0.4,
-			"price":300,
-			"content":[
-				{
-					"property":"hunger",
-					"value":30
-				}
-			]
-		},
-		{
-			"id":4,
-			"image":"item",
-			"name":"Энергетик",
-			"description":"Уменьшает усталость",
-			"weight":0.5,
-			"price":200,
-			"content":[
-				{
-					"property":"energy",
-					"value":30
-				}
-			]
+		  "property": "damage",
+		  "value": 60
 		}
-	],
-	"box":[
+	  ]
+	},
+	{
+	  "id": 3,
+	  "image": "weapon",
+	  "name": "Пистолет 3",
+	  "description": "Хорошее оружие для ближнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
 		{
-			"id":1,
-			"image":"secret",
-			"name":"Контейнер",
-			"description":"Контейнер с предметами",
-			"weight":-1,
-			"price":-1,
-			"content":[
-				{
-					"id":4,
-					"image":"item",
-					"name":"Энергетик",
-					"description":"Уменьшает усталость",
-					"weight":0.5,
-					"price":200,
-					"content":[
-						{
-							"property":"energy",
-							"value":30
-						}
-					]
-				},
-				{
-					"id":3,
-					"image":"item",
-					"name":"Тушёнка",
-					"description":"Утоляет голод",
-					"weight":0.4,
-					"price":250,
-					"content":[
-						{
-							"property":"hunger",
-							"value":30
-						}
-					]
-				}
-			]
+		  "property": "damage",
+		  "value": 60
 		}
-	]
+	  ]
+	},
+	{
+	  "id": 4,
+	  "image": "weapon",
+	  "name": "Автомат 1",
+	  "description": "Автоматическое оружие для дальнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
+		{
+		  "property": "damage",
+		  "value": 60
+		}
+	  ]
+	},
+	{
+	  "id": 5,
+	  "image": "weapon",
+	  "name": "Автомат 2",
+	  "description": "Автоматическое оружие для дальнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
+		{
+		  "property": "damage",
+		  "value": 60
+		}
+	  ]
+	},
+	{
+	  "id": 6,
+	  "image": "weapon",
+	  "name": "Автомат 3",
+	  "description": "Автоматическое оружие для дальнего боя.",
+	  "weight": 0,
+	  "price": 1000,
+	  "content": [
+		{
+		  "property": "damage",
+		  "value": 60
+		}
+	  ]
+	},
+	{
+	  "id": 2,
+	  "image": "armor",
+	  "name": "Костюм Горка",
+	  "description": "Комплект одежды повышенной износостойкости и ресурса.",
+	  "weight": 3,
+	  "price": 2500,
+	  "content": [
+		{
+		  "property": "armor",
+		  "value": 30
+		}
+	  ]
+	},
+	{
+	  "id": 3,
+	  "image": "kolobok",
+	  "name": "Колобок",
+	  "description": "Артефакт, заживляющий раны",
+	  "weight": 0.65,
+	  "price": 4500,
+	  "content": [
+		{
+		  "property": "energy",
+		  "value": 30
+		}
+	  ]
+	}
+  ],
+  "product": [
+	{
+	  "id": 1,
+	  "image": "medkit",
+	  "name": "Аптечка",
+	  "description": "Восстанавливает здоровье",
+	  "weight": 0.8,
+	  "price": 650,
+	  "content": [
+		{
+		  "property": "health",
+		  "value": 10
+		}
+	  ]
+	},
+	{
+	  "id": 2,
+	  "image": "item",
+	  "name": "Бутылка с водой",
+	  "description": "Утоляет жажду",
+	  "weight": 0.5,
+	  "price": 120,
+	  "content": [
+		{
+		  "property": "thirst",
+		  "value": 30
+		}
+	  ]
+	},
+	{
+	  "id": 3,
+	  "image": "item",
+	  "name": "Тушёнка",
+	  "description": "Утоляет голод",
+	  "weight": 0.4,
+	  "price": 300,
+	  "content": [
+		{
+		  "property": "hunger",
+		  "value": 30
+		}
+	  ]
+	},
+	{
+	  "id": 4,
+	  "image": "item",
+	  "name": "Энергетик",
+	  "description": "Уменьшает усталость",
+	  "weight": 0.5,
+	  "price": 200,
+	  "content": [
+		{
+		  "property": "energy",
+		  "value": 30
+		}
+	  ]
+	}
+  ],
+  "box": [
+	{
+	  "id": 1,
+	  "image": "secret",
+	  "name": "Контейнер",
+	  "description": "Контейнер с предметами",
+	  "weight": -1,
+	  "price": -1,
+	  "content": [
+		{
+		  "id": 4,
+		  "image": "item",
+		  "name": "Энергетик",
+		  "description": "Уменьшает усталость",
+		  "weight": 0.5,
+		  "price": 200,
+		  "content": [
+			{
+			  "property": "energy",
+			  "value": 30
+			}
+		  ]
+		},
+		{
+		  "id": 3,
+		  "image": "item",
+		  "name": "Тушёнка",
+		  "description": "Утоляет голод",
+		  "weight": 0.4,
+		  "price": 250,
+		  "content": [
+			{
+			  "property": "hunger",
+			  "value": 30
+			}
+		  ]
+		}
+	  ]
+	}
+  ]
 }

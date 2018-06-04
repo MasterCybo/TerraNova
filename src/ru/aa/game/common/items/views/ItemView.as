@@ -11,8 +11,11 @@ package ru.aa.game.common.items.views
 		public static const DEFAULT_WIDTH:int = 70;
 		public static const DEFAULT_HEIGHT:int = 70;
 		
+		private var _item:MoItem;
+		
 		public function ItemView(item:MoItem)
 		{
+			_item = item;
 			super();
 		}
 		
@@ -25,6 +28,12 @@ package ru.aa.game.common.items.views
 			image.drawRectangle(0, 0, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 			image.endFill();
 			addChild(image);
+		}
+		
+		override public function dispose():void
+		{
+			super.dispose();
+			_item = null;
 		}
 	}
 }

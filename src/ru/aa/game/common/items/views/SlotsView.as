@@ -32,7 +32,6 @@ package ru.aa.game.common.items.views
 			_layout.gap = 5;
 //			_layout.paging = Direction.VERTICAL;
 			
-			
 			_slots = new ScrollContainer();
 			_slots.layout = _layout;
 			_slots.interactionMode = ScrollInteractionMode.TOUCH_AND_SCROLL_BARS;
