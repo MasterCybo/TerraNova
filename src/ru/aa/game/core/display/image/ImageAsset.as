@@ -61,7 +61,7 @@ package ru.aa.game.core.display.image
 		public function load(path:String, onComplete:Function = null):void
 		{
 			_callbackComplete = onComplete;
-			_textureName = _assets.getNameFromUrl(path);
+			_textureName = _assets.getNameFromURL(path);
 			
 			if (!path) {
 				applyTexture(null);

@@ -37,10 +37,11 @@ package ru.aa.game.screens.data
             var fileService:DataLoadService = event.target as DataLoadService;
             fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
 	
-	        Assets.me.enqueue(Files.LOC_TILES_XML);
-	        Assets.me.enqueue(Files.LOC_TILES_PNG);
-	        Assets.me.enqueueWithName(_location.imageURL, LocationMap.TEX_BACKGROUND);
-	        Assets.me.loadQueue(progress);
+			trace("*execute* " + this + "::onLoadComplete()");
+			
+	        Assets.me.enqueue(Files.LOC_TILES_XML, Files.LOC_TILES_PNG);
+	        Assets.me.enqueueSingle(_location.imageURL, LocationMap.TEX_BACKGROUND);
+	        Assets.me.loadQueue(complete, null, progress);
         }
 	}
 }

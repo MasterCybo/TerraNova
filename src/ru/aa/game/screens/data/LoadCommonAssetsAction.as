@@ -12,9 +12,8 @@ package ru.aa.game.screens.data
 		
 		override public function execute():void
 		{
-			Assets.me.enqueue(Files.UI_ICONS_XML);
-			Assets.me.enqueue(Files.UI_ICONS_PNG);
-			Assets.me.loadQueue(progress);
+			Assets.me.enqueue(Files.UI_ICONS_XML, Files.UI_ICONS_PNG);
+			Assets.me.loadQueue(complete, null, progress);
 		}
 	}
 }
