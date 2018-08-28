@@ -8,12 +8,12 @@ package ru.aa.game.common.items.views
 	
 	import starling.events.Event;
 	
-	public class SlotsView extends AppSprite
+	public class ItemsGrid extends AppSprite
 	{
 		private var _layout:TiledRowsLayout;
 		private var _slots:ScrollContainer;
 		
-		public function SlotsView()
+		public function ItemsGrid()
 		{
 			super();
 		}

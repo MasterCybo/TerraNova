@@ -3,9 +3,8 @@
  */
 package ru.aa.game.core.utils
 {
-	import starling.textures.Texture;
 	import starling.assets.AssetManager;
-//	import starling.utils.AssetManager;
+	import starling.textures.Texture;
 	
 	public class Assets extends AssetManager
 	{
@@ -15,7 +14,6 @@ package ru.aa.game.core.utils
 		
 		private var _isInited:Boolean;
 		
-//		public function Assets(scaleFactor:Number = 1, useMipmaps:Boolean = false)
 		public function Assets(key:SingletonKey)
 		{
 			super();
@@ -32,8 +30,6 @@ package ru.aa.game.core.utils
 			if (_isInited) return;
 			
 			if (!hasTexture(DEFAULT_TEXTURE)) addAsset(DEFAULT_TEXTURE, Texture.empty(20, 20));
-//			super.scaleFactor = scaleFactor;
-//			super.useMipMaps = useMipmaps;
 			super.textureOptions.scale = scaleFactor;
 			super.textureOptions.mipMapping = useMipmaps;
 			_isInited = true;

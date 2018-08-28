@@ -8,7 +8,7 @@ package ru.aa.game.screens.views
 	import feathers.layout.HorizontalLayout;
 	
 	import ru.aa.game.common.items.views.ItemView;
-	import ru.aa.game.common.items.views.SlotsView;
+	import ru.aa.game.common.items.views.ItemsGrid;
 	import ru.aa.game.core.display.controls.IconButton;
 	import ru.aa.game.core.utils.Assets;
 	
@@ -17,7 +17,7 @@ package ru.aa.game.screens.views
 		public static const BUTTON_BACK:String = "backButton";
 		
 		private var _toolbar:LayoutGroup;
-		private var _slots:SlotsView;
+		private var _itemsGrid:ItemsGrid;
 		
 		public function BackpackScreen()
 		{
@@ -37,14 +37,14 @@ package ru.aa.game.screens.views
 			_toolbar.addChild(new IconButton(Assets.me.getTexture("back"), BUTTON_BACK));
 			_toolbar.validate();
 			
-			_slots = new SlotsView();
+			_itemsGrid = new ItemsGrid();
 			
-			addChild(_slots);
+			addChild(_itemsGrid);
 			addChild(_toolbar);
 			
 			for (var i:int = 0; i < 86; i++) {
 				var itemView:ItemView = new ItemView(null);
-				_slots.addItem(itemView);
+				_itemsGrid.addItem(itemView);
 			}
 			
 			invalidate(INVALIDATION_FLAG_SIZE);
@@ -56,7 +56,7 @@ package ru.aa.game.screens.views
 			
 			if (isInvalid(INVALIDATION_FLAG_SIZE)) {
 				_toolbar.y = stage.stageHeight - _toolbar.height;
-				_slots.setSize(stage.stageWidth, stage.stageHeight - _toolbar.height);
+				_itemsGrid.setSize(stage.stageWidth, stage.stageHeight - _toolbar.height);
 			}
 		}
 	}
