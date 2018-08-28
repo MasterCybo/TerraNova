@@ -27,17 +27,15 @@ package ru.aa.game.screens.data
 			_location = hero.position.region;
 			
             var fileService:DataLoadService = _injector.getOf(DataLoadService);
-            fileService.addEventListener(Event.COMPLETE, onLoadComplete);
+            fileService.addEventListener(Event.COMPLETE, onLocationLoadComplete);
             fileService.verbose = true;
             fileService.load(_location.dataURL, _location);
 		}
 
-        private function onLoadComplete(event:Event):void
+        private function onLocationLoadComplete(event:Event):void
         {
             var fileService:DataLoadService = event.target as DataLoadService;
-            fileService.removeEventListener(Event.COMPLETE, onLoadComplete);
-	
-			trace("*execute* " + this + "::onLoadComplete()");
+            fileService.removeEventListener(Event.COMPLETE, onLocationLoadComplete);
 			
 	        Assets.me.enqueue(Files.LOC_TILES_XML, Files.LOC_TILES_PNG);
 	        Assets.me.enqueueSingle(_location.imageURL, LocationMap.TEX_BACKGROUND);

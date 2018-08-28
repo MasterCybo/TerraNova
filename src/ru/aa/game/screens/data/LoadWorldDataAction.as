@@ -50,12 +50,8 @@ package ru.aa.game.screens.data
 			var dataStorage:DataLoadService = event.target as DataLoadService;
 			dataStorage.removeEventListener(Event.COMPLETE, onWorldLoadComplete);
 			
-			trace("*execute* " + this + "::onWorldLoadComplete()");
-			
 			Assets.me.enqueueSingle(_world.imageURL, WorldMap.BACKGROUND);
 			Assets.me.loadQueue(complete, null, progress);
-			
-//			complete();
 		}
 	}
 }
