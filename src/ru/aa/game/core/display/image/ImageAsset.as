@@ -22,7 +22,7 @@ package ru.aa.game.core.display.image
 		
 		/**
 		 * По-умолчанию touchable = false
-		 * @param textureName
+		 * @param texture
 		 */
 		public function ImageAsset(texture:Texture = null)
 		{
@@ -74,13 +74,18 @@ package ru.aa.game.core.display.image
 			} else {
 				var file:File = File.applicationDirectory.resolvePath(path);
 				_assets.enqueue(file);
-				_assets.loadQueue(onProgress);
+				_assets.loadQueue(completeHandler, null, progressHandler);
 			}
 		}
 		
-		private function onProgress(ratio:Number):void
+		private function progressHandler(ratio:Number):void
 		{
-			if (ratio == 1.0) applyTexture(_textureName);
+			trace("ImageAsset::progressHandler(), ratio: " + ratio);
+		}
+		
+		private function completeHandler(manager:Assets):void
+		{
+			applyTexture(_textureName);
 		}
 		
 		private function applyTexture(name:String):void

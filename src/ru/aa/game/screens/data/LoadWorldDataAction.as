@@ -53,7 +53,7 @@ package ru.aa.game.screens.data
 			trace("*execute* " + this + "::onWorldLoadComplete()");
 			
 			Assets.me.enqueueSingle(_world.imageURL, WorldMap.BACKGROUND);
-			Assets.me.loadQueue(complete/*, null, progress*/);
+			Assets.me.loadQueue(complete, null, progress);
 			
 //			complete();
 		}
