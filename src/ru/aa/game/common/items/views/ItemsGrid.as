@@ -8,6 +8,9 @@ package ru.aa.game.common.items.views
 	
 	import starling.events.Event;
 	
+	/**
+	 * Сетка предметов в рюкзаке или ящике
+	 */
 	public class ItemsGrid extends AppSprite
 	{
 		private var _layout:TiledRowsLayout;

@@ -6,14 +6,14 @@ package ru.aa.game.common.items.models
 	import ru.aa.game.core.serialize.IParsable;
 	
 	/**
-	 * Базовая сущность/прототип предмета
+	 * Базовый прототип предмета
 	 */
 	public class MoItemKind extends MoEntity implements IParsable
 	{
-		private var _group:EnumGroupItems;
-		private var _price:int;
-		private var _weight:int;
-		private var _image:String;
+		private var _group:EnumGroupItems; // группа предмета
+		private var _price:int; // цена
+		private var _weight:int; // вес
+		private var _image:String; // изображение
 		
 		private var _actions:Vector.<IItemContent> = new Vector.<IItemContent>();
 		

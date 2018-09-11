@@ -9,13 +9,13 @@ package ru.aa.game.common.items.services
 	import ru.aa.game.core.data.MoEntityDispatcher;
 	
 	/**
-	 * Коллекция предметов
+	 * Коллекция предметов (рюкзаки, ящики)
 	 */
 	public class ItemsCollection extends MoEntityDispatcher implements IItemsCollection
 	{
 		private var _items:Vector.<MoItem> = new Vector.<MoItem>();
 		private var _map:Dictionary = new Dictionary(); // id = moItem
-		private var _maxItems:int = -1;
+		private var _maxItems:int = int.MAX_VALUE;
 		
 		public function ItemsCollection()
 		{

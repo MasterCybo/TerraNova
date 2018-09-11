@@ -8,7 +8,7 @@ package ru.aa.game.hero.models
 	import ru.aa.game.core.serialize.ISerializable;
 	
 	/**
-	 * Главный герой
+	 * Модель главного героя
 	 */
 	public class MoHero extends MoActor implements ISerializable
 	{

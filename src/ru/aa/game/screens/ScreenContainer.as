@@ -16,6 +16,9 @@ package ru.aa.game.screens
 	import ru.aa.game.screens.views.MainMenuScreen;
 	import ru.aa.game.world.views.WorldScreen;
 	
+	/**
+	 * Основной контейнер для экранов
+	 */
 	public class ScreenContainer extends ScreenNavigator
 	{
 		public function ScreenContainer()

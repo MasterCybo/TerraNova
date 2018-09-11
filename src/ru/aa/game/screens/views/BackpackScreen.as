@@ -12,6 +12,9 @@ package ru.aa.game.screens.views
 	import ru.aa.game.core.display.controls.IconButton;
 	import ru.aa.game.core.utils.Assets;
 	
+	/**
+	 * Экран рюкзака
+	 */
 	public class BackpackScreen extends Screen
 	{
 		public static const BUTTON_BACK:String = "backButton";

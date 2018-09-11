@@ -6,6 +6,9 @@ package ru.aa.game.common.items.views
 	import starling.display.Canvas;
 	import starling.events.Event;
 	
+	/**
+	 * Базовый класс для отображения игрового предмета
+	 */
 	public class ItemView extends AppSprite
 	{
 		public static const DEFAULT_WIDTH:int = 70;

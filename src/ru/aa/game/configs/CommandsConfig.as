@@ -11,6 +11,9 @@ package ru.aa.game.configs
 	import ru.arslanov.starling.mvc.config.Config;
 	import ru.arslanov.starling.mvc.context.IContext;
 	
+	/**
+	 * Основной класс связывания событий с командами
+	 */
 	public class CommandsConfig extends Config
 	{
 		public function CommandsConfig(context:IContext)

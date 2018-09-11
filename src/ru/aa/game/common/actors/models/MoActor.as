@@ -13,10 +13,10 @@ package ru.aa.game.common.actors.models
 	 */
 	public class MoActor extends MoEntityDispatcher implements IActor
 	{
-		private var _position:Position = new Position();
-		private var _health:Number = 100;
-		private var _armor:Number = 0;
-		private var _backpack:ItemsCollection;
+		private var _position:Position = new Position(); // позиция в игровом мире
+		private var _health:Number = 100; // здоровье
+		private var _armor:Number = 0; // броня
+		private var _backpack:ItemsCollection; // рюкзак
 		
 		public function MoActor()
 		{

@@ -2,11 +2,14 @@ package ru.aa.game.common.collections
 {
 	import flash.events.EventDispatcher;
 	
+	/**
+	 * Базовая модель сетки
+	 */
 	public class Grid extends EventDispatcher
 	{
-		private var _cols:int;
-		private var _rows:int;
-		private var _objects:Vector.<Vector.<*>>;
+		private var _cols:int; // кол-во столбцов
+		private var _rows:int; // кол-во строк
+		private var _objects:Vector.<Vector.<*>>; // массив объектов
 		
 		public function Grid(cols:uint, rows:uint)
 		{

@@ -6,11 +6,11 @@ package ru.aa.game.common.items.models
 	import ru.aa.game.core.data.ModelBase;
 	
 	/**
-	 * Любой игровой предмет
+	 * Модель игрового предмета
 	 */
 	public class MoItem extends ModelBase implements IItemContent
 	{
-		private var _kind:MoItemKind;
+		private var _kind:MoItemKind; // прототип предмета с базовыми характеристиками
 		
 		public function MoItem(kind:MoItemKind)
 		{
