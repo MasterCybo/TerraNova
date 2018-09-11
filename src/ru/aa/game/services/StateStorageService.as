@@ -10,7 +10,7 @@ package ru.aa.game.services
 	public class StateStorageService extends FileService
 	{
 		/**
-		 * Сервис загрузки и сохранения текущего состояния игры
+		 * Сервис загрузки и сохранения текущего прогресса игры
 		 */
 		public function StateStorageService():void
 		{
